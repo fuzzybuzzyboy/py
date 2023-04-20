@@ -1,3 +1,7 @@
+# IMPORTANT IMPORTANT
+# Command to run the file is : 'streamlit run {filename}.py' open your cmd in the folder with the file and run the command
+# IMPORTANT IMPORTANT
+
 import random
 import streamlit as st
 from datetime import datetime
