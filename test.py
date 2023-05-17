@@ -2,6 +2,9 @@
 # Command to run the file is : 'streamlit run {filename}.py' open your cmd in the folder with the file and run the command
 # IMPORTANT IMPORTANT
 
+# anything before the message below was not counted.
+# THIS FILE CONTAINS 808 WRITTEN LINES OF CODE OR 34518 LETTERS OR 2829 WORDS
+
 import random
 import streamlit as st
 from datetime import datetime
@@ -19,6 +22,10 @@ c = ''
 d = ''
 e = ''
 f = ''
+slottwo1 = 'None'
+slotthree1 = 'None'
+slotfour1 = 'None'
+slotfive1 = 'None'
 button = 1
 thing = 0
 tab1, tab2, tab3 = st.tabs(["Loadout Generator", "Custom Loadout", "Info"])
@@ -149,11 +156,8 @@ with tab1:
             elif rarity_smg == 6:
                 smg2 = 'Exotic'
         elif smg == 2:
-            c = '\'Run \'N\' Gun SMG\''
-            smg2 = 'Exotic'
-        elif smg == 3:
             c = '\'Tactical Pistol\''
-            rarity_smg = random.randint(1, 5)
+            rarity_smg = random.randint(1, 6)
             if rarity_smg == 1:
                 smg2 = 'Common'
             elif rarity_smg == 2:
@@ -164,6 +168,11 @@ with tab1:
                 smg2 = 'Epic'
             elif rarity_smg == 5:
                 smg2 = 'Legendary'
+            elif rarity_smg == 6:
+                smg2 = 'Mythic'
+        elif smg == 3:
+            c = '\'Run \'N\' Gun SMG\''
+            smg2 = 'Exotic'
         if healing == 1:
             e = '\'Mini Shield Potion\''
         elif healing == 2:
@@ -207,19 +216,18 @@ with tab1:
             movebb = 'ODM Gear'
             moveblade1 = 'Mythic'
     col1, col2 = st.columns(2)
-
     with col1:
         tab1b, tab2b, tab3b = st.tabs(["Base", "Regular", "Json"])
 
         with tab1b:
             st.write(
                 f'# Load-Out\n    Shotgun = {a}\n    Assault-Rifle : {b}\n    Smg : {c}\n    Mobility : '
-                f'\'{movebb}\'\n    Healing-Type : {e}\n    Other(Sniper\'s) : {f}')
+                f'\'{movebb}\'\n    Healing : {e}\n    Other(Snipers) : {f}')
 
         with tab2b:
             st.write(
                 f'# Load-Out  \n##### Shotgun = {a}\n#####    Assault-Rifle : {b}\n#####    Smg : {c}'
-                f'\n#####    Mobility : \'{movebb}\'\n#####    Healing-Type : {e}\n#####    Other(Sniper\'s) : {f}')
+                f'\n#####    Mobility : \'{movebb}\'\n#####    Healing : {e}\n#####    Other(Snipers) : {f}')
 
         with tab3b:
             st.json({
@@ -228,18 +236,18 @@ with tab1:
                     f'Assault-Rifle = {b}',
                     f'Smg = {c}',
                     f'Mobility = \'{movebb}\'',
-                    f'Healing-Type = {e}',
-                    f'Other(Sniper\'s) : {f}'
+                    f'Healing = {e}',
+                    f'Other(Snipers) : {f}'
                 ],
             })
         with col2:
             taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
 
             with taba1:
-                st.write(f'# Rarity\n    Shotgun : {shotgun1}\n    Assault-Rifle : {ar1}\n    Smg : {smg2}\n    Mobility : {moveblade1}\n    Other(Sniper\'s) : {sniper2}')
+                st.write(f'# Rarity\n    Shotgun : {shotgun1}\n    Assault-Rifle : {ar1}\n    Smg : {smg2}\n    Mobility : {moveblade1}\n    Healing : no\n    Other(Snipers) : {sniper2}')
 
             with taba2:
-                st.write(f'# Rarity  \n##### Shotgun : {shotgun1}\n#####    Assault-Rifle : {ar1}\n#####    Smg : {smg2}\n#####    Mobility : {moveblade1}\n#####    Other(Sniper\'s) : {sniper2}')
+                st.write(f'# Rarity  \n##### Shotgun : {shotgun1}\n#####    Assault-Rifle : {ar1}\n#####    Smg : {smg2}\n#####    Mobility : {moveblade1}\n#####    Healing : no\n#####    Other(Snipers) : {sniper2}')
 
             with taba3:
                 st.json({
@@ -248,7 +256,8 @@ with tab1:
                         f'Assault-Rifle : {ar1}',
                         f'Smg : {smg2}',
                         f'Mobility : {moveblade1}',
-                        f'Other(Sniper\'s) : {sniper2}'
+                        f'Healing : no',
+                        f'Other(Snipers) : {sniper2}'
                     ],
                 })
     if st.button('Randomize Load-Out'):
@@ -258,170 +267,514 @@ with tab1:
 with tab2:
     tab1, tab2, tab3aa = st.tabs(["Customize", "Loadout", "Info"])
     with tab1:
-        col1, col2 = st.columns(2)
-
+        col1, col2, col3 = st.columns(3)
         with col1:
-            slot_one = st.selectbox(
+            slotone = st.selectbox(
                 'Slot 1',
                 ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Mobility', 'Healing', 'Sniping'))
-            slot_two = st.selectbox(
+            slottwo = st.selectbox(
                 'Slot 2',
                 ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Mobility', 'Healing', 'Sniping'))
-            slot_three = st.selectbox(
+            slotthree = st.selectbox(
                 'Slot 3',
                 ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Mobility', 'Healing', 'Sniping'))
-            slot_four = st.selectbox(
+            slotfour = st.selectbox(
                 'Slot 4',
                 ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Mobility', 'Healing', 'Sniping'))
-            slot_five = st.selectbox(
+            slotfive = st.selectbox(
                 'Slot 5',
                 ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Mobility', 'Healing', 'Sniping'))
         with col2:
             # Slot one
-            if slot_one == 'Shotgun':
-                shotgun11 = st.selectbox(
+            if slotone == 'Shotgun':
+                slotone1 = st.selectbox(
                     'Shotgun s1',
                     ('Havoc Pump Shotgun', 'Maven Auto Shotgun', 'Combat Shotgun'))
-            elif slot_one == 'SMG':
-                smg11 = st.selectbox(
+            elif slotone == 'SMG':
+                slotone1 = st.selectbox(
                     'SMG s1',
                     ('Twin-Mag SMG', 'Run \'N\' Gun SMG', 'Tactical Pistol'))
-            elif slot_one == 'Assault-Rifle':
-                ar11 = st.selectbox(
+            elif slotone == 'Assault-Rifle':
+                slotone1 = st.selectbox(
                     'Assault-Rifle s1',
                     ('Overclocked Pulse Rifle', 'Red-Eye Assault Rifle', 'Havoc Suppressed Assault Rifle', 'Cobra DMR'))
-            elif slot_one == 'Mobility':
-                move11 = st.selectbox(
+            elif slotone == 'Mobility':
+                slotone1 = st.selectbox(
                     'Mobility s1',
                     ('Kinetic Blade', 'ODM Gear'))
-            elif slot_one == 'Healing':
-                heal11 = st.selectbox(
+            elif slotone == 'Healing':
+                slotone1 = st.selectbox(
                     'Healing s1',
-                    ('Slurp Juice', 'Chug Splash', 'Fish', 'Shield Fish'))
-            elif slot_one == 'Sniping':
-                snipe11 = st.selectbox(
+                    ('Slurp Juice', 'Chug Splash', 'Fish', 'Sheild Fish'))
+            elif slotone == 'Sniping':
+                slotone1 = st.selectbox(
                     'Sniper s1',
                     ('Heavy Sniper Rifle', 'Dragon\'s Breath Sniper'))
             # Slot two
-            if slot_two == 'Shotgun':
-                shotgun12 = st.selectbox(
+            if slottwo == 'Shotgun':
+                slottwo1 = st.selectbox(
                     'Shotgun s2',
                     ('Havoc Pump Shotgun ', 'Maven Auto Shotgun', 'Combat Shotgun'))
-            elif slot_two == 'SMG':
-                smg12 = st.selectbox(
+            elif slottwo == 'SMG':
+                slottwo1 = st.selectbox(
                     'SMG s2',
                     ('Twin-Mag SMG ', 'Run \'N\' Gun SMG', 'Tactical Pistol'))
-            elif slot_two == 'Assault-Rifle':
-                ar12 = st.selectbox(
+            elif slottwo == 'Assault-Rifle':
+                slottwo1 = st.selectbox(
                     'Assault-Rifle s2',
                     ('Overclocked Pulse Rifle ', 'Red-Eye Assault Rifle', 'Havoc Suppressed Assault Rifle', 'Cobra DMR'))
-            elif slot_two == 'Mobility':
-                move12 = st.selectbox(
+            elif slottwo == 'Mobility':
+                slottwo1 = st.selectbox(
                     'Mobility s2',
                     ('Kinetic Blade ', 'ODM Gear'))
-            elif slot_two == 'Healing':
-                heal12 = st.selectbox(
+            elif slottwo == 'Healing':
+                slottwo1 = st.selectbox(
                     'Healing s2',
-                    ('Slurp Juice ', 'Chug Splash', 'Fish', 'Shield Fish'))
-            elif slot_two == 'Sniping':
-                snipe12 = st.selectbox(
+                    ('Slurp Juice ', 'Chug Splash', 'Fish', 'Sheild Fish'))
+            elif slottwo == 'Sniping':
+                slottwo1 = st.selectbox(
                     'Sniper s2',
                     ('Heavy Sniper Rifle ', 'Dragon\'s Breath Sniper'))
             # Slot three
-            if slot_three == 'Shotgun':
-                shotgun13 = st.selectbox(
+            if slotthree == 'Shotgun':
+                slotthree1 = st.selectbox(
                     'Shotgun s3',
                     ('Havoc Pump Shotgun  ', 'Maven Auto Shotgun', 'Combat Shotgun'))
-            elif slot_three == 'SMG':
-                smg13 = st.selectbox(
+            elif slotthree == 'SMG':
+                slotthree1 = st.selectbox(
                     'SMG s3',
                     ('Twin-Mag SMG  ', 'Run \'N\' Gun SMG', 'Tactical Pistol'))
-            elif slot_three == 'Assault-Rifle':
-                ar13 = st.selectbox(
+            elif slotthree == 'Assault-Rifle':
+                slotthree1 = st.selectbox(
                     'Assault-Rifle s3',
                     ('Overclocked Pulse Rifle  ', 'Red-Eye Assault Rifle', 'Havoc Suppressed Assault Rifle', 'Cobra DMR'))
-            elif slot_three == 'Mobility':
-                move13 = st.selectbox(
+            elif slotthree == 'Mobility':
+                slotthree1 = st.selectbox(
                     'Mobility s3',
                     ('Kinetic Blade  ', 'ODM Gear'))
-            elif slot_three == 'Healing':
-                heal13 = st.selectbox(
+            elif slotthree == 'Healing':
+                slotthree1 = st.selectbox(
                     'Healing s3',
-                    ('Slurp Juice  ', 'Chug Splash', 'Fish', 'Shield Fish'))
-            elif slot_three == 'Sniping':
-                snipe13 = st.selectbox(
+                    ('Slurp Juice  ', 'Chug Splash', 'Fish', 'Sheild Fish'))
+            elif slotthree == 'Sniping':
+                slotthree1 = st.selectbox(
                     'Sniper s3',
                     ('Heavy Sniper Rifle  ', 'Dragon\'s Breath Sniper'))
             # Slot four
-            if slot_four == 'Shotgun':
+            if slotfour == 'Shotgun':
                 shotgun14 = st.selectbox(
                     'Shotgun s4',
                     ('Havoc Pump Shotgun   ', 'Maven Auto Shotgun', 'Combat Shotgun'))
-            elif slot_four == 'SMG':
+                slotfour1 = shotgun14
+            elif slotfour == 'SMG':
                 smg14 = st.selectbox(
                     'SMG s4',
                     ('Twin-Mag SMG   ', 'Run \'N\' Gun SMG', 'Tactical Pistol'))
-            elif slot_four == 'Assault-Rifle':
+                slotfour1 = smg14
+            elif slotfour == 'Assault-Rifle':
                 ar14 = st.selectbox(
                     'Assault-Rifle s4',
                     ('Overclocked Pulse Rifle   ', 'Red-Eye Assault Rifle', 'Havoc Suppressed Assault Rifle', 'Cobra DMR'))
-            elif slot_four == 'Mobility':
+                slotfour1 = ar14
+            elif slotfour == 'Mobility':
                 move14 = st.selectbox(
                     'Mobility s4',
                     ('Kinetic Blade   ', 'ODM Gear'))
-            elif slot_four == 'Healing':
-                heal4 = st.selectbox(
+                slotfour1 = move14
+            elif slotfour == 'Healing':
+                heall4 = st.selectbox(
                     'Healing s4',
-                    ('Slurp Juice   ', 'Chug Splash', 'Fish', 'Shield Fish'))
-            elif slot_four == 'Sniping':
+                    ('Slurp Juice   ', 'Chug Splash', 'Fish', 'Sheild Fish'))
+                slotfour1 = heall4
+            elif slotfour == 'Sniping':
                 snipe14 = st.selectbox(
                     'Sniper s4',
                     ('Heavy Sniper Rifle   ', 'Dragon\'s Breath Sniper'))
+                slotfour1 = snipe14
             # Slot five
-            if slot_five == 'Shotgun':
+            if slotfive == 'Shotgun':
                 shotgun15 = st.selectbox(
                     'Shotgun s5',
                     ('Havoc Pump Shotgun    ', 'Maven Auto Shotgun', 'Combat Shotgun'))
-            elif slot_five == 'SMG':
+                slotfive1 = shotgun15
+            elif slotfive == 'SMG':
                 smg15 = st.selectbox(
                     'SMG s5',
                     ('Twin-Mag SMG    ', 'Run \'N\' Gun SMG', 'Tactical Pistol'))
-            elif slot_five == 'Assault-Rifle':
+                slotfive1 = smg15
+            elif slotfive == 'Assault-Rifle':
                 ar15 = st.selectbox(
                     'Assault-Rifle s5',
                     ('Overclocked Pulse Rifle    ', 'Red-Eye Assault Rifle', 'Havoc Suppressed Assault Rifle', 'Cobra DMR'))
-            elif slot_five == 'Mobility':
+                slotfive1 = ar15
+            elif slotfive == 'Mobility':
                 move15 = st.selectbox(
                     'Mobility s5',
                     ('Kinetic Blade    ', 'ODM Gear'))
-            elif slot_five == 'Healing':
+                slotfive1 = move15
+            elif slotfive == 'Healing':
                 heal15 = st.selectbox(
                     'Healing s5',
-                    ('Slurp Juice    ', 'Chug Splash', 'Fish', 'Shield Fish'))
-            elif slot_five == 'Sniping':
+                    ('Slurp Juice    ', 'Chug Splash', 'Fish', 'Sheild Fish'))
+                slotfive1 = heal15
+            elif slotfive == 'Sniping':
                 snipe15 = st.selectbox(
                     'Sniper s5',
                     ('Heavy Sniper Rifle    ', 'Dragon\'s Breath Sniper'))
+                slotfive1 = snipe15
+        with col3:
+            slotoner = 'None'
+            slottwor = 'None'
+            slotthreer = 'None'
+            slotfourr = 'None'
+            slotfiver = 'None'
+            if slotone == 'None':
+                pass
+            elif slotone1 == 'Havoc Pump Shotgun':
+                slotoner = st.selectbox(
+                    'Shotgun rarity s1',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotone1 == 'Maven Auto Shotgun':
+                slotoner = st.selectbox(
+                    'Shotgun rarity s1',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotone1 == 'Combat Shotgun':
+                slotoner = st.selectbox(
+                    'Shotgun rarity s1',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotone1 == 'Overclocked Pulse Rifle':
+                slotoner = st.selectbox(
+                    'AR rarity s1',
+                    ('Mythic', ''))
+            elif slotone1 == 'Red-Eye Assault Rifle':
+                slotoner = st.selectbox(
+                    'AR rarity s1',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotone1 == 'Havoc Suppressed Assault Rifle':
+                slotoner = st.selectbox(
+                    'AR rarity s1',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotone1 == 'Cobra DMR':
+                slotoner = st.selectbox(
+                    'AR rarity s1',
+                    ('Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotone1 == 'Twin-Mag SMG':
+                slotoner = st.selectbox(
+                    'SMG rarity s1',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotone1 == 'Tactical Pistol':
+                slotoner = st.selectbox(
+                    'SMG Rarity s1',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotone1 == 'Run \'N\' Gun SMG':
+                slotoner = st.selectbox(
+                    'SMG rarity s1',
+                    ('Exotic', ''))
+            elif slotone1 == 'Heavy Sniper Rifle':
+                slotoner = st.selectbox(
+                    'Sniper rarity s1',
+                    ('Rare', 'Epic', 'Legendary'))
+            elif slotone1 == 'Dragon\'s Breath Sniper':
+                slotoner = st.selectbox(
+                    'Sniper rarity s1',
+                    ('Exotic', ''))
+            elif slotone1 == 'Kinetic Blade':
+                slotoner = st.selectbox(
+                    'Mobility rarity s1',
+                    ('Epic', 'Rare'))
+            elif slotone1 == 'ODM Gear':
+                slotoner = st.selectbox(
+                    'Mobility rarity s1',
+                    ('Mythic', ''))
+            if slottwo == 'None':
+                pass
+            elif slottwo1 == 'Havoc Pump Shotgun ': # space
+                slottwor = st.selectbox(
+                    'Shotgun rarity s2',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slottwo1 == 'Maven Auto Shotgun':
+                slottwor = st.selectbox(
+                    'Shotgun rarity s2',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slottwo1 == 'Combat Shotgun':
+                slottwor = st.selectbox(
+                    'Shotgun rarity s2',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slottwo1 == 'Overclocked Pulse Rifle ': # space
+                slottwor = st.selectbox(
+                    'AR rarity s2',
+                    ('Mythic ', ''))
+            elif slottwo1 == 'Red-Eye Assault Rifle':
+                slottwor = st.selectbox(
+                    'AR rarity s2',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slottwo1 == 'Havoc Suppressed Assault Rifle':
+                slottwor = st.selectbox(
+                    'AR rarity s2',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slottwo1 == 'Cobra DMR':
+                slottwor = st.selectbox(
+                    'AR rarity s2',
+                    ('Uncommon ', 'Rare', 'Epic', 'Legendary'))
+            elif slottwo1 == 'Twin-Mag SMG ': # space
+                slottwor = st.selectbox(
+                    'SMG rarity s2',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slottwo1 == 'Tactical Pistol':
+                slottwor = st.selectbox(
+                    'SMG Rarity s2',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slottwo1 == 'Run \'N\' Gun SMG':
+                slottwor = st.selectbox(
+                    'SMG rarity s2',
+                    ('Exotic ', ''))
+            elif slottwo1 == 'Heavy Sniper Rifle ': # space
+                slottwor = st.selectbox(
+                    'Sniper rarity s2',
+                    ('Rare ', 'Epic', 'Legendary'))
+            elif slottwo1 == 'Dragon\'s Breath Sniper':
+                slottwor = st.selectbox(
+                    'Sniper rarity s2',
+                    ('Exotic ', ''))
+            elif slottwo1 == 'Kinetic Blade ': # space
+                slottwor = st.selectbox(
+                    'Mobility rarity s2',
+                    ('Epic ', 'Rare'))
+            elif slottwo1 == 'ODM Gear':
+                slottwor = st.selectbox(
+                    'Mobility rarity s2',
+                    ('Mythic ', ''))
+            if slotthree == 'None':
+                pass
+            elif slotthree1 == 'Havoc Pump Shotgun  ': # space
+                slotthreer = st.selectbox(
+                    'Shotgun rarity s3',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotthree1 == 'Maven Auto Shotgun':
+                slotthreer = st.selectbox(
+                    'Shotgun rarity s3',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotthree1 == 'Combat Shotgun':
+                slotthreer = st.selectbox(
+                    'Shotgun rarity s3',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotthree1 == 'Overclocked Pulse Rifle  ': # space
+                slotthreer = st.selectbox(
+                    'AR rarity s3',
+                    ('Mythic', ''))
+            elif slotthree1 == 'Red-Eye Assault Rifle':
+                slotthreer = st.selectbox(
+                    'AR rarity s3',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotthree1 == 'Havoc Suppressed Assault Rifle':
+                slotthreer = st.selectbox(
+                    'AR rarity s3',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotthree1 == 'Cobra DMR':
+                slotthreer = st.selectbox(
+                    'AR rarity s3',
+                    ('Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotthree1 == 'Twin-Mag SMG  ': # space
+                slotthreer = st.selectbox(
+                    'SMG rarity s3',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotthree1 == 'Tactical Pistol':
+                slotthreer = st.selectbox(
+                    'SMG Rarity s3',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotthree1 == 'Run \'N\' Gun SMG':
+                slotthreer = st.selectbox(
+                    'SMG rarity s3',
+                    ('Exotic', ''))
+            elif slotthree1 == 'Heavy Sniper Rifle  ': # space
+                slotthreer = st.selectbox(
+                    'Sniper rarity s3',
+                    ('Rare', 'Epic', 'Legendary'))
+            elif slotthree1 == 'Dragon\'s Breath Sniper':
+                slotthreer = st.selectbox(
+                    'Sniper rarity s3',
+                    ('Exotic', ''))
+            elif slotthree1 == 'Kinetic Blade  ': # space
+                slotthreer = st.selectbox(
+                    'Mobility rarity s3',
+                    ('Epic', 'Rare'))
+            elif slotthree1 == 'ODM Gear':
+                slotthreer = st.selectbox(
+                    'Mobility rarity s3',
+                    ('Mythic', ''))
+            if slotfour == 'None':
+                pass
+            elif slotfour1 == 'Havoc Pump Shotgun   ': # space
+                slotfourr = st.selectbox(
+                    'Shotgun rarity s4',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotfour1 == 'Maven Auto Shotgun':
+                slotfourr = st.selectbox(
+                    'Shotgun rarity s4',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotfour1 == 'Combat Shotgun':
+                slotfourr = st.selectbox(
+                    'Shotgun rarity s4',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotfour1 == 'Overclocked Pulse Rifle   ': # space
+                slotfourr = st.selectbox(
+                    'AR rarity s4',
+                    ('Mythic ', ''))
+            elif slotfour1 == 'Red-Eye Assault Rifle':
+                slotfourr = st.selectbox(
+                    'AR rarity s4',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotfour1 == 'Havoc Suppressed Assault Rifle':
+                slotfourr = st.selectbox(
+                    'AR rarity s4',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotfour1 == 'Cobra DMR':
+                slotfourr = st.selectbox(
+                    'AR rarity s4',
+                    ('Uncommon ', 'Rare', 'Epic', 'Legendary'))
+            elif slotfour1 == 'Twin-Mag SMG   ': # space
+                slotfourr = st.selectbox(
+                    'SMG rarity s4',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotfour1 == 'Tactical Pistol':
+                slotfourr = st.selectbox(
+                    'SMG Rarity s4',
+                    ('Common ', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotfour1 == 'Run \'N\' Gun SMG':
+                slotfourr = st.selectbox(
+                    'SMG rarity s4',
+                    ('Exotic ', ''))
+            elif slotfour1 == 'Heavy Sniper Rifle   ': # space
+                slotfourr = st.selectbox(
+                    'Sniper rarity s4',
+                    ('Rare ', 'Epic', 'Legendary'))
+            elif slotfour1 == 'Dragon\'s Breath Sniper':
+                slotfourr = st.selectbox(
+                    'Sniper rarity s4',
+                    ('Exotic ', ''))
+            elif slotfour1 == 'Kinetic Blade   ': # space
+                slotfourr = st.selectbox(
+                    'Mobility rarity s4',
+                    ('Epic ', 'Rare'))
+            elif slotfour1 == 'ODM Gear':
+                slotfourr = st.selectbox(
+                    'Mobility rarity s4',
+                    ('Mythic ', ''))
+            if slotfive == 'None':
+                pass
+            elif slotfive1 == 'Havoc Pump Shotgun    ': # space
+                slotfiver = st.selectbox(
+                    'Shotgun rarity s5',
+                    ('Common', 'Uncommon ', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotfive1 == 'Maven Auto Shotgun':
+                slotfiver = st.selectbox(
+                    'Shotgun rarity s5',
+                    ('Common', 'Uncommon ', 'Rare', 'Epic', 'Legendary'))
+            elif slotfive1 == 'Combat Shotgun':
+                slotfiver = st.selectbox(
+                    'Shotgun rarity s5',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotfive1 == 'Overclocked Pulse Rifle    ': # space
+                slotfiver = st.selectbox(
+                    'AR rarity s5',
+                    ('Mythic', ''))
+            elif slotfive1 == 'Red-Eye Assault Rifle':
+                slotfiver = st.selectbox(
+                    'AR rarity s5',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotfive1 == 'Havoc Suppressed Assault Rifle':
+                slotfiver = st.selectbox(
+                    'AR rarity s5',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotfive1 == 'Cobra DMR':
+                slotfiver = st.selectbox(
+                    'AR rarity s5',
+                    ('Uncommon', 'Rare', 'Epic', 'Legendary'))
+            elif slotfive1 == 'Twin-Mag SMG    ': # space
+                slotfiver = st.selectbox(
+                    'SMG rarity s5',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic'))
+            elif slotfive1 == 'Tactical Pistol':
+                slotfiver = st.selectbox(
+                    'SMG Rarity s5',
+                    ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'))
+            elif slotfive1 == 'Run \'N\' Gun SMG':
+                slotfiver = st.selectbox(
+                    'SMG rarity s5',
+                    ('Exotic', ''))
+            elif slotfive1 == 'Heavy Sniper Rifle    ': # space
+                slotfiver = st.selectbox(
+                    'Sniper rarity s5',
+                    ('Rare', 'Epic', 'Legendary'))
+            elif slotfive1 == 'Dragon\'s Breath Sniper':
+                slotfiver = st.selectbox(
+                    'Sniper rarity s5',
+                    ('Exotic', ''))
+            elif slotfive1 == 'Kinetic Blade    ': # space
+                slotfiver = st.selectbox(
+                    'Mobility rarity s5',
+                    ('Epic', 'Rare'))
+            elif slotfive1 == 'ODM Gear':
+                slotfiver = st.selectbox(
+                    'Mobility rarity s5',
+                    ('Mythic', ''))
     with tab2:
-        st.info('Not finished yet', icon="ℹ")
+        if slotone == 'None' or slottwo == 'None' or slotthree == 'None' or slotfour == 'None' or slotfive == 'None':
+            st.error('Create your loadout before checking this tab.')
+        else:
+            col1, col2 = st.columns(2)
+            with col1:
+                taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
+
+                with taba1:
+                    st.write(f'# Custom loadout\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}')
+
+                with taba2:
+                    st.write(f'# Custom loadout  \n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}')
+
+                with taba3:
+                    st.json({
+                        'Custom loadout': [
+                            f'{slotone} : {slotone1}',
+                            f'{slottwo} : {slottwo1}',
+                            f'{slotthree} : {slotthree1}',
+                            f'{slotfour} : {slotfour1}',
+                            f'{slotfive} : {slotfive1}'
+                        ],
+                    })
+            with col2:
+                taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
+
+                with taba1:
+                    st.write(f'# Custom loadout rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slotoner}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
+
+                with taba2:
+                    st.write(f'# Custom loadout rarity  \n##### {slotone} : {slotoner}\n#####    {slottwo} : {slotoner}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
+
+                with taba3:
+                    st.json({
+                        'Custom loadout rarity': [
+                            f'{slotone} : {slotoner}',
+                            f'{slottwo} : {slottwor}',
+                            f'{slotthree} : {slotthreer}',
+                            f'{slotfour} : {slotfourr}',
+                            f'{slotfive} : {slotfiver}'
+                        ],
+                    })
     with tab3aa:
-        st.info('Not finished yet', icon="ℹ")
+        st.info('Not finished yet', icon="ℹ️")
 with tab3:
     col1, col2 = st.columns(2)
 
     with col1:
         st.title('UPDATE INFO :')
-        st.write('### [/] Fixed/changed full loadout system to an actual working tab')
-        st.write('### [/] Fixed spelling error on shield fish in loadout>Customize')
-        st.write('### [>] will add your custom loadout to loadout>loadout')
-        st.write('### [>] will add video for loadout>info tab')
-
-        st.write('# \n ##### [/] = Fixed\n ##### [:] = Changed something\n ##### [+] = Added\n ##### [-] = Removed\n ##### [>] = Will add at some point')
+        st.write('### [+] Entire custom loadout tab finished.')
+        st.write('### [:] When selecting rarity in custom loadout single rarity items would bug')
+        st.write('### [///] Custom Loadout>Info Is in progress')
+        st.write('# \n ##### [/] = Fixed\n ##### [//] = Reverted\n ##### [///] = Working on\n ##### [:] = Changed something\n ##### [+] = Added\n ##### [-] = Removed\n ##### [>] = Add later\n\n\n ##### also pls tell me about bugs and other things so i can fix them (on discord) :)')
     with col2:
         st.title('SITE INFO :')
-        st.write('### Rarity system in sidebar')
-        st.write('### You can download the Source Code from the site or check my github for it')
-        st.write('### \'How does the loadout tab work?\' video in third tab (at some point)')
+        st.write('### You can download the Source Code from the sidebar or check my github for it')
 with st.sidebar:
     if st.button('Source Code'):
         thing = + 1
