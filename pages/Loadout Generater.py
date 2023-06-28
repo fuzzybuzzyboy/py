@@ -248,6 +248,7 @@ with col2:
                     f'Healing : None'
                 ],
             })
+st.divider()
 if st.button('Randomize Load-Out'):
     button = + 1
 else:
@@ -276,6 +277,3 @@ with st.sidebar:
                     time_later = datetime.now().strftime("%S")
                     t += 1
                     ti.sleep(1)
-
-    st.info('Currently some of the healing items are outdated to the last season and have been vaulted, i couldnt get the information about what is and isnt vaulted. Can\'t do much about it')
-                    
