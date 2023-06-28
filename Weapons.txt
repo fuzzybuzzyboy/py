@@ -1,0 +1,34 @@
+Shotguns : 
+
+
+Havoc Pump Shotgun : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary')
+
+Drum Shotgun : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic')
+
+Maven Auto Shotgun : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic')
+
+
+Assualt Rifles : 
+
+
+MK-Alpha Assault Rifle : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Exotic')
+
+Flapjack Rifle : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic')
+
+Explosive Repeater Rifle : ('Uncommon', 'Rare', 'Epic', 'Legendary')
+
+Havoc Suppressed Assault Rifle : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary')
+
+Thermal DMR : ('Uncommon', 'Rare', 'Epic', 'Legendary')
+
+
+SMG : 
+
+
+Submachine Gun : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary')
+
+Tactical Pistol : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic')
+
+Combat SMG : ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary')
+
+Run 'N' Gun SMG : ('Exotic') (the verison in custom loadout tab is : ('Exotic', ''), if you wondered)
