@@ -510,6 +510,13 @@ with tab2:
                     st.error("Invalid configuration file. Expected 15 lines.", icon="❌")
             else:
                 st.error("File doesn't exist. Please create/save a configuration.", icon="❌")
+
+        if st.button('Delete configuration'):
+            if os.path.exists("configuration_sys.txt"):
+                os.remove("configuration_sys.txt")
+                st.success("Deleted configuration file. (public)", icon="✅")
+            else:
+                st.error("Configuration file currently doesnt exist. Create a config", "icon="❌")
 thing = 0
 with st.sidebar:
     if st.button('Source Code'):
