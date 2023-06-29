@@ -440,6 +440,7 @@ with tab2:
                 f.write(
                     f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}')
                 f.close()
+                st.success('Saved config to file \'configuration_sys.txt\'', icon="✅")
             else:
                 f = open("configuration_sys.txt", "a")  # here                             # here                                   # here                                # here
                 f.write(
@@ -504,11 +505,11 @@ with tab2:
                             f'{slotfive} : {slotfive1}'
                         ],
                     })
-                    st.success("Loaded configuration from file.")
+                    st.success("Loaded configuration from file.", icon="✅")
                 else:
-                    st.error("Invalid configuration file. Expected 15 lines.")
+                    st.error("Invalid configuration file. Expected 15 lines.", icon="❌")
             else:
-                st.error("File doesn't exist. Please create/save a configuration.")
+                st.error("File doesn't exist. Please create/save a configuration.", icon="❌")
 thing = 0
 with st.sidebar:
     if st.button('Source Code'):
