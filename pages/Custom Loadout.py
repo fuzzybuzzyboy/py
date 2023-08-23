@@ -448,7 +448,7 @@ if st.button('Save Config'):
     user_id = get_user_id()
     if user_id is None:
         st.error("Unable to determine user ID.")
-        return
+    end
 
     file_name = f"configuration_{user_id}.txt"
 
