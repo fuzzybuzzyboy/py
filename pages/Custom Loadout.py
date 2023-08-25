@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+# print(st.session_state.session_id)
 from datetime import datetime
 import time
 
@@ -433,97 +434,40 @@ with tab2:
                 })
         st.divider()
 
-from streamlit.report_thread import get_report_ctx
+    # The checks for st.session_state.session_id might not work on if you downloaded the file and ran it from your own computer. Please keep that in mind
 
-# Function to get the user ID from the session ID
-def get_user_id():
-    session_id = get_report_ctx().session_id
-    # Replace this with your own logic to extract the user ID from the session ID
-    user_id = session_id[:8] if session_id else None
-    return user_id
+    if 'session_id' not in st.session_state:
+        st.session_state.session_id = None
 
-# Rest of the code...
+    def get_user_id():
+        return st.session_state.session_id
+        print(st.session_state.session_id)
 
-if st.button('Save Config'):
-    user_id = get_user_id()
-    if user_id is None:
-        st.error("Unable to determine user ID.")
-    end
-
-    file_name = f"configuration_{user_id}.txt"
-
-    if os.path.exists(file_name):
-        os.remove(file_name)
-
-    with open(file_name, "a") as f:
-        f.write(
-            f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}'
-        )
-    st.success(f"Saved config to file '{file_name}'", icon="✅")
-
-if st.button('Load Config'):
-    user_id = get_user_id()
-    if user_id is None:
-        st.error("Unable to determine user ID.")
-        return
-
-    file_name = f"configuration_{user_id}.txt"
-
-    if os.path.exists(file_name):
-        with open(file_name, "r") as file:
-            lines = [line.strip() for line in file.readlines()]
-
-        if len(lines) == 15:
-            slotone = lines[0]
-            slotone1 = lines[1]
-            slotoner = lines[2]
-            slottwo = lines[3]
-            slottwo1 = lines[4]
-            slottwor = lines[5]
-            slotthree = lines[6]
-            slotthree1 = lines[7]
-            slotthreer = lines[8]
-            slotfour = lines[9]
-            slotfour1 = lines[10]
-            slotfourr = lines[11]
-            slotfive = lines[12]
-            slotfive1 = lines[13]
-            slotfiver = lines[14]
-
-            # Update the displayed content with the loaded configuration
-
-            t.write(f'# Custom loadout rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slottwor}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
-            t1.write(f'# Custom loadout rarity  \n##### {slotone} : {slotoner}\n#####    {slottwo} : {slottwor}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
-            t2.json({'Custom loadout rarity': [f'{slotone} : {slotoner}', f'{slottwo} : {slottwor}', f'{slotthree} : {slotthreer}', f'{slotfour} : {slotfourr}', f'{slotfive} : {slotfiver}']})
-
-            tt.write(f'# Custom loadout\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}')
-            tt1.write(f'# Custom loadout  \n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}')
-            tt2.json({'Custom loadout': [f'{slotone} : {slotone1}', f'{slottwo} : {slottwo1}', f'{slotthree} : {slotthree1}', f'{slotfour} : {slotfour1}', f'{slotfive} : {slotfive1}']})
-
-            st.success("Loaded configuration from file.")
+    if st.button('Save Config'):
+        user_id = get_user_id()
+        if user_id is None:
+            st.error("Unable to determine user ID.")
         else:
-            st.error("Invalid configuration file. Expected 15 lines.")
-    else:
-        st.error("File doesn't exist. Please create/save a configuration.")
+            file_name = f"configuration_{user_id}.txt"
 
+            if os.path.exists(file_name):
+                os.remove(file_name)
 
-        if st.button('Save Config'):
-            if os.path.exists("configuration_sys.txt"):
-                os.remove("configuration_sys.txt")
-                f = open("configuration_sys.txt", "a")  # here                             # here                                   # here                                # here
+            with open(file_name, "a") as f:
                 f.write(
-                    f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}')
-                f.close()
-                st.success('Saved config to file \'configuration_sys.txt\'', icon="✅")
-            else:
-                f = open("configuration_sys.txt", "a")  # here                             # here                                   # here                                # here
-                f.write(
-                    f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}')
-                st.success('Saved config to file \'configuration_sys.txt\'', icon="✅")
-                f.close()
-        if st.button('Load Config'):
-            if os.path.exists("configuration_sys.txt"):
-                with open('configuration_sys.txt', "r") as file:
+                    f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}'
+                )
+            st.success(f"Saved config to file '{file_name}'", icon="✅")
+
+    if st.button('Load Config'):
+        user_id = get_user_id()
+        if user_id is None:
+            st.error("Unable to determine user ID.")
+        else:
+            file_name = f"configuration_{user_id}.txt"
+
+            if os.path.exists(file_name):
+                with open(file_name, "r") as file:
                     lines = [line.strip() for line in file.readlines()]
 
                 if len(lines) == 15:
@@ -543,54 +487,11 @@ if st.button('Load Config'):
                     slotfive1 = lines[13]
                     slotfiver = lines[14]
 
-                    # These prints are just here if you want to get more info. Just remove the '#' from them and then check your CMD, they will show up there as well
-
-                    # print("Loaded configuration with success:")
-                    # print(f"Slot one : {slotone}, {slotoner}, {slotone1}\nSlot two : {slottwo}, {slottwor}, {slottwo1}\nSlot three : {slotthree}, {slotthreer}, {slotthree1}\nSlot four : {slotfour}, {slotfourr}, {slotfour1}\nSlot five : {slotfive}, {slotfiver}, {slotfive1}")
-
-                    # RARITY
-
-                    t.write(
-                        f'# Custom loadout rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slottwor}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
-                    t1.write(
-                        f'# Custom loadout rarity  \n##### {slotone} : {slotoner}\n#####    {slottwo} : {slottwor}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
-                    t2.json({
-                        'Custom loadout rarity': [
-                            f'{slotone} : {slotoner}',
-                            f'{slottwo} : {slottwor}',
-                            f'{slotthree} : {slotthreer}',
-                            f'{slotfour} : {slotfourr}',
-                            f'{slotfive} : {slotfiver}'
-                        ],
-                    })
-
-                    # WEAPONS
-
-                    tt.write(
-                        f'# Custom loadout\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}')
-                    tt1.write(
-                        f'# Custom loadout  \n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}')
-                    tt2.json({
-                        'Custom loadout': [
-                            f'{slotone} : {slotone1}',
-                            f'{slottwo} : {slottwo1}',
-                            f'{slotthree} : {slotthree1}',
-                            f'{slotfour} : {slotfour1}',
-                            f'{slotfive} : {slotfive1}'
-                        ],
-                    })
-                    st.success("Loaded configuration from file.", icon="✅")
+                    st.success("Loaded configuration from file.")
                 else:
                     st.error("Invalid configuration file. Expected 15 lines.")
             else:
                 st.error("File doesn't exist. Please create/save a configuration.")
-
-        if st.button('Delete configuration'):
-            if os.path.exists("configuration_sys.txt"):
-                os.remove("configuration_sys.txt")
-                st.success("Deleted configuration file. (public)", icon="✅")
-            else:
-                st.error("Configuration file currently doesnt exist. Create a config")
 thing = 0
 with st.sidebar:
     if st.button('Source Code'):
