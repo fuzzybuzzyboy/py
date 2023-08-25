@@ -440,8 +440,8 @@ with tab2:
         st.session_state.session_id = None
 
     def get_user_id():
-        return st.session_state.session_id
-        print(st.session_state.session_id)
+        query_params = st.experimental_get_query_params()
+        return query_params.get('user_id', [None])[0]
 
     if st.button('Save Config'):
         user_id = get_user_id()
