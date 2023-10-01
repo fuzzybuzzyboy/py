@@ -10,6 +10,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+#login.test()
+
 a = ''
 b = ''
 c = ''
@@ -23,51 +25,35 @@ slotfive1 = 'None'
 button = 1
 thing = 0
 
-shot = st.selectbox(
+shot = int(st.selectbox(
     'Shotguns.',
-    ('1', '2', '3'))
+    (1, 2, 3)))
 gun = st.selectbox(
     'Assault-Rifles.',
-    ('1', '2', '3', '4', '5'))
+    (1, 2, 3, 4))
 smg1 = st.selectbox(
     'SMGs.',
-    ('1', '2', '3', '4'))
+    (1, 2, 3, 4))
 
 for i in range(button):
     shotgun = random.randint(1, int(shot))
     ar = random.randint(1, int(gun))
     smg = random.randint(1, int(smg1))
+    movement = random.randint(1, 2)
     healing = random.randint(1, 7)
     button = 0
     if shotgun == 1:
-        a = '\'Havoc Pump Shotgun\''
-        rarity_shot = random.randint(1, 5)
+        a = '\'Sharp Tooth Shotgun\''
+        rarity_shot = random.randint(1, 4)
         if rarity_shot == 1:
-            shotgun1 = 'Common'
-        elif rarity_shot == 2:
             shotgun1 = 'Uncommon'
-        elif rarity_shot == 3:
+        elif rarity_shot == 2:
             shotgun1 = 'Rare'
-        elif rarity_shot == 4:
+        elif rarity_shot == 3:
             shotgun1 = 'Epic'
-        elif rarity_shot == 5:
+        elif rarity_shot == 4:
             shotgun1 = 'Legendary'
     elif shotgun == 2:
-        a = '\'Drum Shotgun\''
-        rarity_shot = random.randint(1, 6)
-        if rarity_shot == 1:
-            shotgun1 = 'Common'
-        elif rarity_shot == 2:
-            shotgun1 = 'Uncommon'
-        elif rarity_shot == 3:
-            shotgun1 = 'Rare'
-        elif rarity_shot == 4:
-            shotgun1 = 'Epic'
-        elif rarity_shot == 5:
-            shotgun1 = 'Legendary'
-        elif rarity_shot == 6:
-            shotgun1 = 'Mythic'
-    elif shotgun == 3:
         a = '\'Maven Auto Shotgun\''
         rarity_shot = random.randint(1, 6)
         if rarity_shot == 1:
@@ -82,9 +68,25 @@ for i in range(button):
             shotgun1 = 'Legendary'
         elif rarity_shot == 6:
             shotgun1 = 'Exotic'
+    elif shotgun == 3:
+        a = '\'Infiltrator Pump Shotgun\''
+        rarity_shot = random.randint(1, 6)
+        if rarity_shot == 1:
+            shotgun1 = 'Common'
+        elif rarity_shot == 2:
+            shotgun1 = 'Uncommon'
+        elif rarity_shot == 3:
+            shotgun1 = 'Rare'
+        elif rarity_shot == 4:
+            shotgun1 = 'Epic'
+        elif rarity_shot == 5:
+            shotgun1 = 'Legendary'
+        elif rarity_shot == 6:
+            shotgun1 = 'Mythic'
+            a = 'Enhanced Infiltrator Pump Shotgun'
     if ar == 1:
-        b = '\'MK-Alpha Assault Rifle\''
-        rarity_ar = random.randint(1, 6)
+        b = '\'Twin Mag Assault Rifle\''
+        rarity_ar = random.randint(1, 5)
         if rarity_ar == 1:
             ar1 = 'Common'
         elif rarity_ar == 2:
@@ -95,35 +97,7 @@ for i in range(button):
             ar1 = 'Epic'
         elif rarity_ar == 5:
             ar1 = 'Legendary'
-        elif rarity_ar == 6:
-            ar1 = 'Mythic'
     elif ar == 2:
-        b = '\'FlapJack Rifle\''
-        rarity_ar = random.randint(1, 6)
-        if rarity_ar == 1:
-            ar1 = 'Common'
-        elif rarity_ar == 2:
-            ar1 = 'Uncommon'
-        elif rarity_ar == 3:
-            ar1 = 'Rare'
-        elif rarity_ar == 4:
-            ar1 = 'Epic'
-        elif rarity_ar == 5:
-            ar1 = 'Legendary'
-        elif rarity_ar == 6:
-            ar1 = 'Mythic'
-    elif ar == 3:
-        b = '\'Explosive Repeater Rifle\''
-        rarity_ar = random.randint(1, 4)
-        if rarity_ar == 1:
-            ar1 = 'Uncommon'
-        elif rarity_ar == 2:
-            ar1 = 'Rare'
-        elif rarity_ar == 3:
-            ar1 = 'Epic'
-        elif rarity_ar == 4:
-            ar1 = 'Legendary'
-    elif ar == 4:
         b = '\'Havoc Suppressed Assault Rifle\''
         rarity_ar = random.randint(1, 6)
         if rarity_ar == 1:
@@ -138,9 +112,17 @@ for i in range(button):
             ar1 = 'Legendary'
         elif rarity_ar == 6:
             ar1 = 'Mythic'
-    elif ar == 5:
+            b = 'Heart\'s Havoc Suppressed Rifle'
+    elif ar == 3:
+        b = '\'Sticky Grenade Launcher\''
+        rarity_ar = random.randint(1, 2)
+        if rarity_ar == 1:
+            ar1 = 'Epic'
+        elif rarity_ar == 2:
+            ar1 = 'Legendary'
+    elif ar == 4:
         b = '\'Thermal DMR\''
-        rarity_ar = random.randint(1, 4)
+        rarity_ar = random.randint(1, 5)
         if rarity_ar == 1:
             ar1 = 'Uncommon'
         elif rarity_ar == 2:
@@ -149,6 +131,9 @@ for i in range(button):
             ar1 = 'Epic'
         elif rarity_ar == 4:
             ar1 = 'Legendary'
+        elif rarity_ar == 5:
+            ar1 = 'Mythic'
+            b = 'Diamond\'s Thermal DMR'
     if smg == 1:
         c = '\'Submachine Gun\''
         rarity_smg = random.randint(1, 5)
@@ -194,32 +179,39 @@ for i in range(button):
         c = '\'Run \'N\' Gun SMG\''
         smg2 = 'Exotic'
     if healing == 1:
-        e = '\'Mini Shield Potion\''
+        f = '\'Mini Shield Potion\''
     elif healing == 2:
-        e = '\'Shield Potion\''
+        f = '\'Shield Potion\''
     elif healing == 3:
-        e = '\'Med-kit\''
+        f = '\'Med-kit\''
     elif healing == 4:
-        e = '\'Slap Juice\''
+        f = '\'Slap Juice\''
     elif healing == 5:
-        e = '\'Chug Cannon\''
+        f = '\'Chug Cannon\''
     elif healing == 6:
-        e = '\'Meat\''
+        f = '\'Meat\''
     elif healing == 7:
-        e = '\'Fish\''
+        f = '\'Fish\''
+    if movement == 1:
+        e = '\'Rocket Ram\''
+        movement1 = 'Rare'
+    elif movement == 2:
+        e = '\'Crash Pad Jr.\''
+        movement1 = 'Uncommon'
 col1, col2 = st.columns(2)
+
 with col1:
     tab1b, tab2b, tab3b = st.tabs(["Base", "Regular", "Json"])
 
     with tab1b:
         st.write(
             f'# Load-Out\n    Shotgun = {a}\n    Assault-Rifle : {b}\n    Smg : {c}'
-            f'\n    Healing : {e}')
+            f'\n    Movement : {e}\n    Healing : {f}')
 
     with tab2b:
         st.write(
             f'# Load-Out  \n##### Shotgun = {a}\n#####    Assault-Rifle : {b}\n#####    Smg : {c}'
-            f'\n#####    Healing : {e}')
+            f'\n#####    Movement : {e}\n#####    Healing : {f}')
 
     with tab3b:
         st.json({
@@ -227,17 +219,18 @@ with col1:
                 f'Shotgun = {a}',
                 f'Assault-Rifle = {b}',
                 f'Smg = {c}',
-                f'Healing = {e}'
+                f'Movement = {e}',
+                f'Healing = {f}'
             ],
         })
 with col2:
         taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
 
         with taba1:
-            st.write(f'# Rarity\n    Shotgun : {shotgun1}\n    Assault-Rifle : {ar1}\n    Smg : {smg2}\n    Healing : no')
+            st.write(f'# Rarity\n    Shotgun : {shotgun1}\n    Assault-Rifle : {ar1}\n    Smg : {smg2}\n    Movement : {movement1}\n    Healing : no')
 
         with taba2:
-            st.write(f'# Rarity  \n##### Shotgun : {shotgun1}\n#####    Assault-Rifle : {ar1}\n#####    Smg : {smg2}\n#####    Healing : no')
+            st.write(f'# Rarity  \n##### Shotgun : {shotgun1}\n#####    Assault-Rifle : {ar1}\n#####    Smg : {smg2}\n#####    Movement : {movement1}\n#####    Healing : no')
 
         with taba3:
             st.json({
@@ -245,6 +238,7 @@ with col2:
                     f'Shotgun : {shotgun1}',
                     f'Assault-Rifle : {ar1}',
                     f'Smg : {smg2}',
+                    f'Movement : {movement1}'
                     f'Healing : None'
                 ],
             })
@@ -254,7 +248,6 @@ if st.button('Randomize Load-Out'):
 else:
     pass
 with st.sidebar:
-    thing = 0
     if st.button('Source Code'):
         thing = + 1
     else:
