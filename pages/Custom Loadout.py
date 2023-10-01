@@ -1,8 +1,8 @@
 import streamlit as st
 import os
-# print(st.session_state.session_id)
 from datetime import datetime
 import time
+import platform
 
 st.set_page_config(
     page_title='Custom Loadout',
@@ -10,6 +10,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+login = platform.node()
 
 tab1, tab2 = st.tabs(["Customize", "Loadout"])
 with tab1:
@@ -434,40 +436,26 @@ with tab2:
                 })
         st.divider()
 
-    # The checks for st.session_state.session_id might not work on if you downloaded the file and ran it from your own computer. Please keep that in mind
-
-    if 'session_id' not in st.session_state:
-        st.session_state.session_id = None
-
-    def get_user_id():
-        query_params = st.experimental_get_query_params()
-        return query_params.get('user_id', [None])[0]
-
-    if st.button('Save Config'):
-        user_id = get_user_id()
-        if user_id is None:
-            st.error("Unable to determine user ID.")
-        else:
-            file_name = f"configuration_{user_id}.txt"
-
-            if os.path.exists(file_name):
-                os.remove(file_name)
-
-            with open(file_name, "a") as f:
+        def save():
+            if os.path.exists(f"{login}.txt"):
+                os.remove(f"{login}.txt")
+                f = open(f"{login}.txt", "a")  # here                             # here                                   # here                                # here
                 f.write(
-                    f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}'
-                )
-            st.success(f"Saved config to file '{file_name}'", icon="✅")
-
-    if st.button('Load Config'):
-        user_id = get_user_id()
-        if user_id is None:
-            st.error("Unable to determine user ID.")
-        else:
-            file_name = f"configuration_{user_id}.txt"
-
-            if os.path.exists(file_name):
-                with open(file_name, "r") as file:
+                    f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}')
+                f.close()
+            else:
+                f = open(f"{login}.txt", "a")  # here                             # here                                   # here                                # here
+                f.write(
+                    f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}')
+                st.success(f'Saved config to file \'{login}.txt\'', icon="✅")
+                f.close()
+        if st.button('Save Config'):
+            if os.path.exists(f"{login}.txt"):
+                st.success(f'Saved config to file \'{login}.txt\'', icon="✅")
+            save()
+        if st.button('Load Config'):
+            if os.path.exists(f"{login}.txt"):
+                with open(f'{login}.txt', "r") as file:
                     lines = [line.strip() for line in file.readlines()]
 
                 if len(lines) == 15:
@@ -487,6 +475,42 @@ with tab2:
                     slotfive1 = lines[13]
                     slotfiver = lines[14]
 
+                    # These prints are just here if you want to get more info. Just remove the '#' from them and then check your CMD, they will show up there as well
+
+                    # print("Loaded configuration with success:")
+                    # print(f"Slot one : {slotone}, {slotoner}, {slotone1}\nSlot two : {slottwo}, {slottwor}, {slottwo1}\nSlot three : {slotthree}, {slotthreer}, {slotthree1}\nSlot four : {slotfour}, {slotfourr}, {slotfour1}\nSlot five : {slotfive}, {slotfiver}, {slotfive1}")
+
+                    # RARITY
+
+                    t.write(
+                        f'# Custom loadout rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slottwor}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
+                    t1.write(
+                        f'# Custom loadout rarity  \n##### {slotone} : {slotoner}\n#####    {slottwo} : {slottwor}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
+                    t2.json({
+                        'Custom loadout rarity': [
+                            f'{slotone} : {slotoner}',
+                            f'{slottwo} : {slottwor}',
+                            f'{slotthree} : {slotthreer}',
+                            f'{slotfour} : {slotfourr}',
+                            f'{slotfive} : {slotfiver}'
+                        ],
+                    })
+
+                    # WEAPONS
+
+                    tt.write(
+                        f'# Custom loadout\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}')
+                    tt1.write(
+                        f'# Custom loadout  \n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}')
+                    tt2.json({
+                        'Custom loadout': [
+                            f'{slotone} : {slotone1}',
+                            f'{slottwo} : {slottwo1}',
+                            f'{slotthree} : {slotthree1}',
+                            f'{slotfour} : {slotfour1}',
+                            f'{slotfive} : {slotfive1}'
+                        ],
+                    })
                     st.success("Loaded configuration from file.")
                 else:
                     st.error("Invalid configuration file. Expected 15 lines.")
