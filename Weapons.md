@@ -1,6 +1,4 @@
-# section 1
-
-I use fortnite.gg for all weapons currently in fortnite. (www.fortnite.gg/weapons)
+# I use fortnite.gg for all weapons currently in fortnite. (www.fortnite.gg/weapons)
 
 ## Shotguns
     Tactical Shotgun - Common, Uncommon, Rare, Epic, Legendary
