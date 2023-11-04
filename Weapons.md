@@ -1,16 +1,32 @@
 # This file contains all weapons that are used in the project.
 
 ## Shotguns
-    * a
+    Pump Shotgun
+    Tactical Shotgun
+    Heavy Shotgun
 
 ## Assault-Rifles
-    * b
+    Assault Rifle
+    Suppressed Assualt Rifle
+    Burst Assualt Rifle
+    Tactical Assualt Rifle
+    Scoped Assualt Rifle
 
 ## SMGS
-    * c
+    Submachine Gun
+    Suppressed Submachine Gun
+    Pistol
+    Suppressed Pistol
 
-## Mobility
-    * d
+## Snipers
+    Hunting Rifle
+    Bolt-Action Sniper Rifle
+    Semi-Automatic Sniper Rifle
+
+## Explosives
+    Rocket Launcher
+    Grenade Launcher
 
 ## Other
-    * e
+    Light Machine Gun (wouldn't this be an smg? or ar?)
+    Hand Cannon (snipers?)
