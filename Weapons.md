@@ -1,3 +1,5 @@
+# section 1
+
 I use fortnite.gg for all weapons currently in fortnite. (www.fortnite.gg/weapons)
 
 ## Shotguns
@@ -30,3 +32,7 @@ I use fortnite.gg for all weapons currently in fortnite. (www.fortnite.gg/weapon
 ## Other
     Light Machine Gun (wouldn't this be an smg? or ar?)
     Hand Cannon (snipers?)
+
+# section 2
+
+## rarity (chatgpt told me that u do sections for pages so I'll try that ig)
