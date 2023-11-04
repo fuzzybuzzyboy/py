@@ -3,36 +3,32 @@
 I use fortnite.gg for all weapons currently in fortnite. (www.fortnite.gg/weapons)
 
 ## Shotguns
-    Pump Shotgun
-    Tactical Shotgun
-    Heavy Shotgun
+    Tactical Shotgun - Common, Uncommon, Rare, Epic, Legendary
+    Pump Shotgun - Common, Uncommon, Rare, Epic, Legendary
+    Heavy Shotgun - Epic, Legendary
 
 ## Assault-Rifles
-    Assault Rifle
-    Suppressed Assualt Rifle
-    Burst Assualt Rifle
-    Tactical Assualt Rifle
-    Scoped Assualt Rifle
+    Assault Rifle - Common, Uncommon, Rare, Epic, Legendary
+    Suppressed Assualt Rifle - Rare, Epic, Legendary
+    Burst Assualt Rifle - Common, Uncommon, Rare, Epic, Legendary
+    Tactical Assualt Rifle - Legendary
+    Scoped Assualt Rifle - Uncommon, Rare, Epic, Legendary
 
 ## SMGS
-    Submachine Gun
-    Suppressed Submachine Gun
-    Pistol
-    Suppressed Pistol
+    Submachine Gun - Uncommon, Common, Rare, Epic, Legendary
+    Suppressed Submachine Gun - Common, Uncommon, Rare
+    Pistol - Common, Uncommon, Rare
+    Suppressed Pistol - Rare, Epic
 
 ## Snipers
-    Hunting Rifle
-    Bolt-Action Sniper Rifle
-    Semi-Automatic Sniper Rifle
+    Hunting Rifle - Uncommon, Rare, Epic, Legendary
+    Bolt-Action Sniper Rifle - Rare, Epic, Legendary
+    Semi-Automatic Sniper Rifle - Uncommon, Rare
 
 ## Explosives
-    Rocket Launcher
-    Grenade Launcher
+    Rocket Launcher - Rare, Epic, Legendary
+    Grenade Launcher - Rare, Epic, Legendary
 
 ## Other
-    Light Machine Gun (wouldn't this be an smg? or ar?)
-    Hand Cannon (snipers?)
-
-# section 2
-
-## rarity (chatgpt told me that u do sections for pages so I'll try that ig)
+    Light Machine Gun - Rare, Epic
+    Hand Cannon - Epic, Legendary
