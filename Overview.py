@@ -28,6 +28,7 @@ st.write('#### [+] Saving configs now works with computer names instead of calli
 st.write('### [+] Now saving configs saves to a folder called \'configs\' the folder is requierd for saving configs.')
 st.write('### [+] You can now see all weapons currently being used in the \'weapons.md\' file on github')
 st.write('### [:] Updated to all new weapons.')
+st.write('### [:]/[+] Update/add menu_items')
 st.write('# \n ##### [/] = Fixed\n ##### [//] = Reverted\n ##### [///] = Working on\n ##### [:] = Changed something\n ##### [+] = Added\n ##### [-] = Removed\n\n\n ##### also pls tell me about bugs and other things so i can fix them (on discord) :)')
 
 #with st.sidebar:
