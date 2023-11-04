@@ -1,4 +1,4 @@
-# This file contains all weapons that are used in the project.
+[Source](www.fortnite.gg/weapons)
 
 ## Shotguns
     Pump Shotgun
