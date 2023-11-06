@@ -63,7 +63,7 @@ with tab1:
         elif slotone == 'Other':
             slotone1 = st.selectbox(
                 'Other s1',
-                ('Light Machine Gun', 'Hand Cannon'))
+                ('Light Machine Gun', 'Hand Cannon', 'Chug Jug', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Mushroom', 'Corn', 'Coconut', 'Cabbage', 'Banana', 'Apple'))
         # Slot two
         if slottwo == 'Shotgun':
             slottwo1 = st.selectbox(
@@ -88,7 +88,7 @@ with tab1:
         elif slottwo == 'Other':
             slottwo1 = st.selectbox(
                 'Other s2',
-                ('Light Machine Gun ', 'Hand Cannon'))
+                ('Light Machine Gun ', 'Hand Cannon', 'Chug Jug', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Mushroom', 'Corn', 'Coconut', 'Cabbage', 'Banana', 'Apple'))
         # Slot three
         if slotthree == 'Shotgun':
             slotthree1 = st.selectbox(
@@ -113,7 +113,7 @@ with tab1:
         elif slotthree == 'Other':
             slotthree1 = st.selectbox(
                 'Other s3',
-                ('Light Machine Gun  ', 'Hand Cannon'))
+                ('Light Machine Gun  ', 'Hand Cannon', 'Chug Jug', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Mushroom', 'Corn', 'Coconut', 'Cabbage', 'Banana', 'Apple'))
         # Slot four
         if slotfour == 'Shotgun':
             slotfour1 = st.selectbox(
@@ -138,7 +138,7 @@ with tab1:
         elif slotfour == 'Other':
             slotfour1 = st.selectbox(
                 'Healing s4',
-                ('Light Machine Gun   ', 'Hand Cannon'))      
+                ('Light Machine Gun   ', 'Hand Cannon', 'Chug Jug', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Mushroom', 'Corn', 'Coconut', 'Cabbage', 'Banana', 'Apple'))      
         # Slot five
         if slotfive == 'Shotgun':
             slotfive1 = st.selectbox(
@@ -163,7 +163,7 @@ with tab1:
         elif slotfive == 'Other':
             slotfive1 = st.selectbox(
                 'Other s5',
-                ('Light Machine Gun    ', 'Hand Cannon'))
+                ('Light Machine Gun    ', 'Hand Cannon', 'Chug Jug', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Mushroom', 'Corn', 'Coconut', 'Cabbage', 'Banana', 'Apple'))
     with col3:
         slotoner = 'None'
         slottwor = 'None'
@@ -232,6 +232,10 @@ with tab1:
             slotoner = st.selectbox(
                 'Other rarity s1',
                 ('Epic', 'Legendary'))
+        elif slotone1 == 'Chug Jug' or slotone1 == 'Shield Potion' or slotone1 == 'Small Shield Potion' or slotone1 == 'Medkit' or slotone1 == 'Mushroom' or slotone1 == 'Corn' or slotone1 == 'Coconut' or slotone1 == 'Cabbage' or slotone1 == 'Banana' or slotone1 == 'Apple':
+            slotoner = st.selectbox(
+                'Other rarity s1',
+                ('None',))         
 
 # SLOT TWO DOWN
 
@@ -297,6 +301,10 @@ with tab1:
             slottwor = st.selectbox(
                 'Other rarity s2',
                 ('Epic', 'Legendary'))
+        elif slottwo1 == 'Chug Jug' or slottwo1 == 'Shield Potion' or slottwo1 == 'Small Shield Potion' or slottwo1 == 'Medkit' or slottwo1 == 'Mushroom' or slottwo1 == 'Corn' or slottwo1 == 'Coconut' or slottwo1 == 'Cabbage' or slottwo1 == 'Banana' or slottwo1 == 'Apple':
+            slottwor = st.selectbox(
+                'Other rarity s2',
+                ('None',))
 
 # SLOT THREE DOWN
 
@@ -362,6 +370,10 @@ with tab1:
             slotthreer = st.selectbox(
                 'Other rarity s3',
                 ('Epic', 'Legendary'))
+        elif slotthree1 == 'Chug Jug' or slotthree1 == 'Shield Potion' or slotthree1 == 'Small Shield Potion' or slotthree1 == 'Medkit' or slotthree1 == 'Mushroom' or slotthree1 == 'Corn' or slotthree1 == 'Coconut' or slotthree1 == 'Cabbage' or slotthree1 == 'Banana' or slotthree1 == 'Apple':
+            slotthreer = st.selectbox(
+                'Other rarity s3',
+                ('None',))
 
 # SLOT FOUR DOWN
 
@@ -427,6 +439,10 @@ with tab1:
             slotfourr = st.selectbox(
                 'Other rarity s4',
                 ('Epic', 'Legendary'))
+        elif slotfour1 == 'Chug Jug' or slotfour1 == 'Shield Potion' or slotfour1 == 'Small Shield Potion' or slotfour1 == 'Medkit' or slotfour1 == 'Mushroom' or slotfour1 == 'Corn' or slotfour1 == 'Coconut' or slotfour1 == 'Cabbage' or slotfour1 == 'Banana' or slotfour1 == 'Apple':
+            slotfourr = st.selectbox(
+                'Other rarity s4',
+                ('None',))
 
 # SLOT FIVE DOWN
 
@@ -492,6 +508,10 @@ with tab1:
             slotfiver = st.selectbox(
                 'Other rarity s5',
                 ('Epic', 'Legendary'))
+        elif slotfive1 == 'Chug Jug' or slotfive1 == 'Shield Potion' or slotfive1 == 'Small Shield Potion' or slotfive1 == 'Medkit' or slotfive1 == 'Mushroom' or slotfive1 == 'Corn' or slotfive1 == 'Coconut' or slotfive1 == 'Cabbage' or slotfive1 == 'Banana' or slotfive1 == 'Apple':
+            slotfiver = st.selectbox(
+                'Other rarity s5',
+                ('None',))    
 
 with tab2:
     if slotone == 'None' or slottwo == 'None' or slotthree == 'None' or slotfour == 'None' or slotfive == 'None':
