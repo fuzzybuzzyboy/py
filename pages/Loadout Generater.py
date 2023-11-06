@@ -1,245 +1,239 @@
-import random
-import streamlit as st
-import time as ti
 from datetime import datetime
+import random, time, streamlit as st
 
 st.set_page_config(
     page_title='Loadout Generater',
     page_icon="🤑",
     layout="wide",
     initial_sidebar_state="expanded",
+    menu_items={
+        'Get help': 'https://github.com/fuzzybuzzyboy/py',
+        'Report a bug': "https://github.com/fuzzybuzzyboy/py",
+        'About': "Random items generator for fortnite (no this doesn't inject into your game and do something blah blah blah)"
+    }
 )
-
-#login.test()
-
-a = ''
-b = ''
-c = ''
-d = ''
-e = ''
-f = ''
-slottwo1 = 'None'
-slotthree1 = 'None'
-slotfour1 = 'None'
-slotfive1 = 'None'
+code = '''https://github.com/fuzzybuzzyboy/py'''
+Shotgun_Type = 'None'
+Shotgun_Rarity = 'None'
+Assualt_Rifle_Type = 'None'
+Assualt_Rifle_Rarity = 'None'
+SMG_Type = 'None'
+SMG_Rarity = 'None'
+Snipers_Type = 'None'
+Snipers_Rarity = 'None'
+Explosives_Type = 'None'
+Explosives_Rarity = 'None'
+Other_Type = 'None'
+Other_Rarity = 'None'
 button = 1
-thing = 0
 
-shot = int(st.selectbox(
-    'Shotguns.',
-    (1, 2, 3)))
-gun = st.selectbox(
-    'Assault-Rifles.',
-    (1, 2, 3, 4))
-smg1 = st.selectbox(
-    'SMGs.',
-    (1, 2, 3, 4))
+Shotgun_on = st.toggle('Shotguns')
+Assualt_Rifle_on = st.toggle('Assault-Rifles')
+SMG_on = st.toggle('SMG')
+Snipers_on = st.toggle('Snipers')
+Explosives_on = st.toggle('Explosives')
+Other_on = st.toggle('Other')
 
+st.divider()
 for i in range(button):
-    shotgun = random.randint(1, int(shot))
-    ar = random.randint(1, int(gun))
-    smg = random.randint(1, int(smg1))
-    movement = random.randint(1, 2)
-    healing = random.randint(1, 7)
+    Shotgun_Type_Weapon = random.randint(1, 2)
+    Shotgun_Type_Weapon_2 = random.randint(1, 2)
+    Assualt_Type_Weapon = random.randint(1, 4)
+    Assualt_Type_Weapon_2 = random.randint(1, 2)
+    SMG_Type_Weapon = random.randint(1, 4)
+    SMG_Type_Weapon_2 = random.randint(1, 2)
+    Snipers_Type_Weapon = random.randint(1, 3)
+    Other_Type_Weapon = random.randint(1, 2)
     button = 0
-    if shotgun == 1:
-        a = '\'Sharp Tooth Shotgun\''
-        rarity_shot = random.randint(1, 4)
-        if rarity_shot == 1:
-            shotgun1 = 'Uncommon'
-        elif rarity_shot == 2:
-            shotgun1 = 'Rare'
-        elif rarity_shot == 3:
-            shotgun1 = 'Epic'
-        elif rarity_shot == 4:
-            shotgun1 = 'Legendary'
-    elif shotgun == 2:
-        a = '\'Maven Auto Shotgun\''
-        rarity_shot = random.randint(1, 6)
-        if rarity_shot == 1:
-            shotgun1 = 'Common'
-        elif rarity_shot == 2:
-            shotgun1 = 'Uncommon'
-        elif rarity_shot == 3:
-            shotgun1 = 'Rare'
-        elif rarity_shot == 4:
-            shotgun1 = 'Epic'
-        elif rarity_shot == 5:
-            shotgun1 = 'Legendary'
-        elif rarity_shot == 6:
-            shotgun1 = 'Exotic'
-    elif shotgun == 3:
-        a = '\'Infiltrator Pump Shotgun\''
-        rarity_shot = random.randint(1, 6)
-        if rarity_shot == 1:
-            shotgun1 = 'Common'
-        elif rarity_shot == 2:
-            shotgun1 = 'Uncommon'
-        elif rarity_shot == 3:
-            shotgun1 = 'Rare'
-        elif rarity_shot == 4:
-            shotgun1 = 'Epic'
-        elif rarity_shot == 5:
-            shotgun1 = 'Legendary'
-        elif rarity_shot == 6:
-            shotgun1 = 'Mythic'
-            a = 'Enhanced Infiltrator Pump Shotgun'
-    if ar == 1:
-        b = '\'Twin Mag Assault Rifle\''
-        rarity_ar = random.randint(1, 5)
-        if rarity_ar == 1:
-            ar1 = 'Common'
-        elif rarity_ar == 2:
-            ar1 = 'Uncommon'
-        elif rarity_ar == 3:
-            ar1 = 'Rare'
-        elif rarity_ar == 4:
-            ar1 = 'Epic'
-        elif rarity_ar == 5:
-            ar1 = 'Legendary'
-    elif ar == 2:
-        b = '\'Havoc Suppressed Assault Rifle\''
-        rarity_ar = random.randint(1, 6)
-        if rarity_ar == 1:
-            ar1 = 'Common'
-        elif rarity_ar == 2:
-            ar1 = 'Uncommon'
-        elif rarity_ar == 3:
-            ar1 = 'Rare'
-        elif rarity_ar == 4:
-            ar1 = 'Epic'
-        elif rarity_ar == 5:
-            ar1 = 'Legendary'
-        elif rarity_ar == 6:
-            ar1 = 'Mythic'
-            b = 'Heart\'s Havoc Suppressed Rifle'
-    elif ar == 3:
-        b = '\'Sticky Grenade Launcher\''
-        rarity_ar = random.randint(1, 2)
-        if rarity_ar == 1:
-            ar1 = 'Epic'
-        elif rarity_ar == 2:
-            ar1 = 'Legendary'
-    elif ar == 4:
-        b = '\'Thermal DMR\''
-        rarity_ar = random.randint(1, 5)
-        if rarity_ar == 1:
-            ar1 = 'Uncommon'
-        elif rarity_ar == 2:
-            ar1 = 'Rare'
-        elif rarity_ar == 3:
-            ar1 = 'Epic'
-        elif rarity_ar == 4:
-            ar1 = 'Legendary'
-        elif rarity_ar == 5:
-            ar1 = 'Mythic'
-            b = 'Diamond\'s Thermal DMR'
-    if smg == 1:
-        c = '\'Submachine Gun\''
-        rarity_smg = random.randint(1, 5)
-        if rarity_smg == 1:
-            smg2 = 'Common'
-        elif rarity_smg == 2:
-            smg2 = 'Uncommon'
-        elif rarity_smg == 3:
-            smg2 = 'Rare'
-        elif rarity_smg == 4:
-            smg2 = 'Epic'
-        elif rarity_smg == 5:
-            smg2 = 'Legendary'
-    elif smg == 2:
-        c = '\'Combat SMG\''
-        rarity_smg = random.randint(1, 5)
-        if rarity_smg == 1:
-            smg2 = 'Common'
-        elif rarity_smg == 2:
-            smg2 = 'Uncommon'
-        elif rarity_smg == 3:
-            smg2 = 'Rare'
-        elif rarity_smg == 4:
-            smg2 = 'Epic'
-        elif rarity_smg == 5:
-            smg2 = 'Legendary'
-    elif smg == 3:
-        c = '\'Tactical Pistol\''
-        rarity_smg = random.randint(1, 6)
-        if rarity_smg == 1:
-            smg2 = 'Common'
-        elif rarity_smg == 2:
-            smg2 = 'Uncommon'
-        elif rarity_smg == 3:
-            smg2 = 'Rare'
-        elif rarity_smg == 4:
-            smg2 = 'Epic'
-        elif rarity_smg == 5:
-            smg2 = 'Legendary'
-        elif rarity_smg == 6:
-            smg2 = 'Mythic'
-    elif smg == 4:
-        c = '\'Run \'N\' Gun SMG\''
-        smg2 = 'Exotic'
-    if healing == 1:
-        f = '\'Mini Shield Potion\''
-    elif healing == 2:
-        f = '\'Shield Potion\''
-    elif healing == 3:
-        f = '\'Med-kit\''
-    elif healing == 4:
-        f = '\'Slap Juice\''
-    elif healing == 5:
-        f = '\'Chug Cannon\''
-    elif healing == 6:
-        f = '\'Meat\''
-    elif healing == 7:
-        f = '\'Fish\''
-    if movement == 1:
-        e = '\'Rocket Ram\''
-        movement1 = 'Rare'
-    elif movement == 2:
-        e = '\'Crash Pad Jr.\''
-        movement1 = 'Uncommon'
-col1, col2 = st.columns(2)
+    if Shotgun_on:
+        if Shotgun_Type_Weapon == 1:
+            Shotgun_Type_Rarity = random.randint(1, 5)
+            if Shotgun_Type_Weapon_2 == 1:
+                Shotgun_Type = 'Tactical Shotgun'
+            elif Shotgun_Type_Weapon_2 == 2:
+                Shotgun_Type = 'Pump Shotgun'
+            if Shotgun_Type_Rarity == 1:
+                Shotgun_Rarity = 'Common'
+            elif Shotgun_Type_Rarity == 2:
+                Shotgun_Rarity = 'Uncommon'
+            elif Shotgun_Type_Rarity == 3:
+                Shotgun_Rarity = 'Rare'
+            elif Shotgun_Type_Rarity == 4:
+                Shotgun_Rarity = 'Epic'
+            elif Shotgun_Type_Rarity == 5:
+                Shotgun_Rarity = 'Legendary'
+        if Shotgun_Type_Weapon == 2:
+            Shotgun_Type = 'Heavy Shotgun'
+            Shotgun_Type_Rarity = random.randint(1, 2)
+            if Shotgun_Type_Rarity == 1:
+                Shotgun_Rarity = 'Epic'
+            elif Shotgun_Type_Rarity == 2:
+                Shotgun_Rarity = 'Legendary'
+    if Assualt_Rifle_on:
+        if Assualt_Type_Weapon == 1:
+            Assualt_Rifle_Type_Rarity = random.randint(1, 3)
+            Assualt_Rifle_Type = 'Suppressed Assualt Rifle'
+            if Assualt_Rifle_Type_Rarity == 1:
+                Assualt_Rifle_Rarity = 'Rare'
+            elif Assualt_Rifle_Type_Rarity == 2:
+                Assualt_Rifle_Rarity = 'Epic'
+            elif Assualt_Rifle_Type_Rarity == 3:
+                Assualt_Rifle_Rarity = 'Legendary'
+        elif Assualt_Type_Weapon == 2:
+            Assualt_Rifle_Type_Rarity = random.randint(1, 5)
+            if Assualt_Type_Weapon_2 == 1:
+                Assualt_Rifle_Type = 'Assault Rifle'
+            elif Assualt_Type_Weapon_2 == 2:
+                Assualt_Rifle_Type = 'Burst Assualt Rifle'
+            if Assualt_Type_Weapon == 1:
+                Assualt_Rifle_Rarity = 'Common'
+            elif Assualt_Type_Weapon == 2:
+                Assualt_Rifle_Rarity = 'Uncommon'
+            elif Assualt_Type_Weapon == 3:
+                Assualt_Rifle_Rarity = 'Rare'
+            elif Assualt_Type_Weapon == 4:
+                Assualt_Rifle_Rarity = 'Epic'
+            elif Assualt_Type_Weapon == 5:
+                Assualt_Rifle_Rarity = 'Legendary'
+        elif Assualt_Type_Weapon == 3:
+            Assualt_Rifle_Type_Rarity = 1
+            Assualt_Rifle_Type = 'Tactical Assualt Rifle'
+            Assualt_Rifle_Rarity = 'Legendary'
+        elif Assualt_Type_Weapon == 4:
+            Assualt_Rifle_Type_Rarity = random.randint(1, 4)
+            Assualt_Rifle_Type = 'Scoped Assualt Rifle'
+            if Assualt_Rifle_Type_Rarity == 1:
+                Assualt_Rifle_Rarity = 'Uncommon'
+            elif Assualt_Rifle_Type_Rarity == 2:
+                Assualt_Rifle_Rarity = 'Rare'
+            elif Assualt_Rifle_Type_Rarity == 3:
+                Assualt_Rifle_Rarity = 'Epic'
+            elif Assualt_Rifle_Type_Rarity == 4:
+                Assualt_Rifle_Rarity = 'Legendary'
+    if SMG_on:
+        if SMG_Type_Weapon == 1:
+            SMG_Type_Rarity = random.randint(1, 5)
+            SMG_Type = 'Submachine Gun'
+            if SMG_Type_Rarity == 1:
+                SMG_Rarity = 'Common'
+            elif SMG_Type_Rarity == 2:
+                SMG_Rarity = 'Uncommon'
+            elif SMG_Type_Rarity == 3:
+                SMG_Rarity = 'Rare'
+            elif SMG_Type_Rarity == 4:
+                SMG_Rarity = 'Epic'
+            elif SMG_Type_Rarity == 5:
+                SMG_Rarity = 'Legendary'
+        elif SMG_Type_Weapon == 2 or SMG_Type_Weapon == 3:
+            SMG_Type_Rarity = random.randint(1, 3)
+            if SMG_Type_Weapon_2 == 1:
+                SMG_Type = 'Suppressed Submachine Gun'
+            elif SMG_Type_Weapon_2 == 2:
+                SMG_Type = 'Pistol'
+            if SMG_Type_Rarity == 1:
+                SMG_Rarity = 'Common'
+            elif SMG_Type_Rarity == 2:
+                SMG_Rarity = 'Uncommon'
+            elif SMG_Type_Rarity == 3:
+                SMG_Rarity = 'Rare'
+        elif SMG_Type_Weapon == 4:
+            SMG_Type_Rarity = random.randint(1, 2)
+            SMG_Type = 'Suppressed Pistol'
+            if SMG_Type_Rarity == 1:
+                SMG_Rarity = 'Rare'
+            elif SMG_Type_Rarity == 2:
+                SMG_Rarity = 'Epic'
+    if Snipers_on:
+        if Snipers_Type_Weapon == 1:
+            Snipers_Type = 'Hunting Rifle'
+            Snipers_Type_Rarity = random.randint(1, 4)
+            if Snipers_Type_Rarity == 1:
+                Snipers_Rarity = 'Uncommon'
+            elif Snipers_Type_Rarity == 2:
+                Snipers_Rarity = 'Rare'
+            elif Snipers_Type_Rarity == 3:
+                Snipers_Rarity = 'Epic'
+            elif Snipers_Type_Rarity == 4:
+                Snipers_Rarity = 'Legendary'
+        elif Snipers_Type_Weapon == 2:
+            Snipers_Type = 'Bolt-Action Sniper Rifle'
+            Snipers_Type_Rarity = random.randint(1, 3)
+            if Snipers_Type_Rarity == 1:
+                Snipers_Rarity = 'Rare'
+            elif Snipers_Type_Rarity == 2:
+                Snipers_Rarity = 'Epic'
+            elif Snipers_Type_Rarity == 3:
+                Snipers_Rarity = 'Legendary'
+        elif Snipers_Type_Weapon == 3:
+            Snipers_Type = 'Semi-Automatic Sniper Rifle'
+            Snipers_Type_Rarity = random.randint(1, 2)
+            if Snipers_Type_Rarity == 1:
+                Snipers_Rarity = 'Uncommon'
+            elif Snipers_Type_Rarity == 2:
+                Snipers_Rarity = 'Rare'
+    if Explosives_on:
+        Explosives_Type_Weapon = random.randint(1, 2)
+        Explosives_Type_Rarity = random.randint(1, 3)
+        if Explosives_Type_Weapon == 1:
+            Explosives_Type = 'Rocket Launcher'
+        elif Explosives_Type_Weapon == 2:
+            Explosives_Type = 'Grenade Launcher'
+        if Explosives_Type_Rarity == 1:
+            Explosives_Rarity = 'Rare'
+        elif Explosives_Type_Rarity == 2:
+            Explosives_Rarity = 'Epic'
+        elif Explosives_Type_Rarity == 3:
+            Explosives_Rarity = 'Legendary'
+    if Other_on:
+        Other_Type_Rarity = random.randint(1, 2)
+        if Other_Type_Weapon == 1:
+            Other_Type = 'Light Machine Gun'
+            if Other_Type_Rarity == 1:
+                Other_Rarity = 'Rare'
+            elif Other_Type_Rarity == 2:
+                Other_Rarity = 'Epic'
+        elif Other_Type_Weapon == 2:
+            Other_Type = 'Hand Cannon'
+            if Other_Type_Rarity == 1:
+                Other_Rarity = 'Epic'
+            elif Other_Type_Rarity == 2:
+                Other_Rarity = 'Legendary'
 
+col1, col2 = st.columns(2)
 with col1:
     tab1b, tab2b, tab3b = st.tabs(["Base", "Regular", "Json"])
-
     with tab1b:
         st.write(
-            f'# Load-Out\n    Shotgun = {a}\n    Assault-Rifle : {b}\n    Smg : {c}'
-            f'\n    Movement : {e}\n    Healing : {f}')
-
+            f'# Load-Out\n    Shotgun = {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
     with tab2b:
         st.write(
-            f'# Load-Out  \n##### Shotgun = {a}\n#####    Assault-Rifle : {b}\n#####    Smg : {c}'
-            f'\n#####    Movement : {e}\n#####    Healing : {f}')
-
+            f'# Load-Out  \n##### Shotgun = {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    Smg : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
     with tab3b:
         st.json({
             'Load-Out': [
-                f'Shotgun = {a}',
-                f'Assault-Rifle = {b}',
-                f'Smg = {c}',
-                f'Movement = {e}',
-                f'Healing = {f}'
+                f'Shotgun : {Shotgun_Type}',
+                f'Assault Rifle : {Assualt_Rifle_Type}',
+                f'SMG : {SMG_Type}',
+                f'Sniper : {Snipers_Type}',
+                f'Explosives : {Explosives_Type}',
+                f'Other : {Other_Type}'
             ],
         })
 with col2:
         taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
-
         with taba1:
-            st.write(f'# Rarity\n    Shotgun : {shotgun1}\n    Assault-Rifle : {ar1}\n    Smg : {smg2}\n    Movement : {movement1}\n    Healing : no')
-
+            st.write(f'# Rarity\n    Shotgun : {Shotgun_Rarity}\n    Assault Rifle : {Assualt_Rifle_Rarity}\n    SMG : {SMG_Rarity}\n    Sniper : {Snipers_Rarity}\n    Explosives : {Explosives_Rarity}\n    Other : {Other_Rarity}')
         with taba2:
-            st.write(f'# Rarity  \n##### Shotgun : {shotgun1}\n#####    Assault-Rifle : {ar1}\n#####    Smg : {smg2}\n#####    Movement : {movement1}\n#####    Healing : no')
-
+            st.write(f'# Rarity  \n##### Shotgun : {Shotgun_Rarity}\n#####    Assault Rifle : {Assualt_Rifle_Rarity}\n#####    SMG : {SMG_Rarity}\n#####    Sniper : {Snipers_Rarity}\n#####    Explosives : {Explosives_Rarity}\n#####    Other : {Other_Rarity}')
         with taba3:
             st.json({
                 'Rarity': [
-                    f'Shotgun : {shotgun1}',
-                    f'Assault-Rifle : {ar1}',
-                    f'Smg : {smg2}',
-                    f'Movement : {movement1}'
-                    f'Healing : None'
+                    f'Shotgun : {Shotgun_Rarity}',
+                    f'Assault Rifle : {Assualt_Rifle_Rarity}',
+                    f'SMG : {SMG_Rarity}',
+                    f'Sniper : {Snipers_Rarity}'
+                    f'Explosives : {Explosives_Rarity}',
+                    f'Other : {Other_Rarity}'
                 ],
             })
 st.divider()
@@ -248,16 +242,7 @@ if st.button('Randomize Load-Out'):
 else:
     pass
 with st.sidebar:
-    if st.button('Source Code'):
-        thing = + 1
-    else:
-        pass
-    if thing == 1:
-        code = '''https://github.com/fuzzybuzzyboy/py'''
-        st.code(code, language='Text')
-        thing = 0
-    else:
-        thing = 0
+    st.code(f'Code at : \n{code}', language='Text')
 with st.sidebar:
     with st.empty():
         if st.button('Clock'):
@@ -269,4 +254,4 @@ with st.sidebar:
                     st.write(f'# Clock\n    Current time : {time_now}\n    Date : {time_now1}\n##### Reminder, the clock will vanish when creating a new load-out. The clock button will show up.')
                     time_later = datetime.now().strftime("%S")
                     t += 1
-                    ti.sleep(1)
+                    time.sleep(1)
