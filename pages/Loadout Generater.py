@@ -204,10 +204,10 @@ with col1:
     tab1b, tab2b, tab3b = st.tabs(["Base", "Regular", "Json"])
     with tab1b:
         st.write(
-            f'# Load-Out\n    Shotgun = {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
+            f'# Load-Out\n    Shotgun : {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
     with tab2b:
         st.write(
-            f'# Load-Out  \n##### Shotgun = {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    Smg : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
+            f'# Load-Out  \n##### Shotgun : {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    Smg : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
     with tab3b:
         st.json({
             'Load-Out': [
