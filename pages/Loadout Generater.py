@@ -1,5 +1,5 @@
 from datetime import datetime
-import random, time, streamlit as st
+import random, time, os, platform, streamlit as st
 
 st.set_page_config(
     page_title='Loadout Generater',
@@ -12,6 +12,11 @@ st.set_page_config(
         'About': "Random items generator for fortnite (no this doesn't inject into your game and do something blah blah blah)"
     }
 )
+
+login = f'{platform.node()}_Gen'
+Folder_Path = "configs"
+File_Path = os.path.join(Folder_Path, login,)
+
 code = '''https://github.com/fuzzybuzzyboy/py'''
 Shotgun_Type = 'None'
 Shotgun_Rarity = 'None'
@@ -203,13 +208,14 @@ col1, col2 = st.columns(2)
 with col1:
     tab1b, tab2b, tab3b = st.tabs(["Base", "Regular", "Json"])
     with tab1b:
-        st.write(
-            f'# Load-Out\n    Shotgun : {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
+        t1 = st.empty()
+        t1.write(f'# Load-Out\n    Shotgun : {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
     with tab2b:
-        st.write(
-            f'# Load-Out  \n##### Shotgun : {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    Smg : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
+        t2 = st.empty()
+        t2.write(f'# Load-Out  \n##### Shotgun : {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    Smg : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
     with tab3b:
-        st.json({
+        t3 = st.empty()
+        t3.json({
             'Load-Out': [
                 f'Shotgun : {Shotgun_Type}',
                 f'Assault Rifle : {Assualt_Rifle_Type}',
@@ -222,11 +228,14 @@ with col1:
 with col2:
         taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
         with taba1:
-            st.write(f'# Rarity\n    Shotgun : {Shotgun_Rarity}\n    Assault Rifle : {Assualt_Rifle_Rarity}\n    SMG : {SMG_Rarity}\n    Sniper : {Snipers_Rarity}\n    Explosives : {Explosives_Rarity}\n    Other : {Other_Rarity}')
+            tt1 = st.empty()
+            tt1.write(f'# Rarity\n    Shotgun : {Shotgun_Rarity}\n    Assault Rifle : {Assualt_Rifle_Rarity}\n    SMG : {SMG_Rarity}\n    Sniper : {Snipers_Rarity}\n    Explosives : {Explosives_Rarity}\n    Other : {Other_Rarity}')
         with taba2:
-            st.write(f'# Rarity  \n##### Shotgun : {Shotgun_Rarity}\n#####    Assault Rifle : {Assualt_Rifle_Rarity}\n#####    SMG : {SMG_Rarity}\n#####    Sniper : {Snipers_Rarity}\n#####    Explosives : {Explosives_Rarity}\n#####    Other : {Other_Rarity}')
+            tt2 = st.empty()
+            tt2.write(f'# Rarity  \n##### Shotgun : {Shotgun_Rarity}\n#####    Assault Rifle : {Assualt_Rifle_Rarity}\n#####    SMG : {SMG_Rarity}\n#####    Sniper : {Snipers_Rarity}\n#####    Explosives : {Explosives_Rarity}\n#####    Other : {Other_Rarity}')
         with taba3:
-            st.json({
+            tt3 = st.empty()
+            tt3.json({
                 'Rarity': [
                     f'Shotgun : {Shotgun_Rarity}',
                     f'Assault Rifle : {Assualt_Rifle_Rarity}',
@@ -236,6 +245,87 @@ with col2:
                     f'Other : {Other_Rarity}'
                 ],
             })
+st.divider()
+def save():
+    if os.path.exists(f"{File_Path}.txt"):
+        os.remove(f"{File_Path}.txt")
+        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here
+        f.write(f'{Shotgun_Type}\n{Shotgun_Rarity}\n{Assualt_Rifle_Type}\n{Assualt_Rifle_Rarity}\n{SMG_Type}\n{SMG_Rarity}\n{Snipers_Type}\n{Snipers_Rarity}\n{Explosives_Type}\n{Explosives_Rarity}\n{Other_Type}\n{Other_Rarity}')
+        f.close()
+    else:
+        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here
+        f.write(f'{Shotgun_Type}\n{Shotgun_Rarity}\n{Assualt_Rifle_Type}\n{Assualt_Rifle_Rarity}\n{SMG_Type}\n{SMG_Rarity}\n{Snipers_Type}\n{Snipers_Rarity}\n{Explosives_Type}\n{Explosives_Rarity}\n{Other_Type}\n{Other_Rarity}')
+        f.close()
+        st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
+        f.close()
+
+if st.button('Save Config'):
+    if os.path.exists(f"{File_Path}.txt"):
+        st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
+    save()
+
+if st.button('Load Config'):
+    if os.path.exists(f"{File_Path}.txt"):
+        with open(f'{File_Path}.txt', "r") as file:
+            lines = [line.strip() for line in file.readlines()]
+
+        if len(lines) == 12:
+            Shotgun_Type = lines[0]
+            Shotgun_Rarity = lines[1]
+            Assualt_Rifle_Type = lines[2]
+            Assualt_Rifle_Rarity = lines[3]
+            SMG_Type = lines[4]
+            SMG_Rarity = lines[5]
+            Snipers_Type = lines[6]
+            Snipers_Rarity = lines[7]
+            Explosives_Type = lines[8]
+            Explosives_Rarity = lines[9]
+            Other_Type = lines[10]
+            Other_Rarity = lines[11]
+
+            # These prints are just here if you want to get more info. Just remove the '#' from them and then check your CMD, they will show up there as well
+
+            # print("Loaded configuration with success:")
+            # print(f"Slot one : {slotone}, {slotoner}, {slotone1}\nSlot two : {slottwo}, {slottwor}, {slottwo1}\nSlot three : {slotthree}, {slotthreer}, {slotthree1}\nSlot four : {slotfour}, {slotfourr}, {slotfour1}\nSlot five : {slotfive}, {slotfiver}, {slotfive1}")
+
+            # RARITY
+
+            t1.write(
+                f'# Custom loadout rarity\n    Shotgun : {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
+            t2.write(
+                f'# Custom loadout rarity  \n##### Shotgun : {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    SMG : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
+            t3.json({
+                'Custom loadout rarity': [
+                    f'Shotgun : {Shotgun_Type}',
+                    f'Assault Rifle : {Assualt_Rifle_Type}',
+                    f'SMG : {SMG_Type}',
+                    f'Sniper : {Snipers_Type}',
+                    f'Explosives : {Explosives_Type}',
+                    f'Other : {Other_Type}'
+                ],
+            })
+
+            # WEAPONS
+
+            tt1.write(
+                f'# Custom loadout\n    Shotgun : {Shotgun_Rarity}\n    Assault Rifle : {Assualt_Rifle_Rarity}\n    SMG : {SMG_Rarity}\n    Sniper : {Snipers_Rarity}\n    Explosives : {Explosives_Rarity}\n    Other : {Other_Rarity}')
+            tt2.write(
+                f'# Custom loadout  \n##### Shotgun : {Shotgun_Rarity}\n#####    Assault Rifle : {Assualt_Rifle_Rarity}\n#####    SMG : {SMG_Rarity}\n#####    Sniper : {Snipers_Rarity}\n#####    Explosives : {Explosives_Rarity}\n#####    Other : {Other_Rarity}')
+            tt3.json({
+                'Custom loadout': [
+                    f'Shotgun : {Shotgun_Rarity}',
+                    f'Assault Rifle : {Assualt_Rifle_Rarity}',
+                    f'SMG : {SMG_Rarity}',
+                    f'Sniper : {Snipers_Rarity}',
+                    f'Explosives : {Explosives_Rarity}',
+                    f'Other : {Other_Rarity}'
+                ],
+            })
+            st.success(f"Loaded configuration from \'{File_Path}.txt\'", icon="✅")
+        else:
+            st.error("Invalid configuration file. Expected 12 lines.")
+    else:
+        st.error("File doesn't exist. Please create/save a configuration.")
 st.divider()
 if st.button('Randomize Load-Out'):
     button = + 1
