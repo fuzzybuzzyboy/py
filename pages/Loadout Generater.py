@@ -32,12 +32,12 @@ Other_Type = 'None'
 Other_Rarity = 'None'
 button = 1
 
-Shotgun_on = st.toggle('Shotguns')
-Assualt_Rifle_on = st.toggle('Assault-Rifles')
-SMG_on = st.toggle('SMG')
-Snipers_on = st.toggle('Snipers')
-Explosives_on = st.toggle('Explosives')
-Other_on = st.toggle('Other')
+Shotgun_on = st.toggle('Shotguns', value=False)
+Assualt_Rifle_on = st.toggle('Assault-Rifles', value=False)
+SMG_on = st.toggle('SMG', value=False)
+Snipers_on = st.toggle('Snipers', value=False)
+Explosives_on = st.toggle('Explosives', value=False)
+Other_on = st.toggle('Other', value=False)
 
 st.divider()
 for i in range(button):
@@ -45,11 +45,10 @@ for i in range(button):
     Shotgun_Type_Weapon_2 = random.randint(1, 2)
     Assualt_Type_Weapon = random.randint(1, 4)
     Assualt_Type_Weapon_2 = random.randint(1, 2)
-    SMG_Type_Weapon = random.randint(1, 4)
+    SMG_Type_Weapon = random.randint(1, 5)
     SMG_Type_Weapon_2 = random.randint(1, 2)
     Snipers_Type_Weapon = random.randint(1, 3)
-    Other_Type_Weapon = random.randint(1, 2)
-    button = 0
+    Other_Type_Weapon = random.randint(1, 3)
     if Shotgun_on:
         if Shotgun_Type_Weapon == 1:
             Shotgun_Type_Rarity = random.randint(1, 5)
@@ -68,7 +67,10 @@ for i in range(button):
             elif Shotgun_Type_Rarity == 5:
                 Shotgun_Rarity = 'Legendary'
         if Shotgun_Type_Weapon == 2:
-            Shotgun_Type = 'Heavy Shotgun'
+            if Shotgun_Type_Weapon_2 == 1:
+                Shotgun_Type = 'Heavy Shotgun'
+            elif Shotgun_Type_Weapon_2 == 2:
+                Shotgun_Type = 'Double Barrel Shotgun'            
             Shotgun_Type_Rarity = random.randint(1, 2)
             if Shotgun_Type_Rarity == 1:
                 Shotgun_Rarity = 'Epic'
@@ -89,7 +91,7 @@ for i in range(button):
             if Assualt_Type_Weapon_2 == 1:
                 Assualt_Rifle_Type = 'Assault Rifle'
             elif Assualt_Type_Weapon_2 == 2:
-                Assualt_Rifle_Type = 'Burst Assualt Rifle'
+                Assualt_Rifle_Type = 'Heavy Assault Rifle'
             if Assualt_Type_Weapon == 1:
                 Assualt_Rifle_Rarity = 'Common'
             elif Assualt_Type_Weapon == 2:
@@ -148,6 +150,15 @@ for i in range(button):
                 SMG_Rarity = 'Rare'
             elif SMG_Type_Rarity == 2:
                 SMG_Rarity = 'Epic'
+        elif SMG_Type_Weapon == 5:
+            SMG_Type = 'Six Shooter'
+            SMG_Type_Rarity = random.randint(1, 3)
+            if SMG_Type_Rarity == 1:
+                SMG_Rarity = 'Uncommon'
+            elif SMG_Type_Rarity == 2:
+                SMG_Rarity = 'Rare'
+            elif SMG_Type_Rarity == 3:
+                SMG_Rarity = 'Epic'
     if Snipers_on:
         if Snipers_Type_Weapon == 1:
             Snipers_Type = 'Hunting Rifle'
@@ -203,20 +214,31 @@ for i in range(button):
                 Other_Rarity = 'Epic'
             elif Other_Type_Rarity == 2:
                 Other_Rarity = 'Legendary'
+        elif Other_Type_Weapon == 3:
+            Other_Rarity = 'None'
+            Other_Type_Weapon_2 = random.randint(1, 4)
+            if Other_Type_Weapon_2 == 1:
+                Other_Type = 'Chug Jug'
+            elif Other_Type_Weapon_2 == 2:
+                Other_Type = 'Shield Potion'
+            elif Other_Type_Weapon_2 == 3:
+                Other_Type = 'Small Shield Potion'
+            elif Other_Type_Weapon_2 == 4:
+                Other_Type = 'Medkit'
 
 col1, col2 = st.columns(2)
 with col1:
     tab1b, tab2b, tab3b = st.tabs(["Base", "Regular", "Json"])
     with tab1b:
         t1 = st.empty()
-        t1.write(f'# Weapons\n    Shotgun : {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
+        t1.write(f'# Load-Out\n    Shotgun : {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
     with tab2b:
         t2 = st.empty()
-        t2.write(f'# Weapons  \n##### Shotgun : {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    Smg : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
+        t2.write(f'# Load-Out  \n##### Shotgun : {Shotgun_Type}\n#####    Assault Rifle : {Assualt_Rifle_Type}\n#####    Smg : {SMG_Type}\n#####    Sniper : {Snipers_Type}\n#####    Explosives : {Explosives_Type}\n#####    Other : {Other_Type}')
     with tab3b:
         t3 = st.empty()
         t3.json({
-            'Weapons': [
+            'Load-Out': [
                 f'Shotgun : {Shotgun_Type}',
                 f'Assault Rifle : {Assualt_Rifle_Type}',
                 f'SMG : {SMG_Type}',
@@ -246,30 +268,29 @@ with col2:
                 ],
             })
 st.divider()
-def save():
-    if os.path.exists(f"{File_Path}.txt"):
-        os.remove(f"{File_Path}.txt")
-        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here
-        f.write(f'{Shotgun_Type}\n{Shotgun_Rarity}\n{Assualt_Rifle_Type}\n{Assualt_Rifle_Rarity}\n{SMG_Type}\n{SMG_Rarity}\n{Snipers_Type}\n{Snipers_Rarity}\n{Explosives_Type}\n{Explosives_Rarity}\n{Other_Type}\n{Other_Rarity}')
-        f.close()
-    else:
-        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here
-        f.write(f'{Shotgun_Type}\n{Shotgun_Rarity}\n{Assualt_Rifle_Type}\n{Assualt_Rifle_Rarity}\n{SMG_Type}\n{SMG_Rarity}\n{Snipers_Type}\n{Snipers_Rarity}\n{Explosives_Type}\n{Explosives_Rarity}\n{Other_Type}\n{Other_Rarity}')
-        f.close()
-        st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
-        f.close()
 
 if st.button('Save Config'):
     if os.path.exists(f"{File_Path}.txt"):
+        button = 0
+        os.remove(f"{File_Path}.txt")
+        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here                        # VALUES
+        f.write(f'{Shotgun_Type}\n{Shotgun_Rarity}\n{Assualt_Rifle_Type}\n{Assualt_Rifle_Rarity}\n{SMG_Type}\n{SMG_Rarity}\n{Snipers_Type}\n{Snipers_Rarity}\n{Explosives_Type}\n{Explosives_Rarity}\n{Other_Type}\n{Other_Rarity}\n{Shotgun_on}\n{Assualt_Rifle_on}\n{SMG_on}\n{Snipers_on}\n{Explosives_on}\n{Other_on}')
         st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
-    save()
+        f.close()
+    else:
+        button = 0
+        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here
+        f.write(f'{Shotgun_Type}\n{Shotgun_Rarity}\n{Assualt_Rifle_Type}\n{Assualt_Rifle_Rarity}\n{SMG_Type}\n{SMG_Rarity}\n{Snipers_Type}\n{Snipers_Rarity}\n{Explosives_Type}\n{Explosives_Rarity}\n{Other_Type}\n{Other_Rarity}\n{Shotgun_on}\n{Assualt_Rifle_on}\n{SMG_on}\n{Snipers_on}\n{Explosives_on}\n{Other_on}')
+        f.close()
+        st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
+        f.close()
 
 if st.button('Load Config'):
     if os.path.exists(f"{File_Path}.txt"):
         with open(f'{File_Path}.txt', "r") as file:
             lines = [line.strip() for line in file.readlines()]
 
-        if len(lines) == 12:
+        if len(lines) == 18:
             Shotgun_Type = lines[0]
             Shotgun_Rarity = lines[1]
             Assualt_Rifle_Type = lines[2]
@@ -282,13 +303,14 @@ if st.button('Load Config'):
             Explosives_Rarity = lines[9]
             Other_Type = lines[10]
             Other_Rarity = lines[11]
+            Shotgun_on = lines[12]
+            Assualt_Rifle_on = lines[13]
+            SMG_on = lines[14]
+            Snipers_on = lines[15]
+            Explosives_on = lines[16]
+            Other_on = lines[17]
 
-            # These prints are just here if you want to get more info. Just remove the '#' from them and then check your CMD, they will show up there as well
-
-            # print("Loaded configuration with success:")
-            # print(f"Slot one : {slotone}, {slotoner}, {slotone1}\nSlot two : {slottwo}, {slottwor}, {slottwo1}\nSlot three : {slotthree}, {slotthreer}, {slotthree1}\nSlot four : {slotfour}, {slotfourr}, {slotfour1}\nSlot five : {slotfive}, {slotfiver}, {slotfive1}")
-
-            # RARITY
+            print(f'{Shotgun_Type}, {Shotgun_Rarity}\n{Assualt_Rifle_Type}, {Assualt_Rifle_Rarity}\n{SMG_Type}, {SMG_Rarity}\n{Snipers_Type}, {Snipers_Rarity}\n{Explosives_Type}, {Explosives_Rarity}\n{Other_Type}, {Other_Rarity}\n\n{Shotgun_on}, {Assualt_Rifle_on}, {SMG_on}, {Snipers_on}, {Explosives_on}, {Other_on}')
 
             t1.write(
                 f'# Custom loadout rarity\n    Shotgun : {Shotgun_Type}\n    Assault Rifle : {Assualt_Rifle_Type}\n    SMG : {SMG_Type}\n    Sniper : {Snipers_Type}\n    Explosives : {Explosives_Type}\n    Other : {Other_Type}')
@@ -304,9 +326,6 @@ if st.button('Load Config'):
                     f'Other : {Other_Type}'
                 ],
             })
-
-            # WEAPONS
-
             tt1.write(
                 f'# Custom loadout\n    Shotgun : {Shotgun_Rarity}\n    Assault Rifle : {Assualt_Rifle_Rarity}\n    SMG : {SMG_Rarity}\n    Sniper : {Snipers_Rarity}\n    Explosives : {Explosives_Rarity}\n    Other : {Other_Rarity}')
             tt2.write(
@@ -323,7 +342,7 @@ if st.button('Load Config'):
             })
             st.success(f"Loaded configuration from \'{File_Path}.txt\'", icon="✅")
         else:
-            st.error("Invalid configuration file. Expected 12 lines.")
+            st.error("Invalid configuration file. Expected 18 lines.")
     else:
         st.error("File doesn't exist. Please create/save a configuration.")
 st.divider()
