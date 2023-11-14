@@ -1,10 +1,5 @@
-# IMPORTANT
-# Command to run the file is : 'streamlit run {filename}.py' open your cmd in the folder with the file and run the command
-# IMPORTANT
-
-import streamlit as st
+import streamlit as st, time
 from datetime import datetime
-import time
 
 st.set_page_config(
     page_title='Overview',
@@ -19,17 +14,13 @@ st.set_page_config(
 )
 
 code = '''https://github.com/fuzzybuzzyboy/py'''
-thing = 0
 
 st.title('hi')
 
 st.title('UPDATE INFO :')
-st.write('#### [+] Saving configs now works with computer names instead of calling the file \'config_sys.txt\' or whatever it was called before. This update is mainly to fix the stupid streamlit hosting thing but ik it wont fix it')
-st.write('### [+] Now saving configs saves to a folder called \'configs\' the folder is requierd for saving configs.')
-st.write('### [+] You can now see all weapons currently being used in the \'weapons.md\' file on github')
-st.write('### [:] Updated to all new weapons.')
-st.write('### [:]/[+] Update/add menu_items')
-st.write('### [:]/[+] REDO OF LOADOUT GEN!!!')
+st.write('### [:] Changed in loadout gen and custom loadout \'Burst Assualt Rifle\' to \'Heavy Assault Rifle\'')
+st.write('### [+] Loadout Generater can now show in \'Others\' healing items (Chug Jug, Small Shield Potion, Shield Potion, Medkit)')
+st.write('### [+] Six Shooter.')
 st.write('# \n ##### [/] = Fixed\n ##### [//] = Reverted\n ##### [///] = Working on\n ##### [:] = Changed something\n ##### [+] = Added\n ##### [-] = Removed\n\n\n ##### also pls tell me about bugs and other things so i can fix them (on discord) :)')
 
 #with st.sidebar:
