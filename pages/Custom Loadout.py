@@ -47,11 +47,11 @@ with tab1:
         elif slotone == 'SMG':
             slotone1 = st.selectbox(
                 'SMG s1',
-                ('Submachine Gun', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol'))
+                ('Submachine Gun', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol', 'Six Shooter'))
         elif slotone == 'Assault-Rifle':
             slotone1 = st.selectbox(
                 'Assault-Rifle s1',
-                ('Assault Rifle', 'Suppressed Assualt Rifle', 'Burst Assualt Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
+                ('Assault Rifle', 'Suppressed Assualt Rifle', 'Heavy Assault Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
         elif slotone == 'Snipers':
             slotone1 = st.selectbox(
                 'Snipers s1',
@@ -72,11 +72,11 @@ with tab1:
         elif slottwo == 'SMG':
             slottwo1 = st.selectbox(
                 'SMG s2',
-                ('Submachine Gun ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol'))
+                ('Submachine Gun ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol', 'Six Shooter'))
         elif slottwo == 'Assault-Rifle':
             slottwo1 = st.selectbox(
                 'Assault-Rifle s2',
-                ('Assault Rifle ', 'Suppressed Assualt Rifle', 'Burst Assualt Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
+                ('Assault Rifle ', 'Suppressed Assualt Rifle', 'Heavy Assault Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
         elif slottwo == 'Snipers':
             slottwo1 = st.selectbox(
                 'Snipers s2',
@@ -97,11 +97,11 @@ with tab1:
         elif slotthree == 'SMG':
             slotthree1 = st.selectbox(
                 'SMG s3',
-                ('Submachine Gun  ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol'))
+                ('Submachine Gun  ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol', 'Six Shooter'))
         elif slotthree == 'Assault-Rifle':
             slotthree1 = st.selectbox(
                 'Assault-Rifle s3',
-                ('Assault Rifle  ', 'Suppressed Assualt Rifle', 'Burst Assualt Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
+                ('Assault Rifle  ', 'Suppressed Assualt Rifle', 'Heavy Assault Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
         elif slotthree == 'Snipers':
             slotthree1 = st.selectbox(
                 'Snipers s3',
@@ -122,11 +122,11 @@ with tab1:
         elif slotfour == 'SMG':
             slotfour1 = st.selectbox(
                 'SMG s4',
-                ('Submachine Gun   ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol'))
+                ('Submachine Gun   ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol', 'Six Shooter'))
         elif slotfour == 'Assault-Rifle':
             slotfour1 = st.selectbox(
                 'Assault-Rifle s4',
-                ('Assault Rifle   ', 'Suppressed Assualt Rifle', 'Burst Assualt Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
+                ('Assault Rifle   ', 'Suppressed Assualt Rifle', 'Heavy Assault Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
         elif slotfour == 'Snipers':
             slotfour1 = st.selectbox(
                 'Healing s4',
@@ -147,11 +147,11 @@ with tab1:
         elif slotfive == 'SMG':
             slotfive1 = st.selectbox(
                 'SMG s5',
-                ('Submachine Gun    ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol'))
+                ('Submachine Gun    ', 'Suppressed Submachine Gun', 'Pistol', 'Suppressed Pistol', 'Six Shooter'))
         elif slotfive == 'Assault-Rifle':
             slotfive1 = st.selectbox(
                 'Assault-Rifle s5',
-                ('Assault Rifle    ', 'Suppressed Assualt Rifle', 'Burst Assualt Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
+                ('Assault Rifle    ', 'Suppressed Assualt Rifle', 'Heavy Assault Rifle', 'Tactical Assualt Rifle', 'Scoped Assualt Rifle'))
         elif slotfive == 'Snipers':
             slotfive1 = st.selectbox(
                 'Snipers s5',
@@ -180,7 +180,7 @@ with tab1:
             slotoner = st.selectbox(
                 'Shotgun rarity s1',
                 ('Epic', 'Legendary'))
-        elif slotone1 == 'Assault Rifle' or slotone1 == 'Burst Assualt Rifle':
+        elif slotone1 == 'Assault Rifle' or slotone1 == 'Heavy Assault Rifle':
             slotoner = st.selectbox(
                 'AR rarity s1',
                 ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
@@ -208,6 +208,10 @@ with tab1:
             slotoner = st.selectbox(
                 'SMG rarity s1',
                 ('Rare', 'Epic'))
+        elif slotone1 == 'Six Shooter':
+            slotoner = st.selectbox(
+                'SMG Rarity s1', 
+                ('Uncommon', 'Rare', 'Epic'))
         elif slotone1 == 'Hunting Rifle':
             slotoner = st.selectbox(
                 'Snipers rarity s1',
@@ -249,7 +253,7 @@ with tab1:
             slottwor = st.selectbox(
                 'Shotgun rarity s2',
                 ('Epic', 'Legendary'))
-        elif slottwo1 == 'Assault Rifle ' or slottwo1 == 'Burst Assualt Rifle': # [SPACE]
+        elif slottwo1 == 'Assault Rifle ' or slottwo1 == 'Heavy Assault Rifle': # [SPACE]
             slottwor = st.selectbox(
                 'AR rarity s2',
                 ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
@@ -277,6 +281,10 @@ with tab1:
             slottwor = st.selectbox(
                 'SMG rarity s2',
                 ('Rare', 'Epic'))
+        elif slottwo1 == 'Six Shooter':
+            slottwor = st.selectbox(
+                'SMG rarity s2',
+                ('Uncommon', 'Rare', 'Epic'))
         elif slottwo1 == 'Hunting Rifle ': # [SPACE]
             slottwor = st.selectbox(
                 'Snipers rarity s2',
@@ -318,7 +326,7 @@ with tab1:
             slotthreer = st.selectbox(
                 'Shotgun rarity s3',
                 ('Epic', 'Legendary'))
-        elif slotthree1 == 'Assault Rifle  ' or slotthree1 == 'Burst Assualt Rifle': # [SPACE]
+        elif slotthree1 == 'Assault Rifle  ' or slotthree1 == 'Heavy Assault Rifle': # [SPACE]
             slotthreer = st.selectbox(
                 'AR rarity s3',
                 ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
@@ -346,6 +354,10 @@ with tab1:
             slotthreer = st.selectbox(
                 'SMG rarity s3',
                 ('Rare', 'Epic'))
+        elif slotthree1 == 'Six Shooter':
+            slotthreer = st.selectbox(
+                'SMG rarity s3',
+                ('Uncommon', 'Rare', 'Epic'))
         elif slotthree1 == 'Hunting Rifle  ': # [SPACE]
             slotthreer = st.selectbox(
                 'Snipers rarity s3',
@@ -387,7 +399,7 @@ with tab1:
             slotfourr = st.selectbox(
                 'Shotgun rarity s4',
                 ('Epic', 'Legendary'))
-        elif slotfour1 == 'Assault Rifle   ' or slotfour1 == 'Burst Assualt Rifle': # [SPACE]
+        elif slotfour1 == 'Assault Rifle   ' or slotfour1 == 'Heavy Assault Rifle': # [SPACE]
             slotfourr = st.selectbox(
                 'AR rarity s4',
                 ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
@@ -415,6 +427,10 @@ with tab1:
             slotfourr = st.selectbox(
                 'SMG rarity s4',
                 ('Rare', 'Epic'))
+        elif slotfour1 == 'Six Shooter':
+            slotfourr = st.selectbox(
+                'SMG rarity s4',
+                ('Uncommon', 'Rare', 'Epic'))
         elif slotfour1 == 'Hunting Rifle   ': # [SPACE]
             slotfourr = st.selectbox(
                 'Snipers rarity s4',
@@ -456,7 +472,7 @@ with tab1:
             slotfiver = st.selectbox(
                 'Shotgun rarity s5',
                 ('Epic', 'Legendary'))
-        elif slotfive1 == 'Assault Rifle    ' or slotfive1 == 'Burst Assualt Rifle': # [SPACE]
+        elif slotfive1 == 'Assault Rifle    ' or slotfive1 == 'Heavy Assault Rifle': # [SPACE]
             slotfiver = st.selectbox(
                 'AR rarity s5',
                 ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
@@ -484,6 +500,10 @@ with tab1:
             slotfiver = st.selectbox(
                 'SMG rarity s5',
                 ('Rare', 'Epic'))
+        elif slotfive1 == 'Six Shooter':
+            slotfiver = st.selectbox(
+                'SMG rarity s5',
+                ('Uncommon', 'Rare', 'Epic'))
         elif slotfive1 == 'Hunting Rifle    ': # [SPACE]
             slotfiver = st.selectbox(
                 'Snipers rarity s5',
