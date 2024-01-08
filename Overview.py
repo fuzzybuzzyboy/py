@@ -13,26 +13,22 @@ st.set_page_config(
     }
 )
 
-code = '''https://github.com/fuzzybuzzyboy/py'''
-
 st.title('hi')
 
+st.divider()
+
 st.title('UPDATE INFO :')
-st.write('### [:] Changed in loadout gen and custom loadout \'Burst Assualt Rifle\' to \'Heavy Assault Rifle\'')
-st.write('### [+] Loadout Generater can now show in \'Others\' healing items (Chug Jug, Small Shield Potion, Shield Potion, Medkit)')
-st.write('### [+] Six Shooter.')
+st.write('### [:] Changed weapons to chapter 5 season 1 weapons.')
+st.write("### [+] Added weapon mods, added to loadout the modded items.")
+st.write("### [+] Added medallions.")
+st.write("### [:] Shortend the code for the custom loadout.")
+st.write("### [///] Updating the loadout generater.")
 st.write('# \n ##### [/] = Fixed\n ##### [//] = Reverted\n ##### [///] = Working on\n ##### [:] = Changed something\n ##### [+] = Added\n ##### [-] = Removed\n\n\n ##### also pls tell me about bugs and other things so i can fix them (on discord) :)')
 
-#with st.sidebar:
-#    with st.empty():
-#        if st.button('Clock'):
-#            time_now = datetime.now().strftime("%H:%M:%S")
-#            time_now1 = datetime.now().strftime("%D")
-#            st.write(f'# Clock\n    Current time : {time_now}\n    Date : {time_now1}')
-
 with st.sidebar:
-    st.code(f'Code at : \n{code}', language='Text')
-            
+    st.link_button("Github", "https://github.com/fuzzybuzzyboy/py")
+    st.link_button("Discord", "https://discord.gg/HVEGufPNnF")
+    st.divider()
 with st.sidebar:
     with st.empty():
         if st.button('Clock'):
