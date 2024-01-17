@@ -296,76 +296,75 @@ with Loadout:
 
     st.divider()
     st.button('Randomize loadout')
+    st.divider()
 
-st.divider()
-
-if st.button('Save Config'):
-    if os.path.exists(f"{File_Path}.txt"):
-        os.remove(f"{File_Path}.txt")
-        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here                        # VALUES
-        f.write(f'{Slotone_weapon}\n{Slottwo_weapon}\n{Slotthree_weapon}\n{Slotfour_weapon}\n{Slotfive_weapon}\n{Slotone_Rarity}\n{Slottwo_Rarity}\n{Slotthree_Rarity}\n{Slotfour_Rarity}\n{Slotfive_Rarity}\n{slotoneattachment1}\n{slotoneattachment2}\n{slotoneattachment3}\n{slotoneattachment4}\n{slottwoattachment1}\n{slottwoattachment2}\n{slottwoattachment3}\n{slottwoattachment4}\n{slotthreeattachment1}\n{slotthreeattachment2}\n{slotthreeattachment3}\n{slotthreeattachment4}\n{slotfourattachment1}\n{slotfourattachment2}\n{slotfourattachment3}\n{slotfourattachment4}\n{slotfiveattachment1}\n{slotfiveattachment2}\n{slotfiveattachment3}\n{slotfiveattachment4}\n{Medallion}')
-        st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
-        f.close()
-    else:
-        f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here
-        f.write(f'{Slotone_weapon}\n{Slottwo_weapon}\n{Slotthree_weapon}\n{Slotfour_weapon}\n{Slotfive_weapon}\n{Slotone_Rarity}\n{Slottwo_Rarity}\n{Slotthree_Rarity}\n{Slotfour_Rarity}\n{Slotfive_Rarity}\n{slotoneattachment1}\n{slotoneattachment2}\n{slotoneattachment3}\n{slotoneattachment4}\n{slottwoattachment1}\n{slottwoattachment2}\n{slottwoattachment3}\n{slottwoattachment4}\n{slotthreeattachment1}\n{slotthreeattachment2}\n{slotthreeattachment3}\n{slotthreeattachment4}\n{slotfourattachment1}\n{slotfourattachment2}\n{slotfourattachment3}\n{slotfourattachment4}\n{slotfiveattachment1}\n{slotfiveattachment2}\n{slotfiveattachment3}\n{slotfiveattachment4}\n{Medallion}')
-        f.close()
-        st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
-        f.close()
-
-if st.button('Load Config'):
-    if os.path.exists(f"{File_Path}.txt"): 
-        with open(f'{File_Path}.txt', "r") as file: lines = [line.strip() for line in file.readlines()]
-
-        if len(lines) == 31:
-            Slotone_weapon = lines[0]
-            Slottwo_weapon = lines[1]
-            Slotthree_weapon = lines[2]
-            Slotfour_weapon = lines[3]
-            Slotfive_weapon = lines[4]
-            Slotone_Rarity = lines[5]
-            Slottwo_Rarity = lines[6]
-            Slotthree_Rarity = lines[7]
-            Slotfour_Rarity = lines[8]
-            Slotfive_Rarity = lines[9]
-            slotoneattachment1 = lines[10]
-            slotoneattachment2 = lines[11]
-            slotoneattachment3 = lines[12]
-            slotoneattachment4 = lines[13]
-            slottwoattachment1 = lines[14]
-            slottwoattachment2 = lines[15]
-            slottwoattachment3 = lines[16]
-            slottwoattachment4 = lines[17]
-            slotthreeattachment1 = lines[18]
-            slotthreeattachment2 = lines[19]
-            slotthreeattachment3 = lines[20]
-            slotthreeattachment4 = lines[21]
-            slotfourattachment1 = lines[22]
-            slotfourattachment2 = lines[23]
-            slotfourattachment3 = lines[24]
-            slotfourattachment4 = lines[25]
-            slotfiveattachment1 = lines[26]
-            slotfiveattachment2 = lines[27]
-            slotfiveattachment3 = lines[28]
-            slotfiveattachment4 = lines[29]
-            Medallion = lines[30]
-
-            t1.write(f'# Weapons\n    Slot 1 : {Slotone_weapon}\n    Slot 2 : {Slottwo_weapon}\n    Slot 3 : {Slotthree_weapon}\n    Slot 4 : {Slotfour_weapon}\n    Slot 5 : {Slotfive_weapon}\n    Medallions : {Medallion}')
-            t2.write(f'# Weapons  \n##### Slot 1 : {Slotone_weapon}\n#####    Slot 2 : {Slottwo_weapon}\n#####    Slot 3 : {Slotthree_weapon}\n#####    Slot 4 : {Slotfour_weapon}\n#####    Slot 5 : {Slotfive_weapon}')
-            t3.json({'Weapons': [f'Slot 1 : {Slotone_weapon}', f'Slot 2 : {Slottwo_weapon}', f'Slot 3 : {Slotthree_weapon}', f'Slot 4 : {Slotfour_weapon}', f'Slot 5 : {Slotfive_weapon}'], })
-
-            tt1.write(f'# Rarity\n    Slot 1 : {Slotone_Rarity}\n    Slot 2 : {Slottwo_Rarity}\n    Slot 3 : {Slotthree_Rarity}\n    Slot 4 : {Slotfour_Rarity}\n    Slot 5 : {Slotfive_Rarity}')
-            tt2.write(f'# Rarity  \n##### Slot 1 : {Slotone_Rarity}\n#####    Slot 2 : {Slottwo_Rarity}\n#####    Slot 3 : {Slotthree_Rarity}\n#####    Slot 4 : {Slotfour_Rarity}\n#####    Slot 5 : {Slotfive_Rarity}')
-            tt3.json({'Rarity': [f'Slot 1 : {Slotone_Rarity}', f'Slot 2 : {Slottwo_Rarity}', f'Slot 3 : {Slotthree_Rarity}', f'Slot 4 : {Slotfour_Rarity}', f'Slot 5 : {Slotfive_Rarity}'], })
-
-            ttt1.write(f'# Attachments\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
-            ttt2.write(f'# Attachments  \n##### Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n#####    Slot 2 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n#####    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n#####    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n#####    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
-            ttt3.json({'Attachments': [f'Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 2 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}', f'Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}', f'Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}'], })
-            st.success(f"Loaded configuration from \'{File_Path}.txt\'", icon="✅")
+    if st.button('Save Config'):
+        if os.path.exists(f"{File_Path}.txt"):
+            os.remove(f"{File_Path}.txt")
+            f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here                        # VALUES
+            f.write(f'{Slotone_weapon}\n{Slottwo_weapon}\n{Slotthree_weapon}\n{Slotfour_weapon}\n{Slotfive_weapon}\n{Slotone_Rarity}\n{Slottwo_Rarity}\n{Slotthree_Rarity}\n{Slotfour_Rarity}\n{Slotfive_Rarity}\n{slotoneattachment1}\n{slotoneattachment2}\n{slotoneattachment3}\n{slotoneattachment4}\n{slottwoattachment1}\n{slottwoattachment2}\n{slottwoattachment3}\n{slottwoattachment4}\n{slotthreeattachment1}\n{slotthreeattachment2}\n{slotthreeattachment3}\n{slotthreeattachment4}\n{slotfourattachment1}\n{slotfourattachment2}\n{slotfourattachment3}\n{slotfourattachment4}\n{slotfiveattachment1}\n{slotfiveattachment2}\n{slotfiveattachment3}\n{slotfiveattachment4}\n{Medallion}')
+            st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
+            f.close()
         else:
-            st.error(f"Invalid configuration file. Expected 31 lines. Called back: {len(lines)} line(s)")
-    else:
-        st.error("File doesn't exist. Please save a config and try again.")
+            f = open(f"{File_Path}.txt", "a")          # here                                        # here                    # here                            # here                                  # here
+            f.write(f'{Slotone_weapon}\n{Slottwo_weapon}\n{Slotthree_weapon}\n{Slotfour_weapon}\n{Slotfive_weapon}\n{Slotone_Rarity}\n{Slottwo_Rarity}\n{Slotthree_Rarity}\n{Slotfour_Rarity}\n{Slotfive_Rarity}\n{slotoneattachment1}\n{slotoneattachment2}\n{slotoneattachment3}\n{slotoneattachment4}\n{slottwoattachment1}\n{slottwoattachment2}\n{slottwoattachment3}\n{slottwoattachment4}\n{slotthreeattachment1}\n{slotthreeattachment2}\n{slotthreeattachment3}\n{slotthreeattachment4}\n{slotfourattachment1}\n{slotfourattachment2}\n{slotfourattachment3}\n{slotfourattachment4}\n{slotfiveattachment1}\n{slotfiveattachment2}\n{slotfiveattachment3}\n{slotfiveattachment4}\n{Medallion}')
+            f.close()
+            st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
+            f.close()
+
+    if st.button('Load Config'):
+        if os.path.exists(f"{File_Path}.txt"): 
+            with open(f'{File_Path}.txt', "r") as file: lines = [line.strip() for line in file.readlines()]
+
+            if len(lines) == 31:
+                Slotone_weapon = lines[0]
+                Slottwo_weapon = lines[1]
+                Slotthree_weapon = lines[2]
+                Slotfour_weapon = lines[3]
+                Slotfive_weapon = lines[4]
+                Slotone_Rarity = lines[5]
+                Slottwo_Rarity = lines[6]
+                Slotthree_Rarity = lines[7]
+                Slotfour_Rarity = lines[8]
+                Slotfive_Rarity = lines[9]
+                slotoneattachment1 = lines[10]
+                slotoneattachment2 = lines[11]
+                slotoneattachment3 = lines[12]
+                slotoneattachment4 = lines[13]
+                slottwoattachment1 = lines[14]
+                slottwoattachment2 = lines[15]
+                slottwoattachment3 = lines[16]
+                slottwoattachment4 = lines[17]
+                slotthreeattachment1 = lines[18]
+                slotthreeattachment2 = lines[19]
+                slotthreeattachment3 = lines[20]
+                slotthreeattachment4 = lines[21]
+                slotfourattachment1 = lines[22]
+                slotfourattachment2 = lines[23]
+                slotfourattachment3 = lines[24]
+                slotfourattachment4 = lines[25]
+                slotfiveattachment1 = lines[26]
+                slotfiveattachment2 = lines[27]
+                slotfiveattachment3 = lines[28]
+                slotfiveattachment4 = lines[29]
+                Medallion = lines[30]
+
+                t1.write(f'# Weapons\n    Slot 1 : {Slotone_weapon}\n    Slot 2 : {Slottwo_weapon}\n    Slot 3 : {Slotthree_weapon}\n    Slot 4 : {Slotfour_weapon}\n    Slot 5 : {Slotfive_weapon}\n    Medallions : {Medallion}')
+                t2.write(f'# Weapons  \n##### Slot 1 : {Slotone_weapon}\n#####    Slot 2 : {Slottwo_weapon}\n#####    Slot 3 : {Slotthree_weapon}\n#####    Slot 4 : {Slotfour_weapon}\n#####    Slot 5 : {Slotfive_weapon}')
+                t3.json({'Weapons': [f'Slot 1 : {Slotone_weapon}', f'Slot 2 : {Slottwo_weapon}', f'Slot 3 : {Slotthree_weapon}', f'Slot 4 : {Slotfour_weapon}', f'Slot 5 : {Slotfive_weapon}'], })
+
+                tt1.write(f'# Rarity\n    Slot 1 : {Slotone_Rarity}\n    Slot 2 : {Slottwo_Rarity}\n    Slot 3 : {Slotthree_Rarity}\n    Slot 4 : {Slotfour_Rarity}\n    Slot 5 : {Slotfive_Rarity}')
+                tt2.write(f'# Rarity  \n##### Slot 1 : {Slotone_Rarity}\n#####    Slot 2 : {Slottwo_Rarity}\n#####    Slot 3 : {Slotthree_Rarity}\n#####    Slot 4 : {Slotfour_Rarity}\n#####    Slot 5 : {Slotfive_Rarity}')
+                tt3.json({'Rarity': [f'Slot 1 : {Slotone_Rarity}', f'Slot 2 : {Slottwo_Rarity}', f'Slot 3 : {Slotthree_Rarity}', f'Slot 4 : {Slotfour_Rarity}', f'Slot 5 : {Slotfive_Rarity}'], })
+
+                ttt1.write(f'# Attachments\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+                ttt2.write(f'# Attachments  \n##### Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n#####    Slot 2 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n#####    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n#####    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n#####    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+                ttt3.json({'Attachments': [f'Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 2 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}', f'Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}', f'Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}'], })
+                st.success(f"Loaded configuration from \'{File_Path}.txt\'", icon="✅")
+            else:
+                st.error(f"Invalid configuration file. Expected 31 lines. Called back: {len(lines)} line(s)")
+        else:
+            st.error("File doesn't exist. Please save a config and try again.")
 with st.sidebar:
     st.link_button("Github", "https://github.com/fuzzybuzzyboy/py")
     st.link_button("Discord", "https://discord.gg/HVEGufPNnF")
