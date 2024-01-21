@@ -28,6 +28,7 @@ thunder_burst_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic'), ('Spee
 ranger_pistol_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag', 'Drum Mag'), ('Laser'), ('Suppressor', 'Muzzle Brake'))
 reaper_sniper_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip'), ('Suppressor', 'Muzzle Brake'))
 rarity={'Hammer Pump Shotgun': 6, 'Frenzy Auto Shotgun': 6, 'Striker AR': 6, 'Enforcer AR':6, 'Nemesis AR':5, 'Hyper SMG':6, 'Thunder Burst SMG':5, 'Ranger Pistol':5, 'Reaper Sniper Rifle':5}
+weapons = {'Shotgun': ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], 'SMG': ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], 'Assault-Rifle': ['Striker AR', 'Nemesis AR', 'Enforcer AR'], 'Sniper': ['Reaper Sniper Rifle'], 'Other': ['Grapple Blade', 'Ballistic Shield'], 'Health': ['Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit']}
 Medallions=['Valeria\'s Medallion', 'Montague\'s Medallion', 'Nisha\'s Medallion', 'Oscar\'s Medallion', 'Peter Griffin\'s Medallion']
 def rarity_gen(Weapon, Slot_Mythic_Mode):
     global Slotone_Mythic_Mode, Slottwo_Mythic_Mode, Slotthree_Mythic_Mode, Slotfour_Mythic_Mode, Slotfive_Mythic_Mode
@@ -39,75 +40,55 @@ def Weapon_Slotone(slot_name):
     global slotone, slotone_allowed, slotone_attachment
     col1, col2, col3, col4 = st.columns(4)
     with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
-    with col2: slotone = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'), help=f'Allowed weapons for {slot_name}')
-    with col3:
-        if slotone == 'Shotgun': slotone_allowed = st.multiselect('Allowed Weapons', ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], help='Allowed weapons for shotgun (Slot 1). You can disable and enable whatever you don\'t want in your loadout')
-        if slotone == 'SMG': slotone_allowed = st.multiselect('Allowed Weapons', ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], help='Allowed weapons for SMG (Slot 1). You can disable and enable whatever you don\'t want in your loadout')
-        if slotone == 'Assault-Rifle': slotone_allowed = st.multiselect('Allowed Weapons', ['Striker AR', 'Nemesis AR', 'Enforcer AR'], ['Striker AR', 'Nemesis AR', 'Enforcer AR'], help='Allowed weapons for Assault-Rifle (Slot 1). You can disable and enable whatever you don\'t want in your loadout')
-        if slotone == 'Sniper': slotone_allowed = st.multiselect('Allowed Weapons', ['Reaper Sniper Rifle'], ['Reaper Sniper Rifle'], help='Allowed weapons for Sniper (Slot 1). You can disable and enable whatever you don\'t want in your loadout')
-        if slotone == 'Other': slotone_allowed = st.multiselect('Allowed Weapons', ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], help='Allowed weapons for Other (Slot 1). You can disable and enable whatever you don\'t want in your loadout')
+    with col2: slotone = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other', 'Health'), help=f'Allowed weapons for {slot_name}')
+    with col3: slotone_allowed = st.multiselect('Allowed Weapons', weapons.get(slotone, []), weapons.get(slotone, []), help=f'Allowed weapons for {slotone} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
-        if slotone!='Disabled' and slotone!='Other': slotone_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        if slotone not in ['Disabled', 'Other', 'Health']: slotone_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        else: slotone_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slottwo(slot_name):
     global slottwo, slottwo_allowed, slottwo_attachment
     col1, col2, col3, col4 = st.columns(4)
     with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
-    with col2: slottwo = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'), help=f'Allowed Weapons for {slot_name}')
-    with col3:
-        if slottwo == 'Shotgun': slottwo_allowed = st.multiselect('Allowed Weapons', ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], help='Allowed weapons for shotgun (Slot 2). You can disable and enable whatever you don\'t want in your loadout')
-        if slottwo == 'SMG': slottwo_allowed = st.multiselect('Allowed Weapons', ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], help='Allowed weapons for SMG (Slot 2). You can disable and enable whatever you don\'t want in your loadout')
-        if slottwo == 'Assault-Rifle': slottwo_allowed = st.multiselect('Allowed Weapons', ['Striker AR', 'Nemesis AR', 'Enforcer AR'], ['Striker AR', 'Nemesis AR', 'Enforcer AR'], help='Allowed weapons for Assault-Rifle (Slot 2). You can disable and enable whatever you don\'t want in your loadout')
-        if slottwo == 'Sniper': slottwo_allowed = st.multiselect('Allowed Weapons', ['Reaper Sniper Rifle'], ['Reaper Sniper Rifle'], help='Allowed weapons for Sniper (Slot 2). You can disable and enable whatever you don\'t want in your loadout')
-        if slottwo == 'Other': slottwo_allowed = st.multiselect('Allowed Weapons', ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], help='Allowed weapons for Other (Slot 2). You can disable and enable whatever you don\'t want in your loadout')
+    with col2: slottwo = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other', 'Health'), help=f'Allowed Weapons for {slot_name}')
+    with col3: slottwo_allowed = st.multiselect('Allowed Weapons', weapons.get(slottwo, []), weapons.get(slottwo, []), help=f'Allowed weapons for {slottwo} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
-        if slottwo!='Disabled' and slottwo!='Other': slottwo_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        if slottwo not in ['Disabled', 'Other', 'Health']: slottwo_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        else: slottwo_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slotthree(slot_name):
     global slotthree, slotthree_allowed, slotthree_attachment
     col1, col2, col3, col4 = st.columns(4)
     with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
-    with col2: slotthree = st.selectbox('Slot 3', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'))
-    with col3:
-        if slotthree == 'Shotgun': slotthree_allowed = st.multiselect('Slot 3', ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], help='Allowed weapons for shotgun (Slot 3). You can disable and enable whatever you don\'t want in your loadout')
-        if slotthree == 'SMG': slotthree_allowed = st.multiselect('Slot 3', ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], help='Allowed weapons for SMG (Slot 3). You can disable and enable whatever you don\'t want in your loadout')
-        if slotthree == 'Assault-Rifle': slotthree_allowed = st.multiselect('Slot 3', ['Striker AR', 'Nemesis AR', 'Enforcer AR'], ['Striker AR', 'Nemesis AR', 'Enforcer AR'], help='Allowed weapons for Assault-Rifle (Slot 3). You can disable and enable whatever you don\'t want in your loadout')
-        if slotthree == 'Sniper': slotthree_allowed = st.multiselect('Slot 3', ['Reaper Sniper Rifle'], ['Reaper Sniper Rifle'], help='Allowed weapons for Sniper (Slot 3). You can disable and enable whatever you don\'t want in your loadout')
-        if slotthree == 'Other': slotthree_allowed = st.multiselect('Slot 3', ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], help='Allowed weapons for Other (Slot 3). You can disable and enable whatever you don\'t want in your loadout')
+    with col2: slotthree = st.selectbox('Slot 3', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other', 'Health'))
+    with col3: slotthree_allowed = st.multiselect('Allowed Weapons', weapons.get(slotthree, []), weapons.get(slotthree, []), help=f'Allowed weapons for {slotthree} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
-        if slotthree!='Disabled' and slotthree!='Other': slotthree_attachment = st.selectbox('Weapon attachments (Slot 3)', ('Enabled', 'Disabled'))
+        if slotthree not in ['Disabled', 'Other', 'Health']: slotthree_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        else: slotthree_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slotfour(slot_name):
     global slotfour, slotfour_allowed, slotfour_attachment
     col1, col2, col3, col4 = st.columns(4)
     with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
-    with col2: slotfour = st.selectbox('Slot 4', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'))
-    with col3:
-        if slotfour == 'Shotgun': slotfour_allowed = st.multiselect('Slot 4', ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], help='Allowed weapons for shotgun (Slot 4). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfour == 'SMG': slotfour_allowed = st.multiselect('Slot 4', ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], help='Allowed weapons for SMG (Slot 4). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfour == 'Assault-Rifle': slotfour_allowed = st.multiselect('Slot 4', ['Striker AR', 'Nemesis AR', 'Enforcer AR'], ['Striker AR', 'Nemesis AR', 'Enforcer AR'], help='Allowed weapons for Assault-Rifle (Slot 4). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfour == 'Sniper': slotfour_allowed = st.multiselect('Slot 4', ['Reaper Sniper Rifle'], ['Reaper Sniper Rifle'], help='Allowed weapons for Sniper (Slot 4). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfour == 'Other': slotfour_allowed = st.multiselect('Slot 4', ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], help='Allowed weapons for Other (Slot 4). You can disable and enable whatever you don\'t want in your loadout')
+    with col2: slotfour = st.selectbox('Slot 4', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other', 'Health'))
+    with col3: slotfour_allowed = st.multiselect('Allowed Weapons', weapons.get(slotfour, []), weapons.get(slotfour, []), help=f'Allowed weapons for {slotfour} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
-        if slotfour!='Disabled' and slotfour!='Other': slotfour_attachment = st.selectbox('Weapon attachments (Slot 4)', ('Enabled', 'Disabled'))
+        if slotfour not in ['Disabled', 'Other', 'Health']: slotfour_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        else: slotfour_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slotfive(slot_name):
     global slotfive, slotfive_allowed, slotfive_attachment
     col1, col2, col3, col4 = st.columns(4)
     with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
-    with col2: slotfive = st.selectbox('Slot 5', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'))
-    with col3:
-        if slotfive == 'Shotgun': slotfive_allowed = st.multiselect('Slot 5', ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], help='Allowed weapons for shotgun (Slot 5). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfive == 'SMG': slotfive_allowed = st.multiselect('Slot 5', ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], help='Allowed weapons for SMG (Slot 5). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfive == 'Assault-Rifle': slotfive_allowed = st.multiselect('Slot 5', ['Striker AR', 'Nemesis AR', 'Enforcer AR'], ['Striker AR', 'Nemesis AR', 'Enforcer AR'], help='Allowed weapons for Assault-Rifle (Slot 5). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfive == 'Sniper': slotfive_allowed = st.multiselect('Slot 5', ['Reaper Sniper Rifle'], ['Reaper Sniper Rifle'], help='Allowed weapons for Sniper (Slot 5). You can disable and enable whatever you don\'t want in your loadout')
-        if slotfive == 'Other': slotfive_allowed = st.multiselect('Slot 5', ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], ['Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit', 'Ballistic Shield'], help='Allowed weapons for Other (Slot 5). You can disable and enable whatever you don\'t want in your loadout')
+    with col2: slotfive = st.selectbox('Slot 5', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other', 'Health'))
+    with col3: slotfive_allowed = st.multiselect('Allowed Weapons', weapons.get(slotfive, []), weapons.get(slotfive, []), help=f'Allowed weapons for {slotfive} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
-        if slotfive!='Disabled' and slotfive!='Other': slotfive_attachment=st.selectbox('Weapon attachments (Slot 5)', ('Enabled', 'Disabled'))
+        if slotfive not in ['Disabled', 'Other', 'Health']: slotfive_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        else: slotfive_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Attachments_Slotone(weapon_name, slot_name, optic_options, magazine_options, underbarrel_options, barrel_options):
@@ -238,7 +219,7 @@ with Weapon_mods:
         elif Slotfive_weapon == 'Reaper Sniper Rifle': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *reaper_sniper_options)
     else: slotfiveattachment1=slotfiveattachment2=slotfiveattachment3=slotfiveattachment4='Disabled'
 with Loadout: # absolutly amazing rarity gen. (why am i just not using a list with the raritys and calling the raritys based off of that or something stupid like that)
-    if slotone!='Other' and slotone!='Disabled':
+    if slotone!='Other' and slotone!='Disabled' and slotone!='Health':
         rarity_gen(Slotone_weapon, Slotone_Mythic_Mode)
         if slotone == 'Sniper': slotone_rarity_gen=random.randint(2, Slotone_Mythic_Mode)
         else: slotone_rarity_gen=random.randint(1, Slotone_Mythic_Mode)
@@ -250,7 +231,7 @@ with Loadout: # absolutly amazing rarity gen. (why am i just not using a list wi
         elif slotone_rarity_gen==6: Slotone_Rarity='Mythic'
     else: Slotone_Rarity=None
 
-    if slottwo!='Other' and slottwo!='Disabled':
+    if slottwo!='Other' and slottwo!='Disabled' and slottwo!='Health':
         rarity_gen(Slottwo_weapon, Slottwo_Mythic_Mode)
         if slottwo == 'Sniper': slottwo_rarity_gen=random.randint(2, Slottwo_Mythic_Mode)
         else: slottwo_rarity_gen=random.randint(1, Slottwo_Mythic_Mode)
@@ -262,7 +243,7 @@ with Loadout: # absolutly amazing rarity gen. (why am i just not using a list wi
         elif slottwo_rarity_gen==6: Slottwo_Rarity='Mythic'
     else: Slottwo_Rarity=None
 
-    if slotthree!='Other' and slotthree!='Disabled':
+    if slotthree!='Other' and slotthree!='Disabled' and slotthree!='Health':
         rarity_gen(Slotthree_weapon, Slotthree_Mythic_Mode)
         if slotthree == 'Sniper': slotthree_rarity_gen=random.randint(2, Slotthree_Mythic_Mode)
         else: slotthree_rarity_gen=random.randint(1, Slotthree_Mythic_Mode)
@@ -274,7 +255,7 @@ with Loadout: # absolutly amazing rarity gen. (why am i just not using a list wi
         elif slotthree_rarity_gen==6: Slotthree_Rarity='Mythic'
     else: Slotthree_Rarity=None
 
-    if slotfour!='Other' and slotfour!='Disabled':
+    if slotfour!='Other' and slotfour!='Disabled' and slotfour!='Health':
         rarity_gen(Slotfour_weapon, Slotfour_Mythic_Mode)
         if slotfour == 'Sniper': slotfour_rarity_gen=random.randint(2, Slotfour_Mythic_Mode)
         else: slotfour_rarity_gen=random.randint(1, Slotfour_Mythic_Mode)
@@ -286,7 +267,7 @@ with Loadout: # absolutly amazing rarity gen. (why am i just not using a list wi
         elif slotfour_rarity_gen==6: Slotfour_Rarity='Mythic'
     else: Slotfour_Rarity=None
 
-    if slotfive!='Other' and slotfive!='Disabled':
+    if slotfive!='Other' and slotfive!='Disabled' and slotfive!='Health':
         rarity_gen(Slotfive_weapon, Slotfive_Mythic_Mode)
         if slotfive == 'Sniper': slotfive_rarity_gen=random.randint(2, Slotfive_Mythic_Mode)
         else: slotfive_rarity_gen=random.randint(1, Slotfive_Mythic_Mode)
