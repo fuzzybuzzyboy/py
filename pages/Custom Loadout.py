@@ -1,4 +1,4 @@
-import streamlit as st, os, time, platform, requests
+import streamlit as st, os, time, platform
 from datetime import datetime
 
 st.set_page_config(
@@ -14,8 +14,66 @@ st.set_page_config(
 )
 
 slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = slottwoattachment1 = slottwoattachment2 = slottwoattachment3 = slottwoattachment4 = slotthreeattachment1 = slotthreeattachment2 = slotthreeattachment3 = slotthreeattachment4 = slotfourattachment1 = slotfourattachment2 = slotfourattachment3 = slotfourattachment4 = slotfiveattachment1 = slotfiveattachment2 = slotfiveattachment3 = slotfiveattachment4 = None
+slotone=slottwo=slotthree=slotfour=slotfive=None
 slotone1=slottwo1=slotthree1=slotfour1=slotfive1=None
 slotoner=slottwor=slotthreer=slotfourr=slotfiver=None
+rarity_options = {'Shotgun': ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'), 'SMG': ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'), 'Assault-Rifle': ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'), 'Sniper': ('Uncommon', 'Rare', 'Epic', 'Legendary'), 'Other': ('None',)}
+weapon_options = {'Shotgun': ('Hammer Pump Shotgun', 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Oscar\'s Frenzy Auto Shotgun'), 'SMG': ('Thunder Burst SMG', 'Hyper SMG', 'Valeria\'s Hyper SMG', 'Ranger Pistol'), 'Assault-Rifle': ('Striker AR', 'Nisha\'s Striker AR', 'Nemesis AR', 'Montague\'s Enforcer AR'), 'Sniper': ('Reaper Sniper Rifle',), 'Other': ('Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit')}
+
+def Weapon_Slotone(slot_name):
+    global slotone, slotone1, slotoner
+    col1, col2, col3, col4 = st.columns(4)
+    with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
+    with col2: slotone = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'), help=f'Weapon type for {slot_name}') 
+    with col3: slotone1 = st.selectbox('Weapon', weapon_options.get(slotone, ()), help=f'Weapon selection for {slot_name}')
+    with col4: 
+        if slotone1 in ('Peter Griffin\'s Hammer Pump Shotgun', 'Oscar\'s Frenzy Auto Shotgun', 'Valeria\'s Hyper SMG', 'Nisha\'s Striker AR', 'Montague\'s Enforcer AR'): slotoner = st.selectbox('Rarity', ('Mythic',), help=f'Weapon rarity for {slot_name}')
+        else: slotoner = st.selectbox('Rarity', rarity_options.get(slotone, ()), help=f'Weapon rarity for {slot_name}')
+    st.divider()
+
+def Weapon_Slottwo(slot_name):
+    global slottwo, slottwo1, slottwor
+    col1, col2, col3, col4 = st.columns(4)
+    with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
+    with col2: slottwo = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'), help=f'Weapon type for {slot_name}') 
+    with col3: slottwo1 = st.selectbox('Weapon', weapon_options.get(slottwo, ()), help=f'Weapon selection for {slot_name}')
+    with col4: 
+        if slottwo1 in ('Peter Griffin\'s Hammer Pump Shotgun', 'Oscar\'s Frenzy Auto Shotgun', 'Valeria\'s Hyper SMG', 'Nisha\'s Striker AR', 'Montague\'s Enforcer AR'): slottwor = st.selectbox('Rarity', ('Mythic',), help=f'Weapon rarity for {slot_name}')
+        else: slottwor = st.selectbox('Rarity', rarity_options.get(slottwo, ()), help=f'Weapon rarity for {slot_name}')
+    st.divider()
+
+def Weapon_Slotthree(slot_name):
+    global slotthree, slotthree1, slotthreer
+    col1, col2, col3, col4 = st.columns(4)
+    with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
+    with col2: slotthree = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'), help=f'Weapon type for {slot_name}') 
+    with col3: slotthree1 = st.selectbox('Weapon', weapon_options.get(slotthree, ()), help=f'Weapon selection for {slot_name}')
+    with col4: 
+        if slotthree1 in ('Peter Griffin\'s Hammer Pump Shotgun', 'Oscar\'s Frenzy Auto Shotgun', 'Valeria\'s Hyper SMG', 'Nisha\'s Striker AR', 'Montague\'s Enforcer AR'): slotthreer = st.selectbox('Rarity', ('Mythic',), help=f'Weapon rarity for {slot_name}')
+        else: slotthreer = st.selectbox('Rarity', rarity_options.get(slotthree, ()), help=f'Weapon rarity for {slot_name}')
+    st.divider()
+
+def Weapon_Slotfour(slot_name):
+    global slotfour, slotfour1, slotfourr
+    col1, col2, col3, col4 = st.columns(4)
+    with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
+    with col2: slotfour = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'), help=f'Weapon type for {slot_name}') 
+    with col3: slotfour1 = st.selectbox('Weapon', weapon_options.get(slotfour, ()), help=f'Weapon selection for {slot_name}')
+    with col4: 
+        if slotfour1 in ('Peter Griffin\'s Hammer Pump Shotgun', 'Oscar\'s Frenzy Auto Shotgun', 'Valeria\'s Hyper SMG', 'Nisha\'s Striker AR', 'Montague\'s Enforcer AR'): slotfourr = st.selectbox('Rarity', ('Mythic',), help=f'Weapon rarity for {slot_name}')
+        else: slotfourr = st.selectbox('Rarity', rarity_options.get(slotfour, ()), help=f'Weapon rarity for {slot_name}')
+    st.divider()
+
+def Weapon_Slotfive(slot_name):
+    global slotfive, slotfive1, slotfiver
+    col1, col2, col3, col4 = st.columns(4)
+    with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
+    with col2: slotfive = st.selectbox('Weapon Type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other'), help=f'Weapon type for {slot_name}') 
+    with col3: slotfive1 = st.selectbox('Weapon', weapon_options.get(slotfive, ()), help=f'Weapon selection for {slot_name}')
+    with col4:
+        if slotfive1 in ('Peter Griffin\'s Hammer Pump Shotgun', 'Oscar\'s Frenzy Auto Shotgun', 'Valeria\'s Hyper SMG', 'Nisha\'s Striker AR', 'Montague\'s Enforcer AR'): slotfiver = st.selectbox('Rarity', ('Mythic',), help=f'Weapon rarity for {slot_name}')
+        else: slotfiver = st.selectbox('Rarity', rarity_options.get(slotfive, ()), help=f'Weapon rarity for {slot_name}')
+    st.divider()
 
 def SlotOneAttachmentViewer(slot_name, weapon_name, optic_options, magazine_options, underbarrel_options, barrel_options):
     global slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4
@@ -76,7 +134,6 @@ hammer_pump_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag',), ('Ver
 frenzy_auto_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('Suppressor', 'Muzzle Brake'))
 assault_rifle_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('Suppressor', 'Muzzle Brake'))
 thunder_burst_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('Suppressor', 'Muzzle Brake'))
-hyper_smg_options = thunder_burst_options
 ranger_pistol_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag', 'Drum Mag'), ('Laser'), ('Suppressor', 'Muzzle Brake'))
 reaper_sniper_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip'), ('Suppressor', 'Muzzle Brake'))
 
@@ -87,96 +144,12 @@ File_Path = os.path.join(Folder_Path, login)
 
 tab1, tab2, tab3 = st.tabs(["Customize", 'Weapon Mods', "Loadout"])
 with tab1:
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        slotone = st.selectbox('Slot 1', ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Snipers', 'Explosives', 'Other'))
-        slottwo = st.selectbox('Slot 2', ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Snipers', 'Explosives', 'Other'))
-        slotthree = st.selectbox('Slot 3', ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Snipers', 'Explosives', 'Other'))
-        slotfour = st.selectbox('Slot 4', ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Snipers', 'Explosives', 'Other'))
-        slotfive = st.selectbox('Slot 5', ('None', 'Shotgun', 'SMG', 'Assault-Rifle', 'Snipers', 'Explosives', 'Other'))
-        slotsix = st.multiselect('Medallions', ('Valeria\'s Medallion', 'Montague\'s Medallion', 'Nisha\'s Medallion', 'Oscar\'s Medallion', 'Peter Griffin\'s Medallion'), placeholder="Choose a medallion(s).")
-    with col2:
-        if slotone == 'Shotgun': slotone1 = st.selectbox('Slot 1', ('Hammer Pump Shotgun', 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Oscar\'s Frenzy Auto Shotgun'))
-        elif slotone == 'SMG': slotone1 = st.selectbox('SMG Slot 1', ('Thunder Burst SMG', 'Hyper SMG', 'Valeria\'s Hyper SMG', 'Ranger Pistol'))
-        elif slotone == 'Assault-Rifle': slotone1 = st.selectbox('Assault-Rifle Slot 1', ('Striker AR', 'Nisha\'s Striker AR', 'Nemesis AR', 'Montague\'s Enforcer AR'))
-        elif slotone == 'Snipers': slotone1 = st.selectbox('Snipers Slot 1',  ('Reaper Sniper Rifle',))
-        elif slotone == 'Explosives': slotone1 = st.selectbox('Explosives Slot 1', ('Snowball Launcher',))
-        elif slotone == 'Other': slotone1 = st.selectbox('Other Slot 1', ('Grapple Blade', 'Grappler', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit'))
-        
-        
-        if slottwo == 'Shotgun': slottwo1 = st.selectbox('Slot 2', ('Hammer Pump Shotgun ', 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Oscar\'s Frenzy Auto Shotgun'))
-        elif slottwo == 'SMG': slottwo1 = st.selectbox('Slot 2', ('Thunder Burst SMG ', 'Hyper SMG', 'Valeria\'s Hyper SMG', 'Ranger Pistol'))
-        elif slottwo == 'Assault-Rifle': slottwo1 = st.selectbox('Slot 2', ('Striker AR ', 'Nisha\'s Striker AR', 'Nemesis AR', 'Montague\'s Enforcer AR'))
-        elif slottwo == 'Snipers': slottwo1 = st.selectbox('Slot 2', ('Reaper Sniper Rifle ',))
-        elif slottwo == 'Explosives': slottwo1 = st.selectbox('Slot 2', ('Snowball Launcher ',))
-        elif slottwo == 'Other': slottwo1 = st.selectbox('Slot 2', ('Grapple Blade ', 'Grappler', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit'))
-        
-        
-        if slotthree == 'Shotgun': slotthree1 = st.selectbox('Slot 3', ('Hammer Pump Shotgun  ', 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Oscar\'s Frenzy Auto Shotgun'))
-        elif slotthree == 'SMG': slotthree1 = st.selectbox('Slot 3', ('Thunder Burst SMG  ', 'Hyper SMG', 'Valeria\'s Hyper SMG', 'Ranger Pistol'))
-        elif slotthree == 'Assault-Rifle': slotthree1 = st.selectbox('Slot 3', ('Striker AR  ', 'Nisha\'s Striker AR', 'Nemesis AR', 'Montague\'s Enforcer AR'))
-        elif slotthree == 'Snipers': slotthree1 = st.selectbox('Slot 3', ('Reaper Sniper Rifle  ',))
-        elif slotthree == 'Explosives': slotthree1 = st.selectbox('Slot 3', ('Snowball Launcher',))
-        elif slotthree == 'Other': slotthree1 = st.selectbox('Slot 3', ('Grapple Blade  ', 'Grappler', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit'))
-
-
-        if slotfour == 'Shotgun': slotfour1 = st.selectbox('Slot 4', ('Hammer Pump Shotgun   ', 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Oscar\'s Frenzy Auto Shotgun'))
-        elif slotfour == 'SMG': slotfour1 = st.selectbox('Slot 4', ('Thunder Burst SMG   ', 'Hyper SMG', 'Valeria\'s Hyper SMG', 'Ranger Pistol'))
-        elif slotfour == 'Assault-Rifle': slotfour1 = st.selectbox( 'Slot 4', ('Striker AR   ', 'Nisha\'s Striker AR', 'Nemesis AR', 'Montague\'s Enforcer AR'))
-        elif slotfour == 'Snipers':slotfour1 = st.selectbox('Slot 4', ('Reaper Sniper Rifle   ',))
-        elif slotfour == 'Explosives': slotfour1 = st.selectbox('Slot 4', ('Snowball Launcher',))
-        elif slotfour == 'Other': slotfour1 = st.selectbox('Slot 4', ('Grapple Blade   ', 'Grappler', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit'))     
-        
-
-        if slotfive == 'Shotgun': slotfive1 = st.selectbox('Slot 5', ('Hammer Pump Shotgun    ', 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Oscar\'s Frenzy Auto Shotgun'))
-        elif slotfive == 'SMG': slotfive1 = st.selectbox('Slot 5', ('Thunder Burst SMG    ', 'Hyper SMG', 'Valeria\'s Hyper SMG', 'Ranger Pistol'))
-        elif slotfive == 'Assault-Rifle': slotfive1 = st.selectbox('Slot 5', ('Striker AR    ', 'Nisha\'s Striker AR', 'Nemesis AR', 'Montague\'s Enforcer AR'))
-        elif slotfive == 'Snipers': slotfive1 = st.selectbox('Slot 5', ('Reaper Sniper Rifle    ',))
-        elif slotfive == 'Explosives': slotfive1 = st.selectbox('Slot 5', ('Snowball Launcher',))
-        elif slotfive == 'Other': slotfive1 = st.selectbox('Slot 5', ('Grapple Blade    ', 'Grappler', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit'))
-    
-    
-    
-    with col3:
-        if slotone == 'None': pass 
-        elif slotone1 == 'Hammer Pump Shotgun' or slotone1=='Frenzy Auto Shotgun': slotoner = st.selectbox('Slot 1', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotone1 == 'Peter Griffin\'s Hammer Pump Shotgun' or slotone1=='Oscar\'s Frenzy Auto Shotgun' or slotone1=='Montague\'s Enforcer AR' or slotone1=='Nisha\'s Striker AR' or slotone1=='Valeria\'s Hyper SMG': slotoner = st.selectbox('Slot 1', ('Mythic',))
-        elif slotone1 == 'Striker AR' or slotone1 == 'Nemesis AR' or slotone1 == 'Enforcer AR': slotoner = st.selectbox('Slot 1', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotone1 == 'Thunder Burst SMG' or slotone1 == 'Ranger Pistol' or slotone1 == 'Hyper SMG': slotoner = st.selectbox('Slot 1', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotone1 == 'Reaper Sniper Rifle': slotoner = st.selectbox('Slot 1', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotone1 == 'Grapple Blade' or slotone1 == 'Grappler' or slotone1 == 'Flowberry Fizz' or slotone1 == 'Flowberry' or slotone1 == 'Shield Potion' or slotone1 == 'Small Shield Potion' or slotone1 == 'Medkit':slotoner = st.selectbox('Slot 1', ('None',))         
-
-        if slottwo == 'None': pass 
-        elif slottwo1 == 'Hammer Pump Shotgun ' or slottwo1=='Frenzy Auto Shotgun': slottwor = st.selectbox('Slot 2', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slottwo1 == 'Peter Griffin\'s Hammer Pump Shotgun' or slottwo1=='Oscar\'s Frenzy Auto Shotgun' or slottwo1=='Montague\'s Enforcer AR' or slottwo1=='Nisha\'s Striker AR' or slottwo1=='Valeria\'s Hyper SMG': slottwor = st.selectbox('Slot 2', ('Mythic',))
-        elif slottwo1 == 'Striker AR ' or slottwo1 == 'Nemesis AR' or slottwo1 == 'Enforcer AR': slottwor = st.selectbox('Slot 2', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slottwo1 == 'Thunder Burst SMG ' or slottwo1 == 'Ranger Pistol' or slottwo1 == 'Hyper SMG': slottwor = st.selectbox('Slot 2', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slottwo1 == 'Reaper Sniper Rifle ': slottwor = st.selectbox('Slot 2', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slottwo1 == 'Grapple Blade ' or slottwo1 == 'Grappler' or slottwo1 == 'Flowberry Fizz' or slottwo1 == 'Flowberry' or slottwo1 == 'Shield Potion' or slottwo1 == 'Small Shield Potion' or slottwo1 == 'Medkit':slottwor = st.selectbox('Slot 2', ('None',))         
-
-        if slotthree == 'None': pass 
-        elif slotthree1 == 'Hammer Pump Shotgun  ' or slotthree1=='Frenzy Auto Shotgun': slotthreer = st.selectbox('Slot 3', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotthree1 == 'Peter Griffin\'s Hammer Pump Shotgun' or slotthree1=='Oscar\'s Frenzy Auto Shotgun' or slotthree1=='Montague\'s Enforcer AR' or slotthree1=='Nisha\'s Striker AR' or slotthree1=='Valeria\'s Hyper SMG': slotthreer = st.selectbox('Slot 3', ('Mythic',))
-        elif slotthree1 == 'Striker AR  ' or slotthree1 == 'Nemesis AR' or slotthree1 == 'Enforcer AR': slotthreer = st.selectbox('Slot 3', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotthree1 == 'Thunder Burst SMG  ' or slotthree1 == 'Ranger Pistol' or slotthree1 == 'Hyper SMG': slotthreer = st.selectbox('Slot 3', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotthree1 == 'Reaper Sniper Rifle  ': slotthreer = st.selectbox('Slot 3', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotthree1 == 'Grapple Blade  ' or slotthree1 == 'Grappler' or slotthree1 == 'Flowberry Fizz' or slotthree1 == 'Flowberry' or slotthree1 == 'Shield Potion' or slotthree1 == 'Small Shield Potion' or slotthree1 == 'Medkit':slotthreer = st.selectbox('Slot 3', ('None',))         
-
-        if slotfour == 'None': pass 
-        elif slotfour1 == 'Hammer Pump Shotgun   ' or slotfour1=='Frenzy Auto Shotgun': slotfourr = st.selectbox('Slot 4', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfour1 == 'Peter Griffin\'s Hammer Pump Shotgun' or slotfour1=='Oscar\'s Frenzy Auto Shotgun' or slotfour1=='Montague\'s Enforcer AR' or slotfour1=='Nisha\'s Striker AR' or slotfour1=='Valeria\'s Hyper SMG': slotfourr = st.selectbox('Slot 4', ('Mythic',))
-        elif slotfour1 == 'Striker AR   ' or slotfour1 == 'Nemesis AR' or slotfour1 == 'Enforcer AR': slotfourr = st.selectbox('Slot 4', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfour1 == 'Thunder Burst SMG   ' or slotfour1 == 'Ranger Pistol' or slotfour1 == 'Hyper SMG': slotfourr = st.selectbox('Slot 4', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfour1 == 'Reaper Sniper Rifle   ': slotfourr = st.selectbox('Slot 4', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfour1 == 'Grapple Blade   ' or slotfour1 == 'Grappler' or slotfour1 == 'Flowberry Fizz' or slotfour1 == 'Flowberry' or slotfour1 == 'Shield Potion' or slotfour1 == 'Small Shield Potion' or slotfour1 == 'Medkit':slotfourr = st.selectbox('Slot 4', ('None',))         
-
-        if slottwo == 'None': pass 
-        elif slotfive1 == 'Hammer Pump Shotgun    ' or slottwo1=='Frenzy Auto Shotgun': slotfiver = st.selectbox('Slot 5', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfive1 == 'Peter Griffin\'s Hammer Pump Shotgun' or slotfive1=='Oscar\'s Frenzy Auto Shotgun' or slotfive1=='Montague\'s Enforcer AR' or slotfive1=='Nisha\'s Striker AR' or slotfive1=='Valeria\'s Hyper SMG': slotfiver = st.selectbox('Slot 5', ('Mythic',))
-        elif slotfive1 == 'Striker AR    ' or slotfive1 == 'Nemesis AR' or slotfive1 == 'Enforcer AR': slotfiver = st.selectbox('Slot 5', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfive1 == 'Thunder Burst SMG    ' or slotfive1 == 'Ranger Pistol' or slotfive1 == 'Hyper SMG': slotfiver = st.selectbox('Slot 5', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfive1 == 'Reaper Sniper Rifle    ': slotfiver = st.selectbox('Slot 5', ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'))
-        elif slotfive1 == 'Grapple Blade    ' or slotfive1 == 'Grappler' or slotfive1 == 'Flowberry Fizz' or slotfive1 == 'Flowberry' or slotfive1 == 'Shield Potion' or slotfive1 == 'Small Shield Potion' or slotfive1 == 'Medkit':slotfiver = st.selectbox('Slot 5', ('None',))         
+    Weapon_Slotone("Slot 1")
+    Weapon_Slottwo("Slot 2")
+    Weapon_Slotthree("Slot 3")
+    Weapon_Slotfour("Slot 4")
+    Weapon_Slotfive("Slot 5")
+    slotsix = st.multiselect('Medallions', ('Valeria\'s Medallion', 'Montague\'s Medallion', 'Nisha\'s Medallion', 'Oscar\'s Medallion', 'Peter Griffin\'s Medallion'), placeholder="Choose a medallion(s).")
 
 with tab2:
     if slotone1 and slotone!='Other' and slotoner!='Mythic':
@@ -186,7 +159,6 @@ with tab2:
         elif slotone1 in ('Thunder Burst SMG', 'Hyper SMG'): SlotOneAttachmentViewer('Slot 1', slotone1, *thunder_burst_options)
         elif slotone1 == 'Ranger Pistol': SlotOneAttachmentViewer('Slot 1', slotone1, *ranger_pistol_options)
         elif slotone1 == 'Reaper Sniper Rifle': SlotOneAttachmentViewer('Slot 1', slotone1, *reaper_sniper_options)
-
     if slottwo1 and slottwo!='Other' and slottwor!='Mythic':
         if slottwo1 == 'Hammer Pump Shotgun ': SlotTwoAttachmentViewer('Slot 2', slottwo1, *hammer_pump_options)
         elif slottwo1 == 'Frenzy Auto Shotgun': SlotTwoAttachmentViewer('Slot 2', slottwo1, *frenzy_auto_options)
@@ -212,158 +184,131 @@ with tab2:
         elif slotfive1 in ('Striker AR    ', 'Nemesis AR', 'Enforcer AR'): SlotFiveAttachmentViewer('Slot 5', slotfive1, *assault_rifle_options)
         elif slotfive1 in ('Thunder Burst SMG    ', 'Hyper SMG', 'Ranger Pistol'): SlotFiveAttachmentViewer('Slot 5', slotfive1, *thunder_burst_options)
         elif slotfive1 == 'Reaper Sniper Rifle    ': SlotFiveAttachmentViewer('Slot 5', slotfive1, *reaper_sniper_options)
-    #if slotone1=='Peter Griffin\'s Hammer Pump Shotgun' or slotone1=='Peter Griffin\'s Hammer Pump Shotgun 'or slotone1=='Peter Griffin\'s Hammer Pump Shotgun  'or slotone1=='Peter Griffin\'s Hammer Pump Shotgun   'or slotone1=='Peter Griffin\'s Hammer Pump Shotgun    ':slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = None
 with tab3:
     if slotsix:
         selected_medallions = ', '.join(slotsix)
-    if slotone == 'None' or slottwo == 'None' or slotthree == 'None' or slotfour == 'None' or slotfive == 'None':
-        st.error('Create/complete your loadout before checking this tab.')
-    else:
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
 
-            with taba1:
-                tt = st.empty()
-                tt.write(
-                    f'# Custom loadout\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}\n    Medallion(s): {selected_medallions}')
-            with taba2:
-                tt1 = st.empty()
-                tt1.write(
-                    f'# Custom loadout  \n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
+        with taba1:
+            t = st.empty()
+            t.write(f'# Weapons\n    Slot 1 : {slotone1}\n    Slot 2 : {slottwo1}\n    Slot 3 : {slotthree1}\n    Slot 4 : {slotfour1}\n    Slot 5 : {slotfive1}\n    Medallion(s): {selected_medallions}')
+        with taba2:
+            t1 = st.empty()
+            t1.write(f'# Weapons  \n##### Slot 1 : {slotone1}\n#####    Slot 2 : {slottwo1}\n#####    Slot 3 : {slotthree1}\n#####    Slot 4 : {slotfour1}\n#####    Slot 5 : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
 
-            with taba3:
-                tt2 = st.empty()
-                tt2.json({
-                    'Custom loadout': [
-                        f'{slotone} : {slotone1}',
-                        f'{slottwo} : {slottwo1}',
-                        f'{slotthree} : {slotthree1}',
-                        f'{slotfour} : {slotfour1}',
-                        f'{slotfive} : {slotfive1}',
-                        f'Medallion(s) : {selected_medallions}'
-                    ],
-                })
-        with col2:
-            taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
+        with taba3:
+            t2 = st.empty()
+            t2.json({'Weapons': [f'Slot 1 : {slotone1}', f'Slot 2 : {slottwo1}', f'Slot 3 : {slotthree1}', f'Slot 4 : {slotfour1}', f'Slot 5 : {slotfive1}', f'Medallion(s) : {selected_medallions}'], })
+    with col2:
+        taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
 
-            with taba1:
-                t = st.empty()
-                t.write(f'# loadout rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slottwor}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
+        with taba1:
+            tt = st.empty()
+            tt.write(f'# Rarity\n    Slot 1 : {slotoner}\n    Slot 2 : {slottwor}\n    Slot 3 : {slotthreer}\n    Slot 4 : {slotfourr}\n    Slot 5 : {slotfiver}')
 
-            with taba2:
-                t1 = st.empty()
-                t1.write(f'# loadout rarity  \n##### {slotone} : {slotoner}\n#####    {slottwo} : {slottwor}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
+        with taba2:
+            tt1 = st.empty()
+            tt1.write(f'# Rarity  \n##### Slot 1 : {slotoner}\n#####    Slot 2 : {slottwor}\n#####    Slot 3 : {slotthreer}\n#####    Slot 4 : {slotfourr}\n#####    Slot 5 : {slotfiver}')
 
-            with taba3:
-                t2 = st.empty()
-                t2.json({'loadout rarity': [f'{slotone} : {slotoner}', f'{slottwo} : {slottwor}', f'{slotthree} : {slotthreer}', f'{slotfour} : {slotfourr}', f'{slotfive} : {slotfiver}'],})
-        with col3:
-            tabb1, tabb2, tabb3 = st.tabs(['Base', 'Regular', 'Json'])
-            with tabb1:
-                ttt = st.empty()
-                ttt.write(
-                    f'# loadout Mod\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+        with taba3:
+            tt2 = st.empty()
+            tt2.json({'Rarity': [f'Slot 1 : {slotoner}', f'Slot 2 : {slottwor}', f'Slot 3 : {slotthreer}', f'Slot 4 : {slotfourr}', f'Slot 5 : {slotfiver}'],})
+    with col3:
+        tabb1, tabb2, tabb3 = st.tabs(['Base', 'Regular', 'Json'])
+        with tabb1:
+            ttt = st.empty()
+            ttt.write(
+                f'# Attachments\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+        with tabb2:
+            ttt1 = st.empty()
+            ttt1.write(f'# Attachments\n##### Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n##### Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n##### Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n##### Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n##### Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+        with tabb3:
+            ttt2 = st.empty()
+            ttt2.json({'Attachments': [f'Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}', f'Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}', f'Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}', f'Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}']})
+    st.divider()
 
-        st.divider()
+    def save():
+        f = open(f"{File_Path}.txt", "a")           # here                             # here                                   # here                                # here
+        f.write(f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}\n{selected_medallions}\n{slotoneattachment1}\n{slotoneattachment2}\n{slotoneattachment3}\n{slotoneattachment4}\n{slottwoattachment1}\n{slottwoattachment2}\n{slottwoattachment3}\n{slottwoattachment4}\n{slotthreeattachment1}\n{slotthreeattachment2}\n{slotthreeattachment3}\n{slotthreeattachment4}\n{slotfourattachment1}\n{slotfourattachment2}\n{slotfourattachment3}\n{slotfourattachment4}\n{slotfiveattachment1}\n{slotfiveattachment2}\n{slotfiveattachment3}\n{slotfiveattachment4}')
+        f.close()
 
-        def save():
-            if os.path.exists(f"{File_Path}.txt"):
-                os.remove(f"{File_Path}.txt")
-                f = open(f"{File_Path}.txt", "a")           # here                             # here                                   # here                                # here
-                f.write(f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}')
-                f.close()
+    if st.button('Save Config'):
+        if os.path.exists(f"{File_Path}.txt"): os.remove(f"{File_Path}.txt")
+        save()
+        if os.path.exists(f"{File_Path}.txt"):
+            st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
+    if st.button('Load Config'):
+        if os.path.exists(f"{File_Path}.txt"):
+            with open(f'{File_Path}.txt', "r") as file:
+                lines = [line.strip() for line in file.readlines()]
+
+            if len(lines) == 36:
+                slotone = lines[0]
+                slotone1 = lines[1]
+                slotoner = lines[2]
+                slottwo = lines[3]
+                slottwo1 = lines[4]
+                slottwor = lines[5]
+                slotthree = lines[6]
+                slotthree1 = lines[7]
+                slotthreer = lines[8]
+                slotfour = lines[9]
+                slotfour1 = lines[10]
+                slotfourr = lines[11]
+                slotfive = lines[12]
+                slotfive1 = lines[13]
+                slotfiver = lines[14]
+                selected_medallions = lines[15]
+                slotoneattachment1 = lines[16]
+                slotoneattachment2 = lines[17]
+                slotoneattachment3 = lines[18]
+                slotoneattachment4 = lines[19]
+                slottwoattachment1 = lines[20]
+                slottwoattachment2 = lines[21]
+                slottwoattachment3 = lines[22]
+                slottwoattachment4 = lines[23]
+                slotthreeattachment1 = lines[24]
+                slotthreeattachment2 = lines[25]
+                slotthreeattachment3 = lines[26]
+                slotthreeattachment4 = lines[27]
+                slotfourattachment1 = lines[28]
+                slotfourattachment2 = lines[29]
+                slotfourattachment3 = lines[30]
+                slotfourattachment4 = lines[31]
+                slotfiveattachment1 = lines[32]
+                slotfiveattachment2 = lines[33]
+                slotfiveattachment3 = lines[34]
+                slotfiveattachment4 = lines[35]
+                # These prints are just here if you want to get more info. Just remove the '#' from them and then check your CMD, they will show up there as well
+
+                # print("Loaded configuration with success:")
+                # print(f"Slot one : {slotone}, {slotoner}, {slotone1}\nSlot two : {slottwo}, {slottwor}, {slottwo1}\nSlot three : {slotthree}, {slotthreer}, {slotthree1}\nSlot four : {slotfour}, {slotfourr}, {slotfour1}\nSlot five : {slotfive}, {slotfiver}, {slotfive1}")
+
+                
+                t.write(f'# Custom loadout\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}\n    Medallion(s): {selected_medallions}')
+                t1.write(f'# Custom loadout  \n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
+                t2.json({'Custom loadout': [f'{slotone} : {slotone1}', f'{slottwo} : {slottwo1}', f'{slotthree} : {slotthree1}', f'{slotfour} : {slotfour1}', f'{slotfive} : {slotfive1}', f'Medallion(s): {selected_medallions}'], })
+
+                tt.write(f'# Custom loadout rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slottwor}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
+                tt1.write(f'# Custom loadout rarity  \n##### {slotone} : {slotoner}\n#####    {slottwo} : {slottwor}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
+                tt2.json({'Custom loadout rarity': [f'{slotone} : {slotoner}', f'{slottwo} : {slottwor}', f'{slotthree} : {slotthreer}', f'{slotfour} : {slotfourr}', f'{slotfive} : {slotfiver}'], })
+
+                ttt.write(f'# loadout Mod\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+                ttt1.write(f'# loadout Mod\n##### Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n##### Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n##### Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n##### Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n##### Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+                ttt2.json({'Loadout Mod': [f'Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}', f'Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}', f'Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}', f'Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}']})
+                st.success(f"Loaded configuration from \'{File_Path}.txt\'", icon="✅")
             else:
-                f = open(f"{File_Path}.txt", "a")           # here                             # here                                   # here                                # here
-                f.write(f'{slotone}\n{slotone1}\n{slotoner}\n{slottwo}\n{slottwo1}\n{slottwor}\n{slotthree}\n{slotthree1}\n{slotthreer}\n{slotfour}\n{slotfour1}\n{slotfourr}\n{slotfive}\n{slotfive1}\n{slotfiver}')
-                st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
-                f.close()
+                st.error(f"Invalid configuration file. Expected 32 lines. Called back: {len(lines)} line(s)")
+        else:
+            st.error("File doesn't exist. Please save a config and try again.")
 
-        if st.button('Save Config'):
-            if os.path.exists(f"{File_Path}.txt"):
-                st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
-            save()
-
-        if st.button('Load Config'):
-            if os.path.exists(f"{File_Path}.txt"):
-                with open(f'{File_Path}.txt', "r") as file:
-                    lines = [line.strip() for line in file.readlines()]
-
-                if len(lines) == 15:
-                    slotone = lines[0]
-                    slotone1 = lines[1]
-                    slotoner = lines[2]
-                    slottwo = lines[3]
-                    slottwo1 = lines[4]
-                    slottwor = lines[5]
-                    slotthree = lines[6]
-                    slotthree1 = lines[7]
-                    slotthreer = lines[8]
-                    slotfour = lines[9]
-                    slotfour1 = lines[10]
-                    slotfourr = lines[11]
-                    slotfive = lines[12]
-                    slotfive1 = lines[13]
-                    slotfiver = lines[14]
-
-                    # These prints are just here if you want to get more info. Just remove the '#' from them and then check your CMD, they will show up there as well
-
-                    # print("Loaded configuration with success:")
-                    # print(f"Slot one : {slotone}, {slotoner}, {slotone1}\nSlot two : {slottwo}, {slottwor}, {slottwo1}\nSlot three : {slotthree}, {slotthreer}, {slotthree1}\nSlot four : {slotfour}, {slotfourr}, {slotfour1}\nSlot five : {slotfive}, {slotfiver}, {slotfive1}")
-
-                    # RARITY
-
-                    t.write(
-                        f'# Custom loadout rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slottwor}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
-                    t1.write(
-                        f'# Custom loadout rarity  \n##### {slotone} : {slotoner}\n#####    {slottwo} : {slottwor}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
-                    t2.json({
-                        'Custom loadout rarity': [
-                            f'{slotone} : {slotoner}',
-                            f'{slottwo} : {slottwor}',
-                            f'{slotthree} : {slotthreer}',
-                            f'{slotfour} : {slotfourr}',
-                            f'{slotfive} : {slotfiver}'
-                        ],
-                    })
-
-                    # WEAPONS
-
-                    tt.write(
-                        f'# Custom loadout\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}\n    Medallion(s): {selected_medallions}')
-                    tt1.write(
-                        f'# Custom loadout  \n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
-                    tt2.json({
-                        'Custom loadout': [
-                            f'{slotone} : {slotone1}',
-                            f'{slottwo} : {slottwo1}',
-                            f'{slotthree} : {slotthree1}',
-                            f'{slotfour} : {slotfour1}',
-                            f'{slotfive} : {slotfive1}',
-                            f'Medallion(s): {selected_medallions}'
-                        ],
-                    })
-                    st.success(f"Loaded configuration from \'{File_Path}.txt\'", icon="✅")
-                else:
-                    st.error("Invalid configuration file. Expected 15 lines.")
-            else:
-                st.error("File doesn't exist. Please create/save a configuration.")
-        if st.button('Send saved config to webhook'):
-            if os.path.exists(f"{File_Path}.txt"):
-                with open(f'{File_Path}.txt', "r") as file:
-                    lines = [line.strip() for line in file.readlines()]
-
-                if len(lines) == 15:
-                    pass
-                else:
-                    st.error("Invalid configuration file. Expected 15 lines.")
-            else:
-                st.error("File doesn't exist. Please create/save a configuration.")
 with st.sidebar:
     st.link_button("Github", "https://github.com/fuzzybuzzyboy/py")
     st.link_button("Discord", "https://discord.gg/HVEGufPNnF")
-    st.divider()
 with st.sidebar:
+    st.divider()
     with st.empty():
         if st.button('Clock'):
             while True:
