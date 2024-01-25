@@ -12,29 +12,27 @@ st.set_page_config(
         'About': "Random items generator for fortnite (no this doesn't inject into your game and do something blah blah blah)"
     }
 )
-login = f'{platform.node()}_Gen'
+login = 'Config_generator'
 Folder_Path = "configs"
-File_Path = os.path.join(Folder_Path, login,)
+File_Path = os.path.join(Folder_Path, login)
 
 Slotone_weapon=Slottwo_weapon=Slotthree_weapon=Slotfour_weapon=Slotfive_weapon=None
 slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = slottwoattachment1 = slottwoattachment2 = slottwoattachment3 = slottwoattachment4 = slotthreeattachment1 = slotthreeattachment2 = slotthreeattachment3 = slotthreeattachment4 = slotfourattachment1 = slotfourattachment2 = slotfourattachment3 = slotfourattachment4 = slotfiveattachment1 = slotfiveattachment2 = slotfiveattachment3 = slotfiveattachment4 ='Disabled'
-Slotone_Mythic_Mode=Slottwo_Mythic_Mode=Slotthree_Mythic_Mode=Slotfour_Mythic_Mode=Slotfive_Mythic_Mode=5
 Slotone_weapon=Slotone_Rarity=Slotone_Attachment=Slottwo_weapon=Slottwo_Rarity=Slottwo_Attachment=Slotthree_Weapon=Slotthree_Rarity=Slotthree_Attachment=Slotfour_Weapon=Slotfour_Rarity=Slotfour_Attachment=Slotfive_weapon=Slotfive_Rarity=Slotfive_Attachment=Slotone_Rarity_Gen=Slottwo_Rarity_Gen=Slotthree_Rarity_Gen=Slotfour_Rarity_Gen=Slotfive_Rarity_Gen=Slotone_Mythic=Slottwo_Mythic=Slotthree_Mythic=Slotfour_Mythic=Slotfive_Mythic=Slottwo_weapon_selected=Slotthree_weapon_selected=Slotfour_weapon_selected=Slotfive_weapon_selected=Medallion=slotone_attachment=slottwo_attachment=slotthree_attachment=slotfour_attachment=slotfive_attachment=None
 slotone_allowed=slottwo_allowed=slotthree_allowed=slotfour_allowed=slotfive_allowed='None', 'None'
-hammer_pump_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag',), ('Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('Suppressor', 'Muzzle Brake'))
-frenzy_auto_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('Suppressor', 'Muzzle Brake'))
-assault_rifle_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('Suppressor', 'Muzzle Brake'))
-thunder_burst_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('Suppressor', 'Muzzle Brake'))
-ranger_pistol_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag', 'Drum Mag'), ('Laser'), ('Suppressor', 'Muzzle Brake'))
-reaper_sniper_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip'), ('Suppressor', 'Muzzle Brake'))
-rarity={'Hammer Pump Shotgun': 6, 'Frenzy Auto Shotgun': 6, 'Striker AR': 6, 'Enforcer AR':6, 'Nemesis AR':5, 'Hyper SMG':6, 'Thunder Burst SMG':5, 'Ranger Pistol':5, 'Reaper Sniper Rifle':5}
+hammer_pump_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag',), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+frenzy_auto_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+assault_rifle_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+thunder_burst_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+ranger_pistol_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+reaper_sniper_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip'), ('None', 'Suppressor', 'Muzzle Brake'))
+nothing_options=((), (), (), ())
+rarity_picker=['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary']
+rarity_picker_mythic=['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic']
+rarity_picker_sniper=['Uncommon', 'Rare', 'Epic', 'Legendary']
 weapons = {'Shotgun': ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun'], 'SMG': ['Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'], 'Assault-Rifle': ['Striker AR', 'Nemesis AR', 'Enforcer AR'], 'Sniper': ['Reaper Sniper Rifle'], 'Other': ['Grapple Blade', 'Ballistic Shield'], 'Health': ['Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit']}
 Medallions=['Valeria\'s Medallion', 'Montague\'s Medallion', 'Nisha\'s Medallion', 'Oscar\'s Medallion', 'Peter Griffin\'s Medallion']
-def rarity_gen(Weapon, Slot_Mythic_Mode):
-    global Slotone_Mythic_Mode, Slottwo_Mythic_Mode, Slotthree_Mythic_Mode, Slotfour_Mythic_Mode, Slotfive_Mythic_Mode
-    if Weapon != 'None':
-        SlotWeaponSelect = sorted(Weapon, key=lambda x: rarity.get(x, 0), reverse=True)
-        Slot_Mythic_Mode=rarity.__getitem__(Weapon)
+weapon_options = {'Hammer Pump Shotgun': hammer_pump_options, 'Frenzy Auto Shotgun': frenzy_auto_options, 'Striker AR': assault_rifle_options, 'Nemesis AR': assault_rifle_options, 'Enforcer AR': assault_rifle_options, 'Thunder Burst SMG': thunder_burst_options, 'Hyper SMG': thunder_burst_options, 'Ranger Pistol': ranger_pistol_options, 'Reaper Sniper Rifle': reaper_sniper_options}
 
 def Weapon_Slotone(slot_name):
     global slotone, slotone_allowed, slotone_attachment
@@ -95,7 +93,7 @@ def Weapon_Attachments_Slotone(weapon_name, slot_name, optic_options, magazine_o
     global slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4
     st.title(slot_name)
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current weapon: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
+    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
     with col2: slotoneattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
     with col3: slotoneattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
     with col4: slotoneattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
@@ -108,7 +106,7 @@ def Weapon_Attachments_Slottwo(weapon_name, slot_name, optic_options, magazine_o
     global slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4
     st.title(slot_name)
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current weapon: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
+    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
     with col2: slottwoattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
     with col3: slottwoattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
     with col4: slottwoattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
@@ -121,7 +119,7 @@ def Weapon_Attachments_Slotthree(weapon_name, slot_name, optic_options, magazine
     global slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4
     st.title(slot_name)
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current weapon: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
+    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
     with col2: slotthreeattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
     with col3: slotthreeattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
     with col4: slotthreeattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
@@ -134,7 +132,7 @@ def Weapon_Attachments_Slotfour(weapon_name, slot_name, optic_options, magazine_
     global slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4
     st.title(slot_name)
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current weapon: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
+    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
     with col2: slotfourattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
     with col3: slotfourattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
     with col4: slotfourattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
@@ -147,7 +145,7 @@ def Weapon_Attachments_Slotfive(weapon_name, slot_name, optic_options, magazine_
     global slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4
     st.title(slot_name)
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current weapon: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
+    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
     with col2: slotfiveattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
     with col3: slotfiveattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
     with col4: slotfiveattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
@@ -155,7 +153,7 @@ def Weapon_Attachments_Slotfive(weapon_name, slot_name, optic_options, magazine_
     st.divider()
     attachments_pickers = [slotfiveattachment1_picker, slotfiveattachment2_picker, slotfiveattachment3_picker, slotfiveattachment4_picker]
     for i in range(4): globals()[f'slotfiveattachment{i + 1}'] = random.choice(attachments_pickers[i]) if attachments_pickers[i] else 'None'
-Customize, Weapon_mods, Loadout = st.tabs(["Customize", "Weapon Mods", "Loadout"])
+Customize, Weapon_mods, Loadout, Weapon_Info = st.tabs(["Customize", "Weapon Mods", "Loadout", "Weapon Info"])
 
 with Customize:
     Weapon_Slotone("Slot 1")
@@ -168,117 +166,41 @@ with Customize:
     with col2: slotsix = st.selectbox('Medallions', ('Disabled', 'Enabled'))
     with col3:
         if slotsix == 'Enabled': medallions_amount = st.selectbox('Amount of medallions', [1, 2, 3, 4, 5], help='Example, if selected 5, it will select 1-5 medallions from a random list.')
-    with col4: 
+    with col4:
         if slotsix=='Enabled': slotsix_randomness = st.selectbox('Randomnmess', ['Enabled', 'Disabled'], help='If enabled it will randomly select from (lets say you selected 5) 1-5 medallions, else will pick 5 medallions')
-    if slotone_allowed: Slotone_weapon = random.choice(slotone_allowed)
-    if slottwo_allowed: Slottwo_weapon = random.choice(slottwo_allowed)
-    if slotthree_allowed: Slotthree_weapon = random.choice(slotthree_allowed)
-    if slotfour_allowed: Slotfour_weapon = random.choice(slotfour_allowed)
-    if slotfive_allowed: Slotfive_weapon = random.choice(slotfive_allowed)
-    if slotsix=='Enabled' and slotsix_randomness!='Disabled': 
-        num_medallions_to_select = random.randint(1, medallions_amount)
-        Selected_medallions = random.sample(Medallions, k=num_medallions_to_select)
-        Medallion = ', '.join(Selected_medallions)
-    elif slotsix=='Enabled' and slotsix_randomness=='Disabled':
-        Selected_medallions = random.sample(Medallions, k=int(medallions_amount))
-        Medallion = ', '.join(Selected_medallions)
+    if slotone_allowed:
+        Slotone_weapon = random.choice(slotone_allowed)
+        if slotone != 'Disabled' and slotone_allowed!='[]' and Slotone_weapon!=None: Slotone_Rarity = random.choice(rarity_picker_sniper) if slotone == 'Sniper' else (random.choice(rarity_picker) if Slotone_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotone_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotone_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotone_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slottwo_allowed:
+        Slottwo_weapon = random.choice(slottwo_allowed)
+        if slottwo != 'Disabled' and slottwo_allowed!='[]' and Slottwo_weapon!=None: Slottwo_Rarity = random.choice(rarity_picker_sniper) if slottwo == 'Sniper' else (random.choice(rarity_picker) if Slottwo_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slottwo_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slottwo_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slottwo_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slotthree_allowed:
+        Slotthree_weapon = random.choice(slotthree_allowed)
+        if slotthree != 'Disabled' and slotthree_allowed!='[]' and Slotthree_weapon!=None: Slotthree_Rarity = random.choice(rarity_picker_sniper) if slotthree == 'Sniper' else (random.choice(rarity_picker) if Slotthree_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotthree_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotthree_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotthree_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slotfour_allowed:
+        Slotfour_weapon = random.choice(slotfour_allowed)
+        if slotfour != 'Disabled' and slotfour_allowed!='[]' and Slotfour_weapon!=None: Slotfour_Rarity = random.choice(rarity_picker_sniper) if slotfour == 'Sniper' else (random.choice(rarity_picker) if Slotfour_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotfour_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotfour_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotfour_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slotfive_allowed:
+        Slotfive_weapon = random.choice(slotfive_allowed)
+        if slotfive != 'Disabled' and slotfive_allowed!='[]' and Slotfive_weapon!=None: Slotfive_Rarity = random.choice(rarity_picker_sniper) if slotfive == 'Sniper' else (random.choice(rarity_picker) if Slotfive_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotfive_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotfive_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotfive_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    Medallion = ', '.join(random.sample(Medallions, k=random.randint(1, medallions_amount))) if slotsix == 'Enabled' and slotsix_randomness != 'Disabled' else ', '.join(random.sample(Medallions, k=int(medallions_amount))) if slotsix == 'Enabled' and slotsix_randomness == 'Disabled' else None
 with Weapon_mods:
-    if slotone_attachment == 'Enabled':
-        if Slotone_weapon == 'Hammer Pump Shotgun': Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1",  *hammer_pump_options)
-        elif Slotone_weapon == 'Frenzy Auto Shotgun': Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *frenzy_auto_options)
-        elif Slotone_weapon in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *assault_rifle_options)
-        elif Slotone_weapon in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *thunder_burst_options)
-        elif Slotone_weapon == 'Reaper Sniper Rifle': Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *reaper_sniper_options)
-    else: slotoneattachment1=slotoneattachment2=slotoneattachment3=slotoneattachment4='Disabled'
-    if slottwo_attachment == 'Enabled':
-        if Slottwo_weapon == 'Hammer Pump Shotgun': Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2",  *hammer_pump_options)
-        elif Slottwo_weapon == 'Frenzy Auto Shotgun': Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *frenzy_auto_options)
-        elif Slottwo_weapon in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *assault_rifle_options)
-        elif Slottwo_weapon in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *thunder_burst_options)
-        elif Slottwo_weapon == 'Reaper Sniper Rifle': Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *reaper_sniper_options)
-    else: slottwoattachment1=slottwoattachment2=slottwoattachment3=slottwoattachment4='Disabled'
-    if slotthree_attachment == 'Enabled':
-        if Slotthree_weapon == 'Hammer Pump Shotgun': Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3",  *hammer_pump_options)
-        elif Slotthree_weapon == 'Frenzy Auto Shotgun': Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *frenzy_auto_options)
-        elif Slotthree_weapon in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *assault_rifle_options)
-        elif Slotthree_weapon in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *thunder_burst_options)
-        elif Slotthree_weapon == 'Reaper Sniper Rifle': Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *reaper_sniper_options)
-    else: slotthreeattachment1=slotthreeattachment2=slotthreeattachment3=slotthreeattachment4='Disabled'
-    if slotfour_attachment == 'Enabled':
-        if Slotfour_weapon == 'Hammer Pump Shotgun': Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4",  *hammer_pump_options)
-        elif Slotfour_weapon == 'Frenzy Auto Shotgun': Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *frenzy_auto_options)
-        elif Slotfour_weapon in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *assault_rifle_options)
-        elif Slotfour_weapon in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *thunder_burst_options)
-        elif Slotfour_weapon == 'Reaper Sniper Rifle': Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *reaper_sniper_options)
-    else: slotfourattachment1=slotfourattachment2=slotfourattachment3=slotfourattachment4='Disabled'
-    if slotfive_attachment == 'Enabled':
-        if Slotfive_weapon == 'Hammer Pump Shotgun': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5",  *hammer_pump_options)
-        elif Slotfive_weapon == 'Frenzy Auto Shotgun': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *frenzy_auto_options)
-        elif Slotfive_weapon in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *assault_rifle_options)
-        elif Slotfive_weapon in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *thunder_burst_options)
-        elif Slotfive_weapon == 'Reaper Sniper Rifle': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *reaper_sniper_options)
-    else: slotfiveattachment1=slotfiveattachment2=slotfiveattachment3=slotfiveattachment4='Disabled'
-with Loadout: # absolutly amazing rarity gen. (why am i just not using a list with the raritys and calling the raritys based off of that or something stupid like that)
-    if slotone!='Other' and slotone!='Disabled' and slotone!='Health':
-        rarity_gen(Slotone_weapon, Slotone_Mythic_Mode)
-        if slotone == 'Sniper': slotone_rarity_gen=random.randint(2, Slotone_Mythic_Mode)
-        else: slotone_rarity_gen=random.randint(1, Slotone_Mythic_Mode)
-        if slotone_rarity_gen==1: Slotone_Rarity='Common'
-        elif slotone_rarity_gen==2: Slotone_Rarity='Uncommon'
-        elif slotone_rarity_gen==3: Slotone_Rarity='Rare'
-        elif slotone_rarity_gen==4: Slotone_Rarity='Epic'
-        elif slotone_rarity_gen==5: Slotone_Rarity='Legendary'
-        elif slotone_rarity_gen==6: Slotone_Rarity='Mythic'
-    else: Slotone_Rarity=None
-
-    if slottwo!='Other' and slottwo!='Disabled' and slottwo!='Health':
-        rarity_gen(Slottwo_weapon, Slottwo_Mythic_Mode)
-        if slottwo == 'Sniper': slottwo_rarity_gen=random.randint(2, Slottwo_Mythic_Mode)
-        else: slottwo_rarity_gen=random.randint(1, Slottwo_Mythic_Mode)
-        if slottwo_rarity_gen==1: Slottwo_Rarity='Common'
-        elif slottwo_rarity_gen==2: Slottwo_Rarity='Uncommon'
-        elif slottwo_rarity_gen==3: Slottwo_Rarity='Rare'
-        elif slottwo_rarity_gen==4: Slottwo_Rarity='Epic'
-        elif slottwo_rarity_gen==5: Slottwo_Rarity='Legendary'
-        elif slottwo_rarity_gen==6: Slottwo_Rarity='Mythic'
-    else: Slottwo_Rarity=None
-
-    if slotthree!='Other' and slotthree!='Disabled' and slotthree!='Health':
-        rarity_gen(Slotthree_weapon, Slotthree_Mythic_Mode)
-        if slotthree == 'Sniper': slotthree_rarity_gen=random.randint(2, Slotthree_Mythic_Mode)
-        else: slotthree_rarity_gen=random.randint(1, Slotthree_Mythic_Mode)
-        if slotthree_rarity_gen==1: Slotthree_Rarity='Common'
-        elif slotthree_rarity_gen==2: Slotthree_Rarity='Uncommon'
-        elif slotthree_rarity_gen==3: Slotthree_Rarity='Rare'
-        elif slotthree_rarity_gen==4: Slotthree_Rarity='Epic'
-        elif slotthree_rarity_gen==5: Slotthree_Rarity='Legendary'
-        elif slotthree_rarity_gen==6: Slotthree_Rarity='Mythic'
-    else: Slotthree_Rarity=None
-
-    if slotfour!='Other' and slotfour!='Disabled' and slotfour!='Health':
-        rarity_gen(Slotfour_weapon, Slotfour_Mythic_Mode)
-        if slotfour == 'Sniper': slotfour_rarity_gen=random.randint(2, Slotfour_Mythic_Mode)
-        else: slotfour_rarity_gen=random.randint(1, Slotfour_Mythic_Mode)
-        if slotfour_rarity_gen==1: Slotfour_Rarity='Common'
-        elif slotfour_rarity_gen==2: Slotfour_Rarity='Uncommon'
-        elif slotfour_rarity_gen==3: Slotfour_Rarity='Rare'
-        elif slotfour_rarity_gen==4: Slotfour_Rarity='Epic'
-        elif slotfour_rarity_gen==5: Slotfour_Rarity='Legendary'
-        elif slotfour_rarity_gen==6: Slotfour_Rarity='Mythic'
-    else: Slotfour_Rarity=None
-
-    if slotfive!='Other' and slotfive!='Disabled' and slotfive!='Health':
-        rarity_gen(Slotfive_weapon, Slotfive_Mythic_Mode)
-        if slotfive == 'Sniper': slotfive_rarity_gen=random.randint(2, Slotfive_Mythic_Mode)
-        else: slotfive_rarity_gen=random.randint(1, Slotfive_Mythic_Mode)
-        if slotfive_rarity_gen==1: Slotfive_Rarity='Common'
-        elif slotfive_rarity_gen==2: Slotfive_Rarity='Uncommon'
-        elif slotfive_rarity_gen==3: Slotfive_Rarity='Rare'
-        elif slotfive_rarity_gen==4: Slotfive_Rarity='Epic'
-        elif slotfive_rarity_gen==5: Slotfive_Rarity='Legendary'
-        elif slotfive_rarity_gen==6: Slotfive_Rarity='Mythic'
-    else: Slotfive_Rarity=None # yay we passed the shitty code and now we can see how you see your generated loadout (why am I making these comments, its already 1am and i should probably go to sleep)
-
+    if Slotone_weapon in weapon_options: Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *weapon_options[Slotone_weapon])
+    elif slotone in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *nothing_options)
+    else: slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = 'Disabled'
+    if Slottwo_weapon in weapon_options: Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *weapon_options[Slottwo_weapon])
+    elif slottwo in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *nothing_options)
+    else: slottwoattachment1 = slottwoattachment2 = slottwoattachment3 = slottwoattachment4 = 'Disabled'
+    if Slotthree_weapon in weapon_options: Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *weapon_options[Slotthree_weapon])
+    elif slotthree in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *nothing_options)
+    else: slotthreeattachment1 = slotthreeattachment2 = slotthreeattachment3 = slotthreeattachment4 = 'Disabled'
+    if Slotfour_weapon in weapon_options: Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *weapon_options[Slotfour_weapon])
+    elif slotfour in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *nothing_options)
+    else: slotfourattachment1 = slotfourattachment2 = slotfourattachment3 = slotfourattachment4 = 'Disabled'
+    if Slotfive_weapon in weapon_options: Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *weapon_options[Slotfive_weapon])
+    elif slotfive in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *nothing_options)
+    else: slotfiveattachment1 = slotfiveattachment2 = slotfiveattachment3 = slotfiveattachment4 = 'Disabled'
+with Loadout:
     col1, col2, col3 = st.columns(3)
     with col1:
         tab1b, tab2b, tab3b = st.tabs(["Base", "Regular", "Json"])
@@ -313,9 +235,8 @@ with Loadout: # absolutly amazing rarity gen. (why am i just not using a list wi
             with taba3:
                 ttt3 = st.empty()
                 ttt3.json({'Attachments': [f'Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 2 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}', f'Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}', f'Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}'], })
-
     st.divider()
-    st.button('Randomize loadout') # why the hell is this written like this :skull:. I guess it work's so :shrug:
+    st.button('Randomize loadout') # why the hell is this written like this :skull: I guess it work's so :shrug:
     st.divider()
 
     def save():
@@ -326,69 +247,41 @@ with Loadout: # absolutly amazing rarity gen. (why am i just not using a list wi
     if st.button('Save Config'):
         if os.path.exists(f"{File_Path}.txt"): os.remove(f"{File_Path}.txt")
         save()
-        if os.path.exists(f"{File_Path}.txt"):
-            st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
+        if os.path.exists(f"{File_Path}.txt"): st.success(f'Saved config to file \'{File_Path}.txt\'', icon="✅")
 
 
     if st.button('Load Config'): # chatgpt code lmao
         if os.path.exists(f"{File_Path}.txt"): 
             with open(f'{File_Path}.txt', "r") as file: lines = [line.strip() for line in file.readlines()]
-
-            if len(lines) == 31:
-                Slotone_weapon = lines[0]
-                Slottwo_weapon = lines[1]
-                Slotthree_weapon = lines[2]
-                Slotfour_weapon = lines[3]
-                Slotfive_weapon = lines[4]
-                Slotone_Rarity = lines[5]
-                Slottwo_Rarity = lines[6]
-                Slotthree_Rarity = lines[7]
-                Slotfour_Rarity = lines[8]
-                Slotfive_Rarity = lines[9]
-                slotoneattachment1 = lines[10]
-                slotoneattachment2 = lines[11]
-                slotoneattachment3 = lines[12]
-                slotoneattachment4 = lines[13]
-                slottwoattachment1 = lines[14]
-                slottwoattachment2 = lines[15]
-                slottwoattachment3 = lines[16]
-                slottwoattachment4 = lines[17]
-                slotthreeattachment1 = lines[18]
-                slotthreeattachment2 = lines[19]
-                slotthreeattachment3 = lines[20]
-                slotthreeattachment4 = lines[21]
-                slotfourattachment1 = lines[22]
-                slotfourattachment2 = lines[23]
-                slotfourattachment3 = lines[24]
-                slotfourattachment4 = lines[25]
-                slotfiveattachment1 = lines[26]
-                slotfiveattachment2 = lines[27]
-                slotfiveattachment3 = lines[28]
-                slotfiveattachment4 = lines[29]
-                Medallion = lines[30]
-
+            if len(lines) == 31: 
+                (Slotone_weapon, Slottwo_weapon, Slotthree_weapon, Slotfour_weapon, Slotfive_weapon, Slotone_Rarity, Slottwo_Rarity, Slotthree_Rarity, Slotfour_Rarity, Slotfive_Rarity, slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4, slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4, slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4, slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4, slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4, Medallion) = lines
                 t1.write(f'# Weapons\n    Slot 1 : {Slotone_weapon}\n    Slot 2 : {Slottwo_weapon}\n    Slot 3 : {Slotthree_weapon}\n    Slot 4 : {Slotfour_weapon}\n    Slot 5 : {Slotfive_weapon}\n    Medallions : {Medallion}')
                 t2.write(f'# Weapons  \n##### Slot 1 : {Slotone_weapon}\n#####    Slot 2 : {Slottwo_weapon}\n#####    Slot 3 : {Slotthree_weapon}\n#####    Slot 4 : {Slotfour_weapon}\n#####    Slot 5 : {Slotfive_weapon}')
                 t3.json({'Weapons': [f'Slot 1 : {Slotone_weapon}', f'Slot 2 : {Slottwo_weapon}', f'Slot 3 : {Slotthree_weapon}', f'Slot 4 : {Slotfour_weapon}', f'Slot 5 : {Slotfive_weapon}'], })
-
                 tt1.write(f'# Rarity\n    Slot 1 : {Slotone_Rarity}\n    Slot 2 : {Slottwo_Rarity}\n    Slot 3 : {Slotthree_Rarity}\n    Slot 4 : {Slotfour_Rarity}\n    Slot 5 : {Slotfive_Rarity}')
                 tt2.write(f'# Rarity  \n##### Slot 1 : {Slotone_Rarity}\n#####    Slot 2 : {Slottwo_Rarity}\n#####    Slot 3 : {Slotthree_Rarity}\n#####    Slot 4 : {Slotfour_Rarity}\n#####    Slot 5 : {Slotfive_Rarity}')
                 tt3.json({'Rarity': [f'Slot 1 : {Slotone_Rarity}', f'Slot 2 : {Slottwo_Rarity}', f'Slot 3 : {Slotthree_Rarity}', f'Slot 4 : {Slotfour_Rarity}', f'Slot 5 : {Slotfive_Rarity}'], })
-
                 ttt1.write(f'# Attachments\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
                 ttt2.write(f'# Attachments  \n##### Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n#####    Slot 2 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n#####    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n#####    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n#####    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
                 ttt3.json({'Attachments': [f'Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 2 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}', f'Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}', f'Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}'], })
                 st.success(f"Loaded configuration from \'{File_Path}.txt\'", icon="✅")
             else: st.error(f"Invalid configuration file. Expected 31 lines. Called back: {len(lines)} line(s)")
         else: st.error("File doesn't exist. Please save a config and try again.")
+with Weapon_Info:
+    col1, col2 = st.columns(2)
+    with col1: st.write(f'# The Hammer Pump Shotgun\n    Common: 59.5 DPS, 85 Damage, 0.7 Firerate, 5.78S reload speed\n    Uncommon: 62.3 DPS, 89 Damage, 0.7 Firerate, 5.51S reload speed\n    Rare: 65.8 DPS, 94 Damage, 0.7 Firerate, 5.25S reload speed\n    Epic: 69.3 DPS, 99 Damage, 0.7 Firerate, 4.99S reload speed\n    Legendary: 72.1 DPS, 103 Damage, 0.7 Firerate, 4.73S reload speed\n    Mythic: 75.6 DPS, 108 Damage, 0.7 Firerate, 4.46S reload speed')
+    with col2: st.write(f'# The Frenzy Auto Shotgun\n    Common: 152.5 DPS, 61 Damage, 2.5 Firerate, 5.17S reload speed\n    Uncommon: 162.5 DPS, 65 Damage, 2.5 Firerate, 4.94S reload speed\n    Rare: 170 DPS, 68 Damage, 2.5 Firerate, 4.7S reload speed\n    Epic: 177.5 DPS, 71 Damage, 2.5 Firerate, 4.47S reload speed\n    Legendary: 187.5 DPS, 75 Damage, 2.5 Firerate, 4.23S reload speed\n    Mythic: 195 DPS, 78 Damage, 2.5 Firerate, 4S reload speed')
+    st.divider()
+    col1, col2, col3 = st.columns(3)
+    with col1: st.write(f'# The Striker AR\n    Common: 194.4 DPS, 24 Damage, 8.1 Firerate, 3.52S reload speed\n    Uncommon: 210.6 DPS, 26 Damage, 8.1 Firerate, 3.36S reload speed\n    Rare: 218.7 DPS, 27 Damage, 8.1 Firerate, 3.2S reload speed\n    Epic: 226.8 DPS, 28 Damage, 8.1 Firerate, 3.04S reload speed\n    Legendary: 243 DPS, 30 Damage, 8.1 Firerate, 2.88S reload speed\n    Mythic: 251.1 DPS, 31 Damage, 8.1 Firerate, 2.72S reload speed')
+    with col2: st.write(f'# The Nemesis AR\n    Common: 145 DPS, 29 Damage, 2.5 Firerate, 5.17S reload speed\n    Uncommon: 150 DPS, 30 Damage, 2.5 Firerate, 4.94S reload speed\n    Rare: 160 DPS, 32 Damage, 2.5 Firerate, 4.7S reload speed\n    Epic: 170 DPS, 34 Damage, 2.5 Firerate, 4.47S reload speed\n    Legendary: 175 DPS, 35 Damage, 2.5 Firerate, 4.23S reload speed')
+    with col3: st.write(f'# The Enforcer AR\n    Common: 126.4 DPS, 32 Damage, 2.5 Firerate, 5.17S reload speed\n    Uncommon: 162.5 DPS, 65 Damage, 2.5 Firerate, 4.94S reload speed\n    Rare: 170 DPS, 68 Damage, 2.5 Firerate, 4.7S reload speed\n    Epic: 177.5 DPS, 71 Damage, 2.5 Firerate, 4.47S reload speed\n    Legendary: 187.5 DPS, 75 Damage, 2.5 Firerate, 4.23S reload speed\n    Mythic: 185 DPS, 78 Damage, 2.5 Firerate, 4S reload speed')
 with st.sidebar:
     st.link_button("Github", "https://github.com/fuzzybuzzyboy/py")
     st.link_button("Discord", "https://discord.gg/HVEGufPNnF")
-    with st.empty():
-        if st.button('Clock'):
-                while True:
-                    time_now1 = datetime.now().strftime("%D")
-                    time_now = datetime.now().strftime("%H:%M:%S")
-                    st.write(f'# Clock\n    Time : {time_now}\n    Date : {time_now1}')
-                    time_later = datetime.now().strftime("%S")
-                    time.sleep(1) # fucking kill me with this clock code god damn it, this code was written like 9 months ago or some shit and just now im realizing how bad this code is (go check old commits for old clock code because im too lazy to show u)
+    if st.button('Clock'):
+        with st.empty():
+            while True:
+                time_now1, time_now = datetime.now().strftime("%D"), datetime.now().strftime("%H:%M:%S")
+                st.write(f'# Clock\n    Time : {time_now}\n    Date : {time_now1}')
+                time.sleep(1)
