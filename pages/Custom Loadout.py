@@ -138,11 +138,10 @@ ranger_pistol_options = (('Red Eye Sight', 'Holo-13 Optic'), ('Speed Mag', 'Drum
 reaper_sniper_options = (('Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('Speed Mag', 'Drum Mag'), ('Vertical Foregrip', 'Angled Foregrip'), ('Suppressor', 'Muzzle Brake'))
 
 selected_medallions = 'None'
-login = platform.node()
 Folder_Path = "configs"
-File_Path = os.path.join(Folder_Path, login)
+File_Path = os.path.join(Folder_Path, "Config_loadout")
 
-tab1, tab2, tab3 = st.tabs(["Customize", 'Weapon Mods', "Loadout"])
+tab1, tab2, tab3, tab4 = st.tabs(["Customize", 'Weapon Mods', "Loadout", "Weapon Info"])
 with tab1:
     Weapon_Slotone("Slot 1")
     Weapon_Slottwo("Slot 2")
@@ -190,28 +189,23 @@ with tab3:
     col1, col2, col3 = st.columns(3)
     with col1:
         taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
-
         with taba1:
             t = st.empty()
             t.write(f'# Weapons\n    Slot 1 : {slotone1}\n    Slot 2 : {slottwo1}\n    Slot 3 : {slotthree1}\n    Slot 4 : {slotfour1}\n    Slot 5 : {slotfive1}\n    Medallion(s): {selected_medallions}')
         with taba2:
             t1 = st.empty()
             t1.write(f'# Weapons  \n##### Slot 1 : {slotone1}\n#####    Slot 2 : {slottwo1}\n#####    Slot 3 : {slotthree1}\n#####    Slot 4 : {slotfour1}\n#####    Slot 5 : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
-
         with taba3:
             t2 = st.empty()
             t2.json({'Weapons': [f'Slot 1 : {slotone1}', f'Slot 2 : {slottwo1}', f'Slot 3 : {slotthree1}', f'Slot 4 : {slotfour1}', f'Slot 5 : {slotfive1}', f'Medallion(s) : {selected_medallions}'], })
     with col2:
         taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
-
         with taba1:
             tt = st.empty()
             tt.write(f'# Rarity\n    Slot 1 : {slotoner}\n    Slot 2 : {slottwor}\n    Slot 3 : {slotthreer}\n    Slot 4 : {slotfourr}\n    Slot 5 : {slotfiver}')
-
         with taba2:
             tt1 = st.empty()
             tt1.write(f'# Rarity  \n##### Slot 1 : {slotoner}\n#####    Slot 2 : {slottwor}\n#####    Slot 3 : {slotthreer}\n#####    Slot 4 : {slotfourr}\n#####    Slot 5 : {slotfiver}')
-
         with taba3:
             tt2 = st.empty()
             tt2.json({'Rarity': [f'Slot 1 : {slotoner}', f'Slot 2 : {slottwor}', f'Slot 3 : {slotthreer}', f'Slot 4 : {slotfourr}', f'Slot 5 : {slotfiver}'],})
@@ -219,8 +213,7 @@ with tab3:
         tabb1, tabb2, tabb3 = st.tabs(['Base', 'Regular', 'Json'])
         with tabb1:
             ttt = st.empty()
-            ttt.write(
-                f'# Attachments\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
+            ttt.write(f'# Attachments\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
         with tabb2:
             ttt1 = st.empty()
             ttt1.write(f'# Attachments\n##### Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n##### Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n##### Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n##### Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n##### Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
