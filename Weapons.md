@@ -1,3 +1,6 @@
+> [!WARNING]
+> This isn't updated for the current version.
+
 # I use fortnite.gg for all weapons currently in fortnite. (www.fortnite.gg/weapons)
 
 ## Shotguns
