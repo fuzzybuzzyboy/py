@@ -43,7 +43,7 @@ def Weapon_Slotone(slot_name):
     with col4: 
         if slotone not in ['Disabled', 'Other', 'Health']: slotone_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
         elif slotone=='Disabled': slotone_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
-        else: slotone_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        else: slotone_attachment = st.selectbox('Weapon attachments', ('Disabled',), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slottwo(slot_name):
