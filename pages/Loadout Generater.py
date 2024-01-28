@@ -53,7 +53,8 @@ def Weapon_Slottwo(slot_name):
     with col3: slottwo_allowed = st.multiselect('Allowed Weapons', weapons.get(slottwo, []), weapons.get(slottwo, []), help=f'Allowed weapons for {slottwo} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
         if slottwo not in ['Disabled', 'Other', 'Health']: slottwo_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
-        else: slottwo_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        elif slottwo=='Disabled': slottwo_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        else: slottwo_attachment = st.selectbox('Weapon attachments', ('Disabled',), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slotthree(slot_name):
@@ -64,7 +65,8 @@ def Weapon_Slotthree(slot_name):
     with col3: slotthree_allowed = st.multiselect('Allowed Weapons', weapons.get(slotthree, []), weapons.get(slotthree, []), help=f'Allowed weapons for {slotthree} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
         if slotthree not in ['Disabled', 'Other', 'Health']: slotthree_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
-        else: slotthree_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        elif slotthree=='Disabled': slotthree_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        else: slotthree_attachment = st.selectbox('Weapon attachments', ('Disabled',), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slotfour(slot_name):
@@ -75,7 +77,8 @@ def Weapon_Slotfour(slot_name):
     with col3: slotfour_allowed = st.multiselect('Allowed Weapons', weapons.get(slotfour, []), weapons.get(slotfour, []), help=f'Allowed weapons for {slotfour} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
         if slotfour not in ['Disabled', 'Other', 'Health']: slotfour_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
-        else: slotfour_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        elif slotfour=='Disabled': slotfour_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        else: slotfour_attachment = st.selectbox('Weapon attachments', ('Disabled',), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Slotfive(slot_name):
@@ -86,7 +89,8 @@ def Weapon_Slotfive(slot_name):
     with col3: slotfive_allowed = st.multiselect('Allowed Weapons', weapons.get(slotfive, []), weapons.get(slotfive, []), help=f'Allowed weapons for {slotfive} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
         if slotfive not in ['Disabled', 'Other', 'Health']: slotfive_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
-        else: slotfive_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        elif slotfive=='Disabled': slotfive_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
+        else: slotfive_attachment = st.selectbox('Weapon attachments', ('Disabled',), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
 def Weapon_Attachments_Slotone(weapon_name, slot_name, optic_options, magazine_options, underbarrel_options, barrel_options):
@@ -184,21 +188,22 @@ with Customize:
         Slotfive_weapon = random.choice(slotfive_allowed)
         if slotfive != 'Disabled' and slotfive_allowed!='[]' and Slotfive_weapon!=None: Slotfive_Rarity = random.choice(rarity_picker_sniper) if slotfive == 'Sniper' else (random.choice(rarity_picker) if Slotfive_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotfive_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotfive_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotfive_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
     Medallion = ', '.join(random.sample(Medallions, k=random.randint(1, medallions_amount))) if slotsix == 'Enabled' and slotsix_randomness != 'Disabled' else ', '.join(random.sample(Medallions, k=int(medallions_amount))) if slotsix == 'Enabled' and slotsix_randomness == 'Disabled' else None
+    print(f'Slotone: {slotone}\n    {slotone_allowed}\n    {slotone_attachment}\n    {Slotone_weapon}\n Slottwo: {slottwo}\n    {slottwo_allowed}\n    {slottwo_attachment}\n    {Slottwo_weapon}\n Slotthree: {slotthree}\n    {slotthree_allowed}\n    {slotthree_attachment}\n    {Slotthree_weapon}\n Slotfour: {slotfour}\n    {slotfour_allowed}\n    {slotfour_attachment}\n    {Slotfour_weapon}\n Slotfive: {slotfive}\n    {slotfive_allowed}\n    {slotfive_attachment}\n    {Slotfive_weapon}')
 with Weapon_mods:
-    if Slotone_weapon in weapon_options: Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *weapon_options[Slotone_weapon])
-    elif slotone in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *nothing_options)
+    if Slotone_weapon in weapon_options and slotone_attachment!='Disabled': Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *weapon_options[Slotone_weapon])
+    elif slotone in ('Disabled', 'Other', 'Health') or slotone_attachment=='Disabled': Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *nothing_options)
     else: slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = 'Disabled'
-    if Slottwo_weapon in weapon_options: Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *weapon_options[Slottwo_weapon])
-    elif slottwo in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *nothing_options)
+    if Slottwo_weapon in weapon_options and slottwo_attachment!='Disabled': Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *weapon_options[Slottwo_weapon])
+    elif slottwo in ('Disabled', 'Other', 'Health') or slottwo_attachment=='Disabled': Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *nothing_options)
     else: slottwoattachment1 = slottwoattachment2 = slottwoattachment3 = slottwoattachment4 = 'Disabled'
-    if Slotthree_weapon in weapon_options: Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *weapon_options[Slotthree_weapon])
-    elif slotthree in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *nothing_options)
+    if Slotthree_weapon in weapon_options and slotthree_attachment!='Disabled': Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *weapon_options[Slotthree_weapon])
+    elif slotthree in ('Disabled', 'Other', 'Health') or slotthree_attachment=='Disabled': Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *nothing_options)
     else: slotthreeattachment1 = slotthreeattachment2 = slotthreeattachment3 = slotthreeattachment4 = 'Disabled'
-    if Slotfour_weapon in weapon_options: Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *weapon_options[Slotfour_weapon])
-    elif slotfour in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *nothing_options)
+    if Slotfour_weapon in weapon_options and slotfour_attachment!='Disabled': Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *weapon_options[Slotfour_weapon])
+    elif slotfour in ('Disabled', 'Other', 'Health') or slotfour_attachment=='Disabled': Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *nothing_options)
     else: slotfourattachment1 = slotfourattachment2 = slotfourattachment3 = slotfourattachment4 = 'Disabled'
-    if Slotfive_weapon in weapon_options: Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *weapon_options[Slotfive_weapon])
-    elif slotfive in ('Disabled', 'Other', 'Health'): Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *nothing_options)
+    if Slotfive_weapon in weapon_options and slotfive_attachment!='Disabled': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *weapon_options[Slotfive_weapon])
+    elif slotfive in ('Disabled', 'Other', 'Health') or slotfive_attachment=='Disabled': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *nothing_options)
     else: slotfiveattachment1 = slotfiveattachment2 = slotfiveattachment3 = slotfiveattachment4 = 'Disabled'
 with Loadout:
     col1, col2, col3 = st.columns(3)
