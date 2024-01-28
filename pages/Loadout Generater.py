@@ -42,6 +42,7 @@ def Weapon_Slotone(slot_name):
     with col3: slotone_allowed = st.multiselect('Allowed Weapons', weapons.get(slotone, []), weapons.get(slotone, []), help=f'Allowed weapons for {slotone} ({slot_name}). You can disable and enable whatever you don\'t want in your loadout')
     with col4: 
         if slotone not in ['Disabled', 'Other', 'Health']: slotone_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for {slot_name}')
+        elif slotone=='Disabled': slotone_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
         else: slotone_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for {slot_name}')
     st.divider()
 
