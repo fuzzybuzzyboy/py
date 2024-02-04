@@ -53,8 +53,10 @@ def AttachmentViewer(slot_name, slot_number, weapon_name, optic_options, magazin
     with col4: attachment3 = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Increases hipfire accuracy. ({slot_name})")
     with col5: attachment4 = st.multiselect('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
     st.divider() 
-    attachments = [attachment1, attachment2, attachment3, attachment4]
-    for i in range(len(attachments)): attachments[i] = random.choice(attachments[i]) if attachments[i] else 'None'
+    attachment1=random.choice(attachment1) if attachment1 else 'None'
+    attachment2=random.choice(attachment2) if attachment2 else 'None'
+    attachment3=random.choice(attachment3) if attachment3 else 'None'
+    attachment4=random.choice(attachment4) if attachment4 else 'None'
     return attachment1, attachment2, attachment3, attachment4
 
 Customize, Weapon_mods, Loadout, Weapon_Info = st.tabs(["Customize", "Weapon Mods", "Loadout", "Weapon Info"])
