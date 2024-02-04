@@ -100,8 +100,8 @@ with Weapon_mods:
     if Slotone_weapon in weapon_options and slotone_attachment!='Disabled': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer("Slot 1", "1", Slotone_weapon, *weapon_options[Slotone_weapon])
     elif slotone in ('Disabled', 'Other', 'Health') or slotone_attachment=='Disabled': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer("Slot 1", "1", Slotone_weapon, *nothing_options)
     else: slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = 'Disabled'
-    if Slottwo_weapon in weapon_options and slottwo_attachment!='Disabled': slottwottachment1, slottwottachment2, slottwottachment3, slottwottachment4 = AttachmentViewer("Slot 2", "2", Slottwo_weapon, *weapon_options[Slottwo_weapon])
-    elif slottwo in ('Disabled', 'Other', 'Health') or slottwo_attachment=='Disabled': slottwottachment1, slottwottachment2, slottwottachment3, slottwottachment4 = AttachmentViewer("Slot 2", "2", Slottwo_weapon, *nothing_options)
+    if Slottwo_weapon in weapon_options and slottwo_attachment!='Disabled': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer("Slot 2", "2", Slottwo_weapon, *weapon_options[Slottwo_weapon])
+    elif slottwo in ('Disabled', 'Other', 'Health') or slottwo_attachment=='Disabled': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer("Slot 2", "2", Slottwo_weapon, *nothing_options)
     else: slottwoattachment1 = slottwoattachment2 = slottwoattachment3 = slottwoattachment4 = 'Disabled'
     if Slotthree_weapon in weapon_options and slotthree_attachment!='Disabled': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer("Slot 3", "3", Slotthree_weapon, *weapon_options[Slotthree_weapon])
     elif slotthree in ('Disabled', 'Other', 'Health') or slotthree_attachment=='Disabled': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer("Slot 3", "3", Slotthree_weapon, *nothing_options)
