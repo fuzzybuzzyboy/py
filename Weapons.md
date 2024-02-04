@@ -15,18 +15,18 @@
 
 ## Shotguns attachments
 ```
-    Hammer Pump Shotgun
-        Red Eye Sight, Holo-13 Optic.
-        Speed Mag. 
-        Vertical Foregrip, Angled Foregrip, Laser. 
-        Suppressor, Muzzle brake.
+Hammer Pump Shotgun
+    Red Eye Sight, Holo-13 Optic.
+    Speed Mag. 
+    Vertical Foregrip, Angled Foregrip, Laser. 
+    Suppressor, Muzzle brake.
 ```
 ```
-    Frenzy Auto Shotgun
-        Red Eye Sight, Holo-13 Optic.
-        Speed Mag, Drum Mag.
-        Vertical Foregrip, Angled Foregrip, Laser. 
-        Suppressor, Muzzle brake.
+Frenzy Auto Shotgun
+    Red Eye Sight, Holo-13 Optic.
+    Speed Mag, Drum Mag.
+    Vertical Foregrip, Angled Foregrip, Laser. 
+    Suppressor, Muzzle brake.
 ```
 
 ## Assault-Rifles
