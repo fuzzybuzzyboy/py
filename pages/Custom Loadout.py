@@ -12,8 +12,16 @@ slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment
 slotone=slottwo=slotthree=slotfour=slotfive=None
 slotone1=slottwo1=slotthree1=slotfour1=slotfive1=None
 slotoner=slottwor=slotthreer=slotfourr=slotfiver=None
+hammer_pump_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag',), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+frenzy_auto_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+assault_rifle_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+thunder_burst_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+ranger_pistol_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
+reaper_sniper_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip'), ('None', 'Suppressor', 'Muzzle Brake'))
+nothing_options=((), (), (), ())
 rarity_options = {'Shotgun': ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'), 'SMG': ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'), 'Assault-Rifle': ('Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'), 'Sniper': ('Uncommon', 'Rare', 'Epic', 'Legendary'), 'Other': ('None',)}
 weapon_options = {'Shotgun': ('Hammer Pump Shotgun', 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Oscar\'s Frenzy Auto Shotgun'), 'SMG': ('Thunder Burst SMG', 'Hyper SMG', 'Valeria\'s Hyper SMG', 'Ranger Pistol'), 'Assault-Rifle': ('Striker AR', 'Nisha\'s Striker AR', 'Nemesis AR', 'Montague\'s Enforcer AR'), 'Sniper': ('Reaper Sniper Rifle',), 'Other': ('Grapple Blade', 'Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit')}
+weapon_attachment_options = {'Hammer Pump Shotgun': hammer_pump_options, 'Frenzy Auto Shotgun': frenzy_auto_options, 'Striker AR': assault_rifle_options, 'Nemesis AR': assault_rifle_options, 'Enforcer AR': assault_rifle_options, 'Thunder Burst SMG': thunder_burst_options, 'Hyper SMG': thunder_burst_options, 'Ranger Pistol': ranger_pistol_options, 'Reaper Sniper Rifle': reaper_sniper_options}
 
 def Weapon_Slot(slot_name):
     col1, col2, col3, col4 = st.columns(4)
@@ -27,8 +35,6 @@ def Weapon_Slot(slot_name):
     return slot, slot1, slotr
 
 def AttachmentViewer(slot_name, weapon_name, optic_options, magazine_options, underbarrel_options, barrel_options, *attachments):
-    global slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4, slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4, slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4, slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4, slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4
-
     st.title(slot_name)
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
@@ -37,16 +43,7 @@ def AttachmentViewer(slot_name, weapon_name, optic_options, magazine_options, un
     with col4: attachment3 = st.selectbox('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Increases hipfire accuracy. ({slot_name})")
     with col5: attachment4 = st.selectbox('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
     st.divider()
-    
     return attachment1, attachment2, attachment3, attachment4
-
-hammer_pump_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag',), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
-frenzy_auto_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
-assault_rifle_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
-thunder_burst_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
-ranger_pistol_options = (('None', 'Red Eye Sight', 'Holo-13 Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Laser'), ('None', 'Suppressor', 'Muzzle Brake'))
-reaper_sniper_options = (('None', 'Red Eye Sight', 'Holo-13 Optic', 'P2X Optic', 'Sniper Optic'), ('None', 'Speed Mag', 'Drum Mag'), ('None', 'Vertical Foregrip', 'Angled Foregrip'), ('None', 'Suppressor', 'Muzzle Brake'))
-nothing_options=((), (), (), ())
 
 selected_medallions = 'None'
 Folder_Path = "configs"
@@ -63,42 +60,15 @@ with tab1:
     with col1: st.subheader(f'Medallion(s)', help=f"Medallion picker", divider='rainbow')
     with col2: slotsix = st.multiselect('Medallions', ('Valeria\'s Medallion', 'Montague\'s Medallion', 'Nisha\'s Medallion', 'Oscar\'s Medallion', 'Peter Griffin\'s Medallion'), placeholder="Choose a medallion(s).")
 with tab2:
-    if slotone1 and slotone!='Other' and slotoner!='Mythic':
-        if slotone1 == 'Hammer Pump Shotgun': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *hammer_pump_options)
-        elif slotone1 == 'Frenzy Auto Shotgun': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *frenzy_auto_options)
-        elif slotone1 in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *assault_rifle_options)
-        elif slotone1 in ('Thunder Burst SMG', 'Hyper SMG'): slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *thunder_burst_options)
-        elif slotone1 == 'Ranger Pistol': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *ranger_pistol_options)
-        elif slotone1 == 'Reaper Sniper Rifle': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *reaper_sniper_options)
+    if slotone1 and slotone!='Other' and slotoner!='Mythic': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *weapon_attachment_options[slotone1])
     else: slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer('Slot 1', slotone1, *nothing_options)
-    if slottwo1 and slottwo!='Other' and slottwor!='Mythic':
-        if slottwo1 == 'Hammer Pump Shotgun': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1,*hammer_pump_options)
-        elif slottwo1 == 'Frenzy Auto Shotgun': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1, *frenzy_auto_options)
-        elif slottwo1 in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1, *assault_rifle_options)
-        elif slottwo1 in ('Thunder Burst SMG', 'Hyper SMG'): slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1, *thunder_burst_options)
-        elif slottwo1 == 'Ranger Pistol': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1, *ranger_pistol_options)
-        elif slottwo1 == 'Reaper Sniper Rifle': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1, *reaper_sniper_options)
+    if slottwo1 and slottwo!='Other' and slottwor!='Mythic': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1, *weapon_attachment_options[slottwo1])
     else: slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer('Slot 2', slottwo1, *nothing_options)
-    if slotthree1 and slotthree!='Other' and slotthreer!='Mythic':
-        if slotthree1 == 'Hammer Pump Shotgun': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer('Slot 3', slotthree1, *hammer_pump_options)
-        elif slotthree1 == 'Frenzy Auto Shotgun': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer('Slot 3', slotthree1, *frenzy_auto_options)
-        elif slotthree1 in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer('Slot 3', slotthree1, *assault_rifle_options)
-        elif slotthree1 in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer('Slot 3', slotthree1, *thunder_burst_options)
-        elif slotthree1 == 'Reaper Sniper Rifle': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer('Slot 3', slotthree1, *reaper_sniper_options)
+    if slotthree1 and slotthree!='Other' and slotthreer!='Mythic': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer('Slot 3', slotthree1, *weapon_attachment_options[slotthree1])
     else: slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer('Slot 3', slotthree1, *nothing_options)
-    if slotfour1 and slotfour!='Other' and slotfourr!='Mythic':
-        if slotfour1 == 'Hammer Pump Shotgun': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer('Slot 4', slotfour1, *hammer_pump_options)
-        elif slotfour1 == 'Frenzy Auto Shotgun': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer('Slot 4', slotfour1, *frenzy_auto_options)
-        elif slotfour1 in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer('Slot 4', slotfour1, *assault_rifle_options)
-        elif slotfour1 in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer('Slot 4', slotfour1, *thunder_burst_options)
-        elif slotfour1 == 'Reaper Sniper Rifle': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer('Slot 4', slotfour1, *reaper_sniper_options)
+    if slotfour1 and slotfour!='Other' and slotfourr!='Mythic': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer('Slot 4', slotfour1, *weapon_attachment_options[slotfour1])
     else: slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer('Slot 4', slotfour1, *nothing_options)
-    if slotfive1 and slotfive!='Other' and slotfiver!='Mythic':
-        if slotfive1 == 'Hammer Pump Shotgun': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer('Slot 5', slotfive1, *hammer_pump_options)
-        elif slotfive1 == 'Frenzy Auto Shotgun': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer('Slot 5', slotfive1, *frenzy_auto_options)
-        elif slotfive1 in ('Striker AR', 'Nemesis AR', 'Enforcer AR'): slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer('Slot 5', slotfive1, *assault_rifle_options)
-        elif slotfive1 in ('Thunder Burst SMG', 'Hyper SMG', 'Ranger Pistol'): slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer('Slot 5', slotfive1, *thunder_burst_options)
-        elif slotfive1 == 'Reaper Sniper Rifle': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer('Slot 5', slotfive1, *reaper_sniper_options)
+    if slotfive1 and slotfive!='Other' and slotfiver!='Mythic': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer('Slot 5', slotfive1, *weapon_attachment_options[slotfive1])
     else: slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer('Slot 5', slotfive1, *nothing_options)
 with tab3:
     if slotsix: selected_medallions = ', '.join(slotsix)
