@@ -44,70 +44,18 @@ def Weapon_Slot(slot_name, slot_number):
     st.divider()
     return slot, slot_allowed, slot_attachment
 
-def Weapon_Attachments_Slotone(weapon_name, slot_name, optic_options, magazine_options, underbarrel_options, barrel_options):
-    global slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4
+def AttachmentViewer(slot_name, slot_number, weapon_name, optic_options, magazine_options, underbarrel_options, barrel_options, *attachments):
     st.title(slot_name)
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
-    with col2: slotoneattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col3: slotoneattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
-    with col4: slotoneattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col5: slotoneattachment4_picker = st.multiselect('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
-    st.divider()
-    attachments_pickers = [slotoneattachment1_picker, slotoneattachment2_picker, slotoneattachment3_picker, slotoneattachment4_picker]
-    for i in range(4): globals()[f'slotoneattachment{i + 1}'] = random.choice(attachments_pickers[i]) if attachments_pickers[i] else 'None'
-
-def Weapon_Attachments_Slottwo(weapon_name, slot_name, optic_options, magazine_options, underbarrel_options, barrel_options):
-    global slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4
-    st.title(slot_name)
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
-    with col2: slottwoattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col3: slottwoattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
-    with col4: slottwoattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col5: slottwoattachment4_picker = st.multiselect('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
-    st.divider()
-    attachments_pickers = [slottwoattachment1_picker, slottwoattachment2_picker, slottwoattachment3_picker, slottwoattachment4_picker]
-    for i in range(4): globals()[f'slottwoattachment{i + 1}'] = random.choice(attachments_pickers[i]) if attachments_pickers[i] else 'None'
-
-def Weapon_Attachments_Slotthree(weapon_name, slot_name, optic_options, magazine_options, underbarrel_options, barrel_options):
-    global slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4
-    st.title(slot_name)
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
-    with col2: slotthreeattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col3: slotthreeattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
-    with col4: slotthreeattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col5: slotthreeattachment4_picker = st.multiselect('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
-    st.divider()
-    attachments_pickers = [slotthreeattachment1_picker, slotthreeattachment2_picker, slotthreeattachment3_picker, slotthreeattachment4_picker]
-    for i in range(4): globals()[f'slotthreeattachment{i + 1}'] = random.choice(attachments_pickers[i]) if attachments_pickers[i] else 'None'
-
-def Weapon_Attachments_Slotfour(weapon_name, slot_name, optic_options, magazine_options, underbarrel_options, barrel_options):
-    global slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4
-    st.title(slot_name)
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
-    with col2: slotfourattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col3: slotfourattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
-    with col4: slotfourattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col5: slotfourattachment4_picker = st.multiselect('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
-    st.divider()
-    attachments_pickers = [slotfourattachment1_picker, slotfourattachment2_picker, slotfourattachment3_picker, slotfourattachment4_picker]
-    for i in range(4): globals()[f'slotfourattachment{i + 1}'] = random.choice(attachments_pickers[i]) if attachments_pickers[i] else 'None'
-
-def Weapon_Attachments_Slotfive(weapon_name, slot_name, optic_options, magazine_options, underbarrel_options, barrel_options):
-    global slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4
-    st.title(slot_name)
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for {slot_name}", divider='rainbow')
-    with col2: slotfiveattachment1_picker = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col3: slotfiveattachment2_picker = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
-    with col4: slotfiveattachment3_picker = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Incresese hipfire accuracy. ({slot_name})")
-    with col5: slotfiveattachment4_picker = st.multiselect('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
-    st.divider()
-    attachments_pickers = [slotfiveattachment1_picker, slotfiveattachment2_picker, slotfiveattachment3_picker, slotfiveattachment4_picker]
-    for i in range(4): globals()[f'slotfiveattachment{i + 1}'] = random.choice(attachments_pickers[i]) if attachments_pickers[i] else 'None'
+    with col1: st.subheader(f'Current item: {weapon_name}', help=f"Shows current weapon for slot {slot_number}", divider='rainbow')
+    with col2: attachment1 = st.multiselect('Optic', optic_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Increases hipfire accuracy. ({slot_name})")
+    with col3: attachment2 = st.multiselect('Magazine', magazine_options, help=f"**Speed Mag** - Increases reload speed, **Drum Mag** - Larger magazine size. Decreases reload speed. ({slot_name})")
+    with col4: attachment3 = st.multiselect('Underbarrel', underbarrel_options, help=f"**Vertical Foregrip** - Improves ADS recoil and spread, **Angled Foregrip** - Reduces ADS time, **Laser** - Increases hipfire accuracy. ({slot_name})")
+    with col5: attachment4 = st.multiselect('Barrel', barrel_options, help=f"**Suppressor** - Reduces muzzle flash and dampens audio, **Muzzle Brake** - Reduces recoil. ({slot_name})")
+    st.divider() 
+    attachments = [attachment1, attachment2, attachment3, attachment4]
+    for i in range(len(attachments)): attachments[i] = random.choice(attachments[i]) if attachments[i] else 'None'
+    return attachment1, attachment2, attachment3, attachment4
 
 Customize, Weapon_mods, Loadout, Weapon_Info = st.tabs(["Customize", "Weapon Mods", "Loadout", "Weapon Info"])
 
@@ -147,20 +95,20 @@ with Customize:
     else: selected_meddalions_amount='0'
     #print(f'Slotone: {slotone}\n    {slotone_allowed}\n    {slotone_attachment}\n    {Slotone_weapon}\n Slottwo: {slottwo}\n    {slottwo_allowed}\n    {slottwo_attachment}\n    {Slottwo_weapon}\n Slotthree: {slotthree}\n    {slotthree_allowed}\n    {slotthree_attachment}\n    {Slotthree_weapon}\n Slotfour: {slotfour}\n    {slotfour_allowed}\n    {slotfour_attachment}\n    {Slotfour_weapon}\n Slotfive: {slotfive}\n    {slotfive_allowed}\n    {slotfive_attachment}\n    {Slotfive_weapon}')
 with Weapon_mods:
-    if Slotone_weapon in weapon_options and slotone_attachment!='Disabled': Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *weapon_options[Slotone_weapon])
-    elif slotone in ('Disabled', 'Other', 'Health') or slotone_attachment=='Disabled': Weapon_Attachments_Slotone(Slotone_weapon, "Slot 1", *nothing_options)
+    if Slotone_weapon in weapon_options and slotone_attachment!='Disabled': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer("Slot 1", "1", Slotone_weapon, *weapon_options[Slotone_weapon])
+    elif slotone in ('Disabled', 'Other', 'Health') or slotone_attachment=='Disabled': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer("Slot 1", "1", Slotone_weapon, *nothing_options)
     else: slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = 'Disabled'
-    if Slottwo_weapon in weapon_options and slottwo_attachment!='Disabled': Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *weapon_options[Slottwo_weapon])
-    elif slottwo in ('Disabled', 'Other', 'Health') or slottwo_attachment=='Disabled': Weapon_Attachments_Slottwo(Slottwo_weapon, "Slot 2", *nothing_options)
+    if Slottwo_weapon in weapon_options and slottwo_attachment!='Disabled': slottwottachment1, slottwottachment2, slottwottachment3, slottwottachment4 = AttachmentViewer("Slot 2", "2", Slottwo_weapon, *weapon_options[Slottwo_weapon])
+    elif slottwo in ('Disabled', 'Other', 'Health') or slottwo_attachment=='Disabled': slottwottachment1, slottwottachment2, slottwottachment3, slottwottachment4 = AttachmentViewer("Slot 2", "2", Slottwo_weapon, *nothing_options)
     else: slottwoattachment1 = slottwoattachment2 = slottwoattachment3 = slottwoattachment4 = 'Disabled'
-    if Slotthree_weapon in weapon_options and slotthree_attachment!='Disabled': Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *weapon_options[Slotthree_weapon])
-    elif slotthree in ('Disabled', 'Other', 'Health') or slotthree_attachment=='Disabled': Weapon_Attachments_Slotthree(Slotthree_weapon, "Slot 3", *nothing_options)
+    if Slotthree_weapon in weapon_options and slotthree_attachment!='Disabled': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer("Slot 3", "3", Slotthree_weapon, *weapon_options[Slotthree_weapon])
+    elif slotthree in ('Disabled', 'Other', 'Health') or slotthree_attachment=='Disabled': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer("Slot 3", "3", Slotthree_weapon, *nothing_options)
     else: slotthreeattachment1 = slotthreeattachment2 = slotthreeattachment3 = slotthreeattachment4 = 'Disabled'
-    if Slotfour_weapon in weapon_options and slotfour_attachment!='Disabled': Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *weapon_options[Slotfour_weapon])
-    elif slotfour in ('Disabled', 'Other', 'Health') or slotfour_attachment=='Disabled': Weapon_Attachments_Slotfour(Slotfour_weapon, "Slot 4", *nothing_options)
+    if Slotfour_weapon in weapon_options and slotfour_attachment!='Disabled': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer("Slot 4", "4", Slotfour_weapon, *weapon_options[Slotfour_weapon])
+    elif slotfour in ('Disabled', 'Other', 'Health') or slotfour_attachment=='Disabled': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer("Slot 4", "4", Slotfour_weapon, *nothing_options)
     else: slotfourattachment1 = slotfourattachment2 = slotfourattachment3 = slotfourattachment4 = 'Disabled'
-    if Slotfive_weapon in weapon_options and slotfive_attachment!='Disabled': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *weapon_options[Slotfive_weapon])
-    elif slotfive in ('Disabled', 'Other', 'Health') or slotfive_attachment=='Disabled': Weapon_Attachments_Slotfive(Slotfive_weapon, "Slot 5", *nothing_options)
+    if Slotfive_weapon in weapon_options and slotfive_attachment!='Disabled': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer("Slot 5", "5", Slotfive_weapon, *weapon_options[Slotfive_weapon])
+    elif slotfive in ('Disabled', 'Other', 'Health') or slotfive_attachment=='Disabled': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer("Slot 5", "5", Slotfive_weapon, *nothing_options)
     else: slotfiveattachment1 = slotfiveattachment2 = slotfiveattachment3 = slotfiveattachment4 = 'Disabled'
 with Loadout:
     col1, col2, col3 = st.columns(3)
