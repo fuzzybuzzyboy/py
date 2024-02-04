@@ -1,5 +1,13 @@
+import streamlit as st, time, os
+from datetime import datetime
 
-)
+st.set_page_config(
+    page_title='Overview',
+    page_icon="🤑",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={'Get help': 'https://github.com/fuzzybuzzyboy/py', 'Report a bug': "https://github.com/fuzzybuzzyboy/py", 'About': "Random items generator for fortnite (no this doesn't inject into your game and do something blah blah blah)"})
+
 Folder_Path = "configs"
 File_Path = os.path.join(Folder_Path, "DeleteThisFile.txt")
 
