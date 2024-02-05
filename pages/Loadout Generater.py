@@ -29,23 +29,21 @@ Medallions=['Valeria\'s Medallion', 'Montague\'s Medallion', 'Nisha\'s Medallion
 
 def Weapon_Slot(slot_name, slot_number):
     selected_weapon=None
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
     with col2: slot = st.selectbox(f'Item type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other', 'Health'), help=f'Weapon type for slot {slot_number}')
     with col3: slot_allowed = st.multiselect('Allowed Weapons', weapons.get(slot, []), weapons.get(slot, []), help=f'Allowed items for item type ({slot_name}).')
     if slot_allowed: selected_weapon=random.choice(slot_allowed)
     with col4:
-        col1, col2 = st.columns(2)
-        with col1:
-            if slot not in ['Disabled', 'Other', 'Health'] and slot_allowed!=None: slot_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for slot {slot_number}')
-            elif slot_allowed=='[]': slot_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for slot {slot_number}')
-            else: slot_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for slot {slot_number}')
-        with col2:
-            if slot not in ['Disabled', 'Other', 'Health'] and selected_weapon!=None: slot_rarity_allowed = st.multiselect('Allowed rarity', weapon_rarity_options.get(selected_weapon, []), weapon_rarity_options.get(selected_weapon, []), help=f'Allowed raritys for slot {slot_number}')
-            else: slot_rarity_allowed = st.multiselect('Allowed rarity', (), help=f'Allowed raritys for slot {slot_number}')
-            if slot_rarity_allowed and slot !='Disabled' and slot_allowed: Slot_Rarity = random.choice(slot_rarity_allowed)
-            else: Slot_Rarity=None
-            selected_weapon = {'Hammer Pump Shotgun': 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun': 'Oscar\'s Frenzy Auto Shotgun', 'Striker AR': 'Nisha\'s Striker AR', 'Nemesis AR': 'Montague\'s Nemesis AR', 'Hyper SMG': 'Valeria\'s Hyper SMG'}.get(selected_weapon, selected_weapon) if Slot_Rarity == 'Mythic' else selected_weapon
+        if slot not in ['Disabled', 'Other', 'Health'] and selected_weapon!=None: slot_rarity_allowed = st.multiselect('Allowed rarity', weapon_rarity_options.get(selected_weapon, []), weapon_rarity_options.get(selected_weapon, []), help=f'Allowed raritys for slot {slot_number}')
+        else: slot_rarity_allowed = st.multiselect('Allowed rarity', (), help=f'Allowed raritys for slot {slot_number}')
+        if slot_rarity_allowed and slot !='Disabled' and slot_allowed: Slot_Rarity = random.choice(slot_rarity_allowed)
+        else: Slot_Rarity=None
+        selected_weapon = {'Hammer Pump Shotgun': 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun': 'Oscar\'s Frenzy Auto Shotgun', 'Striker AR': 'Nisha\'s Striker AR', 'Nemesis AR': 'Montague\'s Nemesis AR', 'Hyper SMG': 'Valeria\'s Hyper SMG'}.get(selected_weapon, selected_weapon) if Slot_Rarity == 'Mythic' else selected_weapon
+    with col5:
+        if slot not in ['Disabled', 'Other', 'Health'] and slot_allowed!=None: slot_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for slot {slot_number}')
+        elif slot_allowed=='[]': slot_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for slot {slot_number}')
+        else: slot_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for slot {slot_number}')
     st.divider()
     return slot, slot_allowed, Slot_Rarity, slot_attachment, selected_weapon
 
@@ -72,7 +70,7 @@ with Customize:
     slotthree, slotthree_allowed, Slotthree_Rarity, slotthree_attachment, Slotthree_weapon = Weapon_Slot("Slot 3", "3")
     slotfour, slotfour_allowed, Slotfour_Rarity, slotfour_attachment, Slotfour_weapon = Weapon_Slot("Slot 4", "4")
     slotfive, slotfive_allowed, Slotfive_Rarity, slotfive_attachment, Slotfive_weapon = Weapon_Slot("Slot 5", "5")
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1: st.subheader(f'Medallions', divider='rainbow')
     with col2: slotsix = st.selectbox('Medallions', ('Disabled', 'Enabled'))
     if slotsix == 'Enabled':
