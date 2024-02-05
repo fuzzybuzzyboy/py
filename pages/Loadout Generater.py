@@ -1,12 +1,7 @@
 from datetime import datetime
 import random, time, os, platform, streamlit as st
 
-st.set_page_config(
-    page_title='Loadout Generater',
-    page_icon="🤑",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={'Get help': 'https://github.com/fuzzybuzzyboy/py', 'Report a bug': "https://github.com/fuzzybuzzyboy/py", 'About': "Random items generator for fortnite (no this doesn't inject into your game and do something blah blah blah)"})
+st.set_page_config(page_title='Loadout Generater', page_icon="🤑", layout="wide", initial_sidebar_state="expanded", menu_items={'Get help': 'https://github.com/fuzzybuzzyboy/py', 'Report a bug': "https://github.com/fuzzybuzzyboy/py", 'About': "Random items generator for fortnite (no this doesn't inject into your game and do something blah blah blah)"})
 
 login = 'Config_generator'
 Folder_Path = "configs"
@@ -74,21 +69,16 @@ with Customize:
         if slotsix == 'Enabled': medallions_amount = st.selectbox('Amount of medallions', [1, 2, 3, 4, 5], help='Example, if selected 5, it will select 1-5 medallions from a random list.')
     with col4:
         if slotsix=='Enabled': slotsix_randomness = st.selectbox('Randomnmess', ['Enabled', 'Disabled'], help='If enabled it will randomly select from (lets say you selected 5) 1-5 medallions, else will pick 5 medallions')
-    if slotone_allowed:
-        Slotone_weapon = random.choice(slotone_allowed)
-        if slotone != 'Disabled' and slotone_allowed!='[]' and Slotone_weapon!=None: Slotone_Rarity = random.choice(rarity_picker_sniper) if slotone == 'Sniper' else (random.choice(rarity_picker) if Slotone_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotone_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotone_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotone_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
-    if slottwo_allowed:
-        Slottwo_weapon = random.choice(slottwo_allowed)
-        if slottwo != 'Disabled' and slottwo_allowed!='[]' and Slottwo_weapon!=None: Slottwo_Rarity = random.choice(rarity_picker_sniper) if slottwo == 'Sniper' else (random.choice(rarity_picker) if Slottwo_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slottwo_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slottwo_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slottwo_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
-    if slotthree_allowed:
-        Slotthree_weapon = random.choice(slotthree_allowed)
-        if slotthree != 'Disabled' and slotthree_allowed!='[]' and Slotthree_weapon!=None: Slotthree_Rarity = random.choice(rarity_picker_sniper) if slotthree == 'Sniper' else (random.choice(rarity_picker) if Slotthree_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotthree_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotthree_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotthree_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
-    if slotfour_allowed:
-        Slotfour_weapon = random.choice(slotfour_allowed)
-        if slotfour != 'Disabled' and slotfour_allowed!='[]' and Slotfour_weapon!=None: Slotfour_Rarity = random.choice(rarity_picker_sniper) if slotfour == 'Sniper' else (random.choice(rarity_picker) if Slotfour_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotfour_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotfour_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotfour_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
-    if slotfive_allowed:
-        Slotfive_weapon = random.choice(slotfive_allowed)
-        if slotfive != 'Disabled' and slotfive_allowed!='[]' and Slotfive_weapon!=None: Slotfive_Rarity = random.choice(rarity_picker_sniper) if slotfive == 'Sniper' else (random.choice(rarity_picker) if Slotfive_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotfive_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotfive_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotfive_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slotone_allowed: Slotone_weapon = random.choice(slotone_allowed)
+    if slottwo_allowed: Slottwo_weapon = random.choice(slottwo_allowed)
+    if slotthree_allowed: Slotthree_weapon = random.choice(slotthree_allowed)
+    if slotfour_allowed: Slotfour_weapon = random.choice(slotfour_allowed)
+    if slotfive_allowed: Slotfive_weapon = random.choice(slotfive_allowed)
+    if slotone != 'Disabled' and slotone_allowed!='[]' and Slotone_weapon!=None: Slotone_Rarity = random.choice(rarity_picker_sniper) if slotone == 'Sniper' else (random.choice(rarity_picker) if Slotone_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotone_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotone_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotone_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slottwo != 'Disabled' and slottwo_allowed!='[]' and Slottwo_weapon!=None: Slottwo_Rarity = random.choice(rarity_picker_sniper) if slottwo == 'Sniper' else (random.choice(rarity_picker) if Slottwo_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slottwo_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slottwo_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slottwo_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slotthree != 'Disabled' and slotthree_allowed!='[]' and Slotthree_weapon!=None: Slotthree_Rarity = random.choice(rarity_picker_sniper) if slotthree == 'Sniper' else (random.choice(rarity_picker) if Slotthree_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotthree_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotthree_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotthree_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slotfour != 'Disabled' and slotfour_allowed!='[]' and Slotfour_weapon!=None: Slotfour_Rarity = random.choice(rarity_picker_sniper) if slotfour == 'Sniper' else (random.choice(rarity_picker) if Slotfour_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotfour_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotfour_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotfour_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
+    if slotfive != 'Disabled' and slotfive_allowed!='[]' and Slotfive_weapon!=None: Slotfive_Rarity = random.choice(rarity_picker_sniper) if slotfive == 'Sniper' else (random.choice(rarity_picker) if Slotfive_weapon in ('Nemesis AR', 'Thunder Burst SMG', 'Ranger Pistol') else ('Uncommon' if Slotfive_weapon in ('Flowberry', 'Small Shield Potion', 'Medkit') else ('Rare' if Slotfive_weapon in ('Flowberry Fizz', 'Shield Potion') else ('Epic' if Slotfive_weapon in ('Ballistic Shield', 'Grapple Blade') else random.choice(rarity_picker_mythic)))))
     Medallion = ', '.join(random.sample(Medallions, k=random.randint(1, medallions_amount))) if slotsix == 'Enabled' and slotsix_randomness != 'Disabled' else ', '.join(random.sample(Medallions, k=int(medallions_amount))) if slotsix == 'Enabled' and slotsix_randomness == 'Disabled' else None
     if medallions_amount==0: medallions_amount_text='0'
     elif slotsix_randomness=='Disabled' and medallions_amount!=0: medallions_amount_text=medallions_amount
