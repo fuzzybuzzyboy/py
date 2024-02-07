@@ -30,8 +30,8 @@ mythic_attachment_map = {"Peter Griffin's Hammer Pump Shotgun": ('Holo-13 Optic'
 
 def Weapon_Slot(slot_name, slot_number):
     selected_weapon=None
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.subheader(f'Current slot: {slot_name}', help=f"Shows current slot for {slot_name}", divider='rainbow')
+    col1, col2, col3, col4 = st.columns(4)
+    with col1: st.subheader(f'Current slot: {slot_name}', divider='rainbow')
     with col2: slot = st.selectbox(f'Item type', ('Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'Other', 'Health'), help=f'Weapon type for slot {slot_number}')
     with col3: slot_allowed = st.multiselect('Allowed Weapons', weapons.get(slot, []), weapons.get(slot, []), help=f'Allowed items for item type ({slot_name}).')
     if slot_allowed: selected_weapon=random.choice(slot_allowed)
@@ -41,12 +41,8 @@ def Weapon_Slot(slot_name, slot_number):
         if slot_rarity_allowed and slot !='Disabled' and slot_allowed: Slot_Rarity = random.choice(slot_rarity_allowed)
         else: Slot_Rarity=None
         selected_weapon = {'Hammer Pump Shotgun': 'Peter Griffin\'s Hammer Pump Shotgun', 'Frenzy Auto Shotgun': 'Oscar\'s Frenzy Auto Shotgun', 'Striker AR': 'Nisha\'s Striker AR', 'Nemesis AR': 'Montague\'s Nemesis AR', 'Hyper SMG': 'Valeria\'s Hyper SMG'}.get(selected_weapon, selected_weapon) if Slot_Rarity == 'Mythic' else selected_weapon
-    with col5:
-        if slot not in ['Disabled', 'Other', 'Health'] and slot_allowed!=None: slot_attachment = st.selectbox('Weapon attachments', ('Enabled', 'Disabled'), help=f'Weapon attachments for slot {slot_number}')
-        elif slot_allowed=='[]': slot_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for slot {slot_number}')
-        else: slot_attachment = st.selectbox('Weapon attachments', (), help=f'Weapon attachments for slot {slot_number}')
     st.divider()
-    return slot, slot_allowed, Slot_Rarity, slot_attachment, selected_weapon
+    return slot, slot_allowed, Slot_Rarity, selected_weapon
 
 def AttachmentViewer(rarity, slot_name, slot_number, weapon_name, optic_options, magazine_options, underbarrel_options, barrel_options, *attachments):
     st.title(slot_name)
@@ -64,12 +60,12 @@ def AttachmentViewer(rarity, slot_name, slot_number, weapon_name, optic_options,
 Customize, Weapon_mods, Loadout, Weapon_Info = st.tabs(["Customize", "Weapon Mods", "Loadout", "Weapon Info"])
 
 with Customize:
-    slotone, slotone_allowed, Slotone_Rarity, slotone_attachment, Slotone_weapon = Weapon_Slot("Slot 1", "1")
-    slottwo, slottwo_allowed, Slottwo_Rarity, slottwo_attachment, Slottwo_weapon = Weapon_Slot("Slot 2", "2")
-    slotthree, slotthree_allowed, Slotthree_Rarity, slotthree_attachment, Slotthree_weapon = Weapon_Slot("Slot 3", "3")
-    slotfour, slotfour_allowed, Slotfour_Rarity, slotfour_attachment, Slotfour_weapon = Weapon_Slot("Slot 4", "4")
-    slotfive, slotfive_allowed, Slotfive_Rarity, slotfive_attachment, Slotfive_weapon = Weapon_Slot("Slot 5", "5")
-    col1, col2, col3, col4, col5 = st.columns(5)
+    slotone, slotone_allowed, Slotone_Rarity, Slotone_weapon = Weapon_Slot("Slot 1", "1")
+    slottwo, slottwo_allowed, Slottwo_Rarity, Slottwo_weapon = Weapon_Slot("Slot 2", "2")
+    slotthree, slotthree_allowed, Slotthree_Rarity, Slotthree_weapon = Weapon_Slot("Slot 3", "3")
+    slotfour, slotfour_allowed, Slotfour_Rarity, Slotfour_weapon = Weapon_Slot("Slot 4", "4")
+    slotfive, slotfive_allowed, Slotfive_Rarity, Slotfive_weapon = Weapon_Slot("Slot 5", "5")
+    col1, col2, col3, col4 = st.columns(4)
     with col1: st.subheader(f'Medallions', divider='rainbow')
     with col2: slotsix = st.selectbox('Medallions', ('Disabled', 'Enabled'))
     if slotsix == 'Enabled':
@@ -87,19 +83,19 @@ with Customize:
     #print(f'Slotone: {slotone}\n    {slotone_allowed}\n    {slotone_attachment}\n    {Slotone_weapon}\n Slottwo: {slottwo}\n    {slottwo_allowed}\n    {slottwo_attachment}\n    {Slottwo_weapon}\n Slotthree: {slotthree}\n    {slotthree_allowed}\n    {slotthree_attachment}\n    {Slotthree_weapon}\n Slotfour: {slotfour}\n    {slotfour_allowed}\n    {slotfour_attachment}\n    {Slotfour_weapon}\n Slotfive: {slotfive}\n    {slotfive_allowed}\n    {slotfive_attachment}\n    {Slotfive_weapon}')
 with Weapon_mods:
     if Slotone_weapon in weapon_options and slotone_attachment!='Disabled': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer(Slotone_Rarity, "Slot 1", "1", Slotone_weapon, *weapon_options[Slotone_weapon])
-    elif slotone in ('Disabled', 'Other', 'Health') or slotone_attachment=='Disabled' or Slotone_Rarity=='Mythic': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer(Slotone_Rarity, "Slot 1", "1", Slotone_weapon, *nothing_options)
+    elif slotone in ('Disabled', 'Other', 'Health') or Slotone_Rarity=='Mythic': slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer(Slotone_Rarity, "Slot 1", "1", Slotone_weapon, *nothing_options)
     else: slotoneattachment1 = slotoneattachment2 = slotoneattachment3 = slotoneattachment4 = 'Disabled'
     if Slottwo_weapon in weapon_options and slottwo_attachment!='Disabled': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer(Slottwo_Rarity, "Slot 2", "2", Slottwo_weapon, *weapon_options[Slottwo_weapon])
-    elif slottwo in ('Disabled', 'Other', 'Health') or slottwo_attachment=='Disabled' or Slottwo_Rarity=='Mythic': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer(Slottwo_Rarity, "Slot 2", "2", Slottwo_weapon, *nothing_options)
+    elif slottwo in ('Disabled', 'Other', 'Health') or Slottwo_Rarity=='Mythic': slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer(Slottwo_Rarity, "Slot 2", "2", Slottwo_weapon, *nothing_options)
     else: slottwoattachment1 = slottwoattachment2 = slottwoattachment3 = slottwoattachment4 = 'Disabled'
     if Slotthree_weapon in weapon_options and slotthree_attachment!='Disabled': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer(Slotthree_Rarity, "Slot 3", "3", Slotthree_weapon, *weapon_options[Slotthree_weapon])
-    elif slotthree in ('Disabled', 'Other', 'Health') or slotthree_attachment=='Disabled' or Slotthree_Rarity=='Mythic': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer(Slotthree_Rarity, "Slot 3", "3", Slotthree_weapon, *nothing_options)
+    elif slotthree in ('Disabled', 'Other', 'Health') or Slotthree_Rarity=='Mythic': slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4 = AttachmentViewer(Slotthree_Rarity, "Slot 3", "3", Slotthree_weapon, *nothing_options)
     else: slotthreeattachment1 = slotthreeattachment2 = slotthreeattachment3 = slotthreeattachment4 = 'Disabled'
     if Slotfour_weapon in weapon_options and slotfour_attachment!='Disabled': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer(Slotfour_Rarity, "Slot 4", "4", Slotfour_weapon, *weapon_options[Slotfour_weapon])
-    elif slotfour in ('Disabled', 'Other', 'Health') or slotfour_attachment=='Disabled' or Slotfour_Rarity=='Mythic': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer(Slotfour_Rarity, "Slot 4", "4", Slotfour_weapon, *nothing_options)
+    elif slotfour in ('Disabled', 'Other', 'Health') or Slotfour_Rarity=='Mythic': slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4 = AttachmentViewer(Slotfour_Rarity, "Slot 4", "4", Slotfour_weapon, *nothing_options)
     else: slotfourattachment1 = slotfourattachment2 = slotfourattachment3 = slotfourattachment4 = 'Disabled'
     if Slotfive_weapon in weapon_options and slotfive_attachment!='Disabled': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer(Slotfive_Rarity, "Slot 5", "5", Slotfive_weapon, *weapon_options[Slotfive_weapon])
-    elif slotfive in ('Disabled', 'Other', 'Health') or slotfive_attachment=='Disabled' or Slotfive_Rarity=='Mythic': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer(Slotfive_Rarity, "Slot 5", "5", Slotfive_weapon, *nothing_options)
+    elif slotfive in ('Disabled', 'Other', 'Health') or Slotfive_Rarity=='Mythic': slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4 = AttachmentViewer(Slotfive_Rarity, "Slot 5", "5", Slotfive_weapon, *nothing_options)
     else: slotfiveattachment1 = slotfiveattachment2 = slotfiveattachment3 = slotfiveattachment4 = 'Disabled'
 with Loadout:
     col1, col2, col3 = st.columns(3)
