@@ -71,13 +71,13 @@ with tab3:
         taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
         with taba1:
             t = st.empty()
-            t.write(f'# Weapons\n    Slot 1 : {slotone1}\n    Slot 2 : {slottwo1}\n    Slot 3 : {slotthree1}\n    Slot 4 : {slotfour1}\n    Slot 5 : {slotfive1}\n    Medallion(s): {selected_medallions}')
+            t.write(f'# Items\n    Slot 1 : {slotone1}\n    Slot 2 : {slottwo1}\n    Slot 3 : {slotthree1}\n    Slot 4 : {slotfour1}\n    Slot 5 : {slotfive1}\n    Medallion(s): {selected_medallions}')
         with taba2:
             t1 = st.empty()
-            t1.write(f'# Weapons  \n##### Slot 1 : {slotone1}\n#####    Slot 2 : {slottwo1}\n#####    Slot 3 : {slotthree1}\n#####    Slot 4 : {slotfour1}\n#####    Slot 5 : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
+            t1.write(f'# Items  \n##### Slot 1 : {slotone1}\n#####    Slot 2 : {slottwo1}\n#####    Slot 3 : {slotthree1}\n#####    Slot 4 : {slotfour1}\n#####    Slot 5 : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
         with taba3:
             t2 = st.empty()
-            t2.json({'Weapons': [f'Slot 1 : {slotone1}', f'Slot 2 : {slottwo1}', f'Slot 3 : {slotthree1}', f'Slot 4 : {slotfour1}', f'Slot 5 : {slotfive1}', f'Medallion(s) : {selected_medallions}'], })
+            t2.json({'Items': [f'Slot 1 : {slotone1}', f'Slot 2 : {slottwo1}', f'Slot 3 : {slotthree1}', f'Slot 4 : {slotfour1}', f'Slot 5 : {slotfive1}', f'Medallion(s) : {selected_medallions}'], })
     with col2:
         taba1, taba2, taba3 = st.tabs(["Base", "Regular", "Json"])
         with taba1:
@@ -116,9 +116,9 @@ with tab3:
             if len(lines) == 36:
                 (slotone, slotone1, slotoner, slottwo, slottwo1, slottwor, slotthree, slotthree1, slotthreer, slotfour, slotfour1, slotfourr, slotfive, slotfive1, slotfiver, selected_medallions, slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4, slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4, slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4, slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4, slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4) = lines
                 #print(f"Loaded configuration with success:\nSlot one : {slotone}, {slotoner}, {slotone1}, {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\nSlot two : {slottwo}, {slottwor}, {slottwo1}, {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\nSlot three : {slotthree}, {slotthreer}, {slotthree1}, {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\nSlot four : {slotfour}, {slotfourr}, {slotfour1}, {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\nSlot five : {slotfive}, {slotfiver}, {slotfive1}, {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}\n")
-                t.write(f'# Weapons\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}\n    Medallion(s): {selected_medallions}')
-                t1.write(f'# Weapons\n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
-                t2.json({'Weapons': [f'{slotone} : {slotone1}', f'{slottwo} : {slottwo1}', f'{slotthree} : {slotthree1}', f'{slotfour} : {slotfour1}', f'{slotfive} : {slotfive1}', f'Medallion(s): {selected_medallions}'], })
+                t.write(f'# Items\n    {slotone} : {slotone1}\n    {slottwo} : {slottwo1}\n    {slotthree} : {slotthree1}\n    {slotfour} : {slotfour1}\n    {slotfive} : {slotfive1}\n    Medallion(s): {selected_medallions}')
+                t1.write(f'# Items\n##### {slotone} : {slotone1}\n#####    {slottwo} : {slottwo1}\n#####    {slotthree} : {slotthree1}\n#####    {slotfour} : {slotfour1}\n#####    {slotfive} : {slotfive1}\n#####    Medallion(s): {selected_medallions}')
+                t2.json({'Items': [f'{slotone} : {slotone1}', f'{slottwo} : {slottwo1}', f'{slotthree} : {slotthree1}', f'{slotfour} : {slotfour1}', f'{slotfive} : {slotfive1}', f'Medallion(s): {selected_medallions}'], })
                 tt.write(f'# Rarity\n    {slotone} : {slotoner}\n    {slottwo} : {slottwor}\n    {slotthree} : {slotthreer}\n    {slotfour} : {slotfourr}\n    {slotfive} : {slotfiver}')
                 tt1.write(f'# Rarity\n##### {slotone} : {slotoner}\n#####    {slottwo} : {slottwor}\n#####    {slotthree} : {slotthreer}\n#####    {slotfour} : {slotfourr}\n#####    {slotfive} : {slotfiver}')
                 tt2.json({'Rarity': [f'{slotone} : {slotoner}', f'{slottwo} : {slottwor}', f'{slotthree} : {slotthreer}', f'{slotfour} : {slotfourr}', f'{slotfive} : {slotfiver}'], })
