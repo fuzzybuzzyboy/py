@@ -88,7 +88,7 @@ with Loadout:
 
     if st.button('Load Config'):
         if os.path.exists(f"{os.path.join('configs', 'Loadout_generator_config')}.txt"): 
-            with open(f'{os.path.join('configs', 'Loadout_generator_config')}.txt', "r") as file: lines = [line.strip() for line in file.readlines()]
+            with open(f"{os.path.join('configs', 'Loadout_generator_config')}.txt", "r") as file: lines = [line.strip() for line in file.readlines()]
             if len(lines) == 33: 
                 (slotone_weapon, slottwo_weapon, slotthree_weapon, slotfour_weapon, slotfive_weapon, slotone_rarity, slottwo_rarity, slotthree_rarity, slotfour_rarity, slotfive_rarity, slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4, slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4, slotthreeattachment1, slotthreeattachment2, slotthreeattachment3, slotthreeattachment4, slotfourattachment1, slotfourattachment2, slotfourattachment3, slotfourattachment4, slotfiveattachment1, slotfiveattachment2, slotfiveattachment3, slotfiveattachment4, Medallion, medallions_amount_text, selected_meddalions_amount) = lines
                 t1.write(f'# Items\n    Slot 1 : {slotone_weapon}\n    Slot 2 : {slottwo_weapon}\n    Slot 3 : {slotthree_weapon}\n    Slot 4 : {slotfour_weapon}\n    Slot 5 : {slotfive_weapon}\n    Medallions : {Medallion}')
