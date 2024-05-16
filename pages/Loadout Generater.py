@@ -6,9 +6,6 @@ st.set_page_config(page_title='Loadout Generater', page_icon="🤑", layout="wid
 medallions_amount, medallions_amount_text=0, '1-'
 slotoneattachment1=slotoneattachment2=slotoneattachment3=slotoneattachment4=slottwoattachment1=slottwoattachment2=slottwoattachment3=slottwoattachment4=slotthreeattachment1=slotthreeattachment2=slotthreeattachment3=slotthreeattachment4=slotfourattachment1=slotfourattachment2=slotfourattachment3=slotfourattachment4=slotfiveattachment1=slotfiveattachment2=slotfiveattachment3=slotfiveattachment4=None
 slotone=slotone_rarity=slotone_weapon=slottwo=slottwo_rarity=slottwo_weapon=slotthree=slotthree_rarity=slotthree_weapon=slotfour=slotfour_rarity=slotfour_weapon=slotfive=slotfive_rarity=slotfive_weapon='Disabled'
-def is_running_on_streamlit_cloud(): return "STREAMLIT_SERVER_EMAIL" in os.environ
-if is_running_on_streamlit_cloud(): st.write("Running on Streamlit Cloud")
-else: st.write("Running locally")
 
 item_types=['Disabled', 'Shotgun', 'SMG', 'Assault-Rifle', 'Sniper', 'DMR', 'Other', 'Health']
 items = {'Shotgun': ['Hammer Pump Shotgun', 'Frenzy Auto Shotgun', 'Gatekeeper Shotgun', 'Cerberus\' Gatekeeper Shotgun'], 'SMG': ['Thunder Burst SMG', 'Harbinger SMG', 'Hades\' Harbinger SMG'], 'Pistol': ['Ranger Pistol',], 'Assault-Rifle': ['Warforged Assault Rifle', 'Ares\' Warforged Assault Rifle', 'Nemesis AR'], 'Sniper': ['Reaper Sniper Rifle'], 'DMR': ['Huntress DMR', 'Zeus\' Huntress DMR'], 'Other': ['Thunderbolt of Zeus', 'Cluster Clinger', 'Wings Of Icarus', 'Shockwave Grenade'], 'Health': ['Flowberry Fizz', 'Flowberry', 'Shield Potion', 'Small Shield Potion', 'Medkit']}
