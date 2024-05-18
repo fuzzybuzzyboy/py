@@ -18,13 +18,13 @@ def Weapon_Slot(slot_name, slot_number):
     selected_weapon=None
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        containor_thing = st.container(border=True)
-        containor_thing.write(f'##### Current slot: :red[{slot_name}]')
+        container_thing = st.container(border=True)
+        container_thing.write(f'##### Current slot: :red[{slot_name}]')
     with col2: slot = st.selectbox(f'Item type', (item_types), help=f'Weapon type for :rainbow[slot {slot_number}]')
     with col3: slot_allowed = st.multiselect('Allowed items', items.get(slot, []), items.get(slot, []), help=f'Allowed items for item type (:rainbow[{slot_name}]).')
     if slot_allowed: selected_weapon=choice(slot_allowed)
     if selected_weapon: 
-        with containor_thing.expander('Image', expanded=True): 
+        with container_thing.expander('Image', expanded=True): 
             st.image(images.get(selected_weapon))
     with col4: slot_rarity_allowed = st.multiselect('Allowed rarity', ["Common", 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Mythic'], help=f'If the weapon randomly selected doesn\'t have a valid rarity selected for it, it will randomly pick a rarity for the item, this will also happen if no rarity is selected. (Allowed raritys for :rainbow[slot {slot_number}].)') if slot not in ['Disabled', 'Other', 'Health'] and selected_weapon!=None else st.multiselect('Allowed rarity', (), help=f'If the weapon randomly selected doesn\'t have a valid rarity selected for it, it will randomly pick a rarity for the item, this will also happen if no rarity is selected. (Allowed raritys for :rainbow[slot {slot_number}].)'); Slot_Rarity = choice([r if r in item_raritys.get(selected_weapon, []) else choice(item_raritys.get(selected_weapon, [])) for r in slot_rarity_allowed]) if slot_rarity_allowed and slot != 'Disabled' and slot_allowed else None; Slot_Rarity = 'No rarity selected' if slot!='Disabled' and slot_allowed and not slot_rarity_allowed else Slot_Rarity if slot_rarity_allowed else 'None'; Slot_Rarity = choice(item_raritys.get(selected_weapon)) if Slot_Rarity == 'No rarity selected' else Slot_Rarity
     st.divider(); return slot, Slot_Rarity, selected_weapon
