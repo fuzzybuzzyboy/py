@@ -18,7 +18,7 @@ def Weapon_Slot(slot_name, slot_number):
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         container_thing = st.container(border=True)
-        container_thing.write(f'##### Current slot: :red[{slot_name}]')
+        container_thing.write(f'##### :blue-background[Current slot]: :red[{slot_name}]')
     with col2: slot = st.selectbox(f'Item type', (['Disabled', 'Shotgun', 'SMG', 'Pistol', 'Assault-Rifle', 'Explosives', 'DMR', 'Other', 'Health']), help=f'Weapon type for :rainbow[slot {slot_number}]')
     with col3: slot_allowed = st.multiselect('Allowed items', items.get(slot, []), items.get(slot, []), help=f'Allowed items for item type (:rainbow[{slot_name}]).')
     if slot_allowed: selected_weapon=choice(slot_allowed)
