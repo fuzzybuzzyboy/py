@@ -31,7 +31,7 @@ def Weapon_Slot(slot_name, slot_number):
 def Random_Weapon():
     Slot = choice(['Shotgun', 'SMG', 'Pistol', 'Assault-Rifle', 'Explosives', 'DMR', 'Other', 'Health']); Selected_weapon = choice(items.get(Slot)); Slot_Rarity = choice(item_raritys.get(Selected_weapon))
     if Slot_Rarity == 'Mythic' and Selected_weapon != 'The Machinist\'s Combat Assault Rifle': Selected_weapon = mythic_weapons[Selected_weapon]
-    Attachments = weapon_attachments.get(Selected_weapon); print(f'\nWeapon type: {Slot}\nSelected weapon: {Selected_weapon}\nRarity: {Slot_Rarity}\nAttachments: {Attachments}'); Attachment1, Attachment2, Attachment3, Attachment4 = choice(Attachments[0]), choice(Attachments[1]), choice(Attachments[2]), choice(Attachments[3])
+    Attachments = weapon_attachments.get(Selected_weapon); Attachment1, Attachment2, Attachment3, Attachment4 = choice(Attachments[0]), choice(Attachments[1]), choice(Attachments[2]), choice(Attachments[3])
     return Slot, Selected_weapon, Slot_Rarity, Attachment1, Attachment2, Attachment3, Attachment4
 def AttachmentViewer(rarity, slot_name, slot_number, slot, weapon_name, optic_options, magazine_options, underbarrel_options, barrel_options):
     col1, col2, col3, col4, col5 = st.columns(5)
