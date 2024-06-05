@@ -82,7 +82,7 @@ with Loadout:
             st.session_state['slot3'] = [f'Item: :green[{slotthree_weapon}]', f'Rarity: :orange[{slotthree_rarity}]', f'Attachment 1: :red[{slotthreeattachment1}]', f'Attachment 2: :red[{slotthreeattachment2}]', f'Attachment 3: :red[{slotthreeattachment4}]', f'Attachment 4: :red[{slotthreeattachment4}]']
             st.session_state['slot4'] = [f'Item: :green[{slotfour_weapon}]' , f'Rarity: :orange[{slotfour_rarity}]' , f'Attachment 1: :red[{slotfourattachment1}]' , f'Attachment 2: :red[{slotfourattachment2}]' , f'Attachment 3: :red[{slotfourattachment4}]' , f'Attachment 4: :red[{slotfourattachment4}]']
             st.session_state['slot5'] = [f'Item: :green[{slotfive_weapon}]' , f'Rarity: :orange[{slotfive_rarity}]' , f'Attachment 1: :red[{slotfiveattachment1}]' , f'Attachment 2: :red[{slotfiveattachment2}]' , f'Attachment 3: :red[{slotfiveattachment4}]' , f'Attachment 4: :red[{slotfiveattachment4}]']
-            st.session_state['other'] = [f':blue[{Medallion}]', f'Amount of medallions: :blue[{medallions_amount_text}]', f'Currently selected amount: :blue[{selected_meddalions_amount}]', f'Loadout generator']
+            st.session_state['other'] = [f':blue[{Medallion}]', f':blue[{medallions_amount_text}]', f':blue[{selected_meddalions_amount}]']
             if not os.path.exists(os.path.join('configs', 'AutoConfig_Generator.txt')): st.toast(':red[AutoConfig]\n\nCreated file :orange[Configs\\AutoConfig_Generator.txt]\n\nReason: File missing.')
             with open(os.path.join('configs', 'AutoConfig_Generator.txt'), 'a') as f: f.write(f'{str(st.session_state)}\n'); f.close()
     col1, col2, col3 = st.columns(3)
