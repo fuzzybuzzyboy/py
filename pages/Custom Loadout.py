@@ -51,7 +51,7 @@ with tab1:
     col1, col2 = st.columns(2)
     with col1: container_thing = st.container(border=True); container_thing.write(f'##### :red[Medallions]')
     with col2: Medallion = ', '.join(st.multiselect('Select your :red-background[medallions]', Medallions))
-    if Medallion: medallions_amount = f':blue[{len(Medallion.split(', '))}]'; pass
+    if Medallion: medallions_amount = f":blue[{len(Medallion.split(", "))}]"; pass
     else: Medallion, medallions_amount = 'Disabled', ':blue[0]'
 with tab2:
     slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer(slotone_rarity, "Slot 1", "1", slotone, slotone_weapon, *weapon_attachments.get(slotone_weapon, [[],[],[],[]]) if slotone!='Disabled' else [[] for _ in range(4)])
