@@ -12,7 +12,7 @@ mythic_weapons = {'Combat Shotgun': 'Megalo Don\'s Combat Shotgun', 'Frenzy Auto
 def Weapon_Slot(slot_name, slot_number):
     selected_weapon=None
     col1, col2, col3, col4 = st.columns(4)
-    with col1: container_thing = st.container(border=True); container_thing.write(f'##### :blue-background[Current slot]: :red[{slot_name}]')
+    with col1: container_thing = st.container(border=True); container_thing.write(f'##### Current slot: :red[{slot_name}]')
     with col2: slot = st.selectbox(f'Item type', (['Disabled', 'Shotgun', 'SMG', 'Pistol', 'Assault-Rifle', 'Explosives', 'DMR', 'Other', 'Health']), help=f'Weapon type for :rainbow[slot {slot_number}]')
     with col3: selected_weapon = st.selectbox('Item', items.get(slot, []), help=f'Allowed items for item type (:rainbow[{slot_name}]).')
     if selected_weapon and items_images.get(selected_weapon) and os.path.exists(items_images.get(selected_weapon)): 
