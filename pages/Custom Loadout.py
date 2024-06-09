@@ -122,7 +122,7 @@ with tab3:
                                     if index != i: f.write(line)
                             st.toast('Loadout deleted.'); st.session_state.deleted_loadout_index = None; st.rerun()
                 if i+1 != len(g): st.divider()
-                    
-        else: st.toast(':red[AutoConfig]\n\nCreated file: :orange[Configs\\AutoConfig_Custom.txt]\n\nReason: File missing.'); f = open(os.path.join('configs', 'AutoConfig_Custom.txt'), 'a'); f.close()
+        else: st.write('error or somehting idk')           
+        #else: st.toast(':red[AutoConfig]\n\nCreated file: :orange[Configs\\AutoConfig_Custom.txt]\n\nReason: File missing.'); f = open(os.path.join('configs', 'AutoConfig_Custom.txt'), 'a'); f.close()
 with st.sidebar:
     st.page_link("http://www.Github.com/fuzzybuzzyboy/py", label="Github", icon="🛢️")
