@@ -51,7 +51,7 @@ with tab1:
     with col1: container_thing = st.container(border=True); container_thing.write(f'##### :red[Medallions]')
     with col2: Medallion = ', '.join(st.multiselect('Select your :red-background[medallions]', Medallions))
     if Medallion: medallions_amount = f":blue[{len(Medallion.split(', '))}]"; pass
-    else: Medallion, medallions_amount = 'Disabled', ':blue[0]'
+    else: Medallion, medallions_amount = 'Disabled', '0'
 with tab2:
     slotoneattachment1, slotoneattachment2, slotoneattachment3, slotoneattachment4 = AttachmentViewer(slotone_rarity, "Slot 1", "1", slotone, slotone_weapon, *weapon_attachments.get(slotone_weapon, [[],[],[],[]]) if slotone!='Disabled' else [[] for _ in range(4)])
     slottwoattachment1, slottwoattachment2, slottwoattachment3, slottwoattachment4 = AttachmentViewer(slottwo_rarity, "Slot 2", "2", slottwo, slottwo_weapon, *weapon_attachments.get(slottwo_weapon, [[],[],[],[]]) if slottwo!='Disabled' else [[] for _ in range(4)])
@@ -73,7 +73,7 @@ with tab3:
         with tab3b: t3 = st.empty(); t3.json({'Items': [f'Slot 1 : {slotone_weapon}', f'Slot 2 : {slottwo_weapon}', f'Slot 3 : {slotthree_weapon}', f'Slot 4 : {slotfour_weapon}', f'Slot 5 : {slotfive_weapon}', f'Medallions : {Medallion}']})
     with col2:
         taba1, taba2, taba3 = st.tabs(["Regular", "Base", "Json"])
-        with taba1: tt1 = st.empty(); tt1.write(f'# :violet[Rarity]  \n##### Slot 1 : :orange[{slotone_rarity}]\n#####    Slot 2 : :orange[{slottwo_rarity}]\n#####    Slot 3 : :orange[{slotthree_rarity}]\n#####    Slot 4 : :orange[{slotfour_rarity}]\n#####    Slot 5 : :orange[{slotfive_rarity}]\n#####    Medallions amount : {medallions_amount}')
+        with taba1: tt1 = st.empty(); tt1.write(f'# :violet[Rarity]  \n##### Slot 1 : :orange[{slotone_rarity}]\n#####    Slot 2 : :orange[{slottwo_rarity}]\n#####    Slot 3 : :orange[{slotthree_rarity}]\n#####    Slot 4 : :orange[{slotfour_rarity}]\n#####    Slot 5 : :orange[{slotfive_rarity}]\n#####    Medallions amount : :blue[{medallions_amount}]')
         with taba2: tt2 = st.empty(); tt2.write(f'# Rarity\n    Slot 1 : {slotone_rarity}\n    Slot 2 : {slottwo_rarity}\n    Slot 3 : {slotthree_rarity}\n    Slot 4 : {slotfour_rarity}\n    Slot 5 : {slotfive_rarity}\n    Medallions amount : {medallions_amount}')
         with taba3: tt3 = st.empty(); tt3.json({'Rarity': [f'Slot 1 : {slotone_rarity}', f'Slot 2 : {slottwo_rarity}', f'Slot 3 : {slotthree_rarity}', f'Slot 4 : {slotfour_rarity}', f'Slot 5 : {slotfive_rarity}', f'Medallions amount : {medallions_amount}'], })
     with col3:
@@ -82,7 +82,7 @@ with tab3:
         with taba2: ttt2 = st.empty(); ttt2.write(f'# Attachments\n    Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}\n    Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}\n    Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}\n    Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}\n    Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}')
         with taba3: ttt3 = st.empty(); ttt3.json({'Attachments': [f'Slot 1 : {slotoneattachment1}, {slotoneattachment2}, {slotoneattachment3}, {slotoneattachment4}', f'Slot 2 : {slottwoattachment1}, {slottwoattachment2}, {slottwoattachment3}, {slottwoattachment4}', f'Slot 3 : {slotthreeattachment1}, {slotthreeattachment2}, {slotthreeattachment3}, {slotthreeattachment4}', f'Slot 4 : {slotfourattachment1}, {slotfourattachment2}, {slotfourattachment3}, {slotfourattachment4}', f'Slot 5 : {slotfiveattachment1}, {slotfiveattachment2}, {slotfiveattachment3}, {slotfiveattachment4}'], })
     st.divider()
-    with st.popover('Load :red[AutoConfig]', help=':red[AutoConfig] will automatically save your config after every time you generate a new one (by pressing Randomize loadout), this means you\'ll never lose out on of your loadouts\n\n:red[AutoConfig] will stay disabled when you have no past config history', disabled=False if os.path.exists(os.path.join('Configs', 'AutoConfig_Custom.txt')) else True):
+    with st.popover('Load :red[AutoConfig]', help=':red[AutoConfig] will automatically save your config after every time you generate a new one (by pressing Randomize loadout), this means you\'ll never lose out on of your loadouts\n\n:red[AutoConfig] will stay disabled when you have no past config history'):
         col1, col2 = st.columns(2)
         if col1.button(':green[Manual config save]', use_container_width=True):
             st.session_state['slot1'] = [f'Item: :green[{slotone_weapon}]'  , f'Rarity: :orange[{slotone_rarity}]'  , f'Attachment 1: :red[{slotoneattachment1}]'  , f'Attachment 2: :red[{slotoneattachment2}]'  , f'Attachment 3: :red[{slotoneattachment4}]'  , f'Attachment 4: :red[{slotoneattachment4}]']; st.session_state['slot2'] = [f'Item: :green[{slottwo_weapon}]'  , f'Rarity: :orange[{slottwo_rarity}]'  , f'Attachment 1: :red[{slottwoattachment1}]'  , f'Attachment 2: :red[{slottwoattachment2}]'  , f'Attachment 3: :red[{slottwoattachment4}]'  , f'Attachment 4: :red[{slottwoattachment4}]']; st.session_state['slot3'] = [f'Item: :green[{slotthree_weapon}]', f'Rarity: :orange[{slotthree_rarity}]', f'Attachment 1: :red[{slotthreeattachment1}]', f'Attachment 2: :red[{slotthreeattachment2}]', f'Attachment 3: :red[{slotthreeattachment4}]', f'Attachment 4: :red[{slotthreeattachment4}]']; st.session_state['slot4'] = [f'Item: :green[{slotfour_weapon}]' , f'Rarity: :orange[{slotfour_rarity}]' , f'Attachment 1: :red[{slotfourattachment1}]' , f'Attachment 2: :red[{slotfourattachment2}]' , f'Attachment 3: :red[{slotfourattachment4}]' , f'Attachment 4: :red[{slotfourattachment4}]']; st.session_state['slot5'] = [f'Item: :green[{slotfive_weapon}]' , f'Rarity: :orange[{slotfive_rarity}]' , f'Attachment 1: :red[{slotfiveattachment1}]' , f'Attachment 2: :red[{slotfiveattachment2}]' , f'Attachment 3: :red[{slotfiveattachment4}]' , f'Attachment 4: :red[{slotfiveattachment4}]']; st.session_state['other'] = [f':blue[{Medallion}]', f'{medallions_amount}']
@@ -94,6 +94,7 @@ with tab3:
             if not os.path.exists(os.path.join('configs', 'AutoConfig_Custom.txt')): st.toast(':red[AutoConfig]\n\nCreated file :orange[Configs\\AutoConfig_Custom.txt]\n\nReason: File missing.')
             with open(os.path.join('configs', 'AutoConfig_Custom.txt'), 'a') as f: f.write(f'{str(st.session_state)}\n'); f.close()
             #st.toast(f'Your loadout was :rainbow[saved!]', icon='✅')
+        st.divider()
         @st.experimental_dialog("Loadout preview")
         def preview(text):
             slot1,slot2,slot3,slot4,slot5,slot6 = st.tabs(['Slot 1', 'Slot 2', 'Slot 3', 'Slot 4', 'Slot 5', 'Medallions'])
@@ -102,6 +103,7 @@ with tab3:
             if st.button('Exit'): st.rerun()
         if os.path.exists(os.path.join('Configs', 'AutoConfig_Custom.txt')):
             with open(os.path.join('configs', 'AutoConfig_Custom.txt'), 'r') as f: g = f.readlines()
+            if len(g) == 0: st.header('No configs to load yet :cry:')
             for i in range(len(g)):
                 line_data = eval(g[i])
                 col1, col2, col3 = st.columns(3)
